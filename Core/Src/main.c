@@ -71,7 +71,7 @@ static void MX_USB_PCD_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	float Backlight = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
