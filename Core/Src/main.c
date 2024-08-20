@@ -74,6 +74,7 @@ int main(void)
 	float Backlight = 0;
 	float Left = 0;
 	float Color = 0;
+	float L1 = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
