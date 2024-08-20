@@ -75,6 +75,7 @@ int main(void)
 	float Left = 0;
 	float Color = 0;
 	float L1 = 0;
+	float LeftMotor = 0;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
