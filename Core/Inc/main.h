@@ -36,7 +36,6 @@ extern "C" {
 #include "Backlight,Menu,NRST.h"
 #include "Joystick ADC.h"
 #include "Vibromotors.h"
-#include "Triggers.h"
 #include "Cascads.h"
 #include "RGB.h"
 /* USER CODE END Includes */
