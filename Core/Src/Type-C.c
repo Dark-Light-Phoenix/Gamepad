@@ -9,7 +9,7 @@ extern uint8_t Circle, Triangle, Chrest, Square;
 extern uint8_t L1, L2;
 extern uint8_t R1, R2;
 
-const uint8_t HID_Gamepad_ReportDescriptor[] =
+const uint8_t HID_ReportDescriptor[] =
 {
     0x05, 0x01,   // Usage Page (Generic Desktop)
     0x09, 0x05,   // Usage (Gamepad)
@@ -60,13 +60,21 @@ void UpdateButton (void)
 
 void UpdateJoystick (void)
 {
-    gamepad_report.x1 = ReadJoystickAxis (ADC_CHANNEL_1, hadc1);
-    gamepad_report.y1 = ReadJoystickAxis (ADC_CHANNEL_3, hadc1);
-    gamepad_report.x2 = ReadJoystickAxis (ADC_CHANNEL_2, hadc2);
-    gamepad_report.y2 = ReadJoystickAxis (ADC_CHANNEL_3, hadc2);
+    gamepad_report.x1 = (uint8_t)((adc_buffer1 [0] * 255 / 4095) - 128);
+    gamepad_report.y1 = (uint8_t)((adc_buffer1 [1] * 255 / 4095) - 128);
+    gamepad_report.x2 = (uint8_t)((adc_buffer2 [0] * 255 / 4095) - 128);
+    gamepad_report.y2 = (uint8_t)((adc_buffer2 [1] * 255 / 4095) - 128);
 }
 
-void SendGamepadReport (void)
+void HAL_ADC_ConvCpltCallback (ADC_HandleTypeDef* hadc)
+{
+	if (hadc -> Instance == hadc1.Instance || hadc->Instance == hadc2.Instance)
+	{
+		SendReport ();
+	}
+}
+
+void SendReport (void)
 {
     UpdateButton();
     UpdateJoystick();

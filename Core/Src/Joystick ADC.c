@@ -4,18 +4,10 @@
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 
-uint8_t ReadJoystickAxis (uint32_t channel, ADC_HandleTypeDef* hadc)
+void ADC_DMA_Init (void)
 {
-	ADC_ChannecConfTypeDef sConfig = {0};
-	sConfig.Channel = channel;
-	sConfig.Rank = ADC_REGULAR_RANK_1;
-	sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
-	HAL_ADC_ConfigChannel (hadc, &sConfig);
+	HAL_ADC_Start_DMA (&hadc1, (uint32_t *)adc_buffer1, BUFFER_SIZE);
+	HAL_ADC_Start_DMA (&hadc2, (uint32_t *)adc_buffer2, BUFFER_SIZE);
 
-	HAL_ADC_Start (hadc);
-	HAL_ADC_PollforConversion (hadc, HAL_MAX_DELAY);
-	uint32_t adcValue = HAL_ADC_GetValue (hadc);
-	HAL_ADC_Stop (hadc);
-
-	return (uint8_t)((adcValue * 255 / 4095) - 128);
+	HAL_TIM_Base_Start (&htim6);
 }

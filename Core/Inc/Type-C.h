@@ -1,7 +1,8 @@
 #ifndef INC_TYPE_C_H_
 #define INC_TYPE_C_H_
 
-typedef struct {
+typedef struct
+{
     uint16_t buttons;
     int8_t x1;
     int8_t y1;
@@ -11,6 +12,6 @@ typedef struct {
 
 void UpdateButton (void);
 void UpdateJoystick (void);
-void SendGamepadReport (void);
+void SendReport (void);
 
 #endif /* INC_TYPE_C_H_ */
