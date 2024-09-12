@@ -30,3 +30,5 @@ void Triggers (uint8_t *L1, uint8_t *L2, uint8_t *R1, uint8_t *R2)
 	*R1 = HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_14);
 	*R2 = HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_13);
 }
+
+
