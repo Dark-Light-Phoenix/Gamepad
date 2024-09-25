@@ -1,5 +1,6 @@
 #include "Cascads.h"
 #include "stm32g4xx_hal.h"
+#include "stm32g4xx_it.h"
 #include "usb_device.h"
 
 extern uint8_t Left, Up, Right, Down;

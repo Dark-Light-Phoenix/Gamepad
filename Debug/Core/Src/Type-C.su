@@ -1,0 +1,4 @@
+../Core/Src/Type-C.c:72:6:UpdateButton	4	static
+../Core/Src/Type-C.c:86:6:UpdateJoystick	4	static
+../Core/Src/Type-C.c:94:6:HAL_ADC_ConvCpltCallback	16	static
+../Core/Src/Type-C.c:102:6:SendReport	8	static

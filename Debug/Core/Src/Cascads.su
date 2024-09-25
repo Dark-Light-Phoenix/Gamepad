@@ -1,0 +1,3 @@
+../Core/Src/Cascads.c:11:6:Left_Cascade	24	static
+../Core/Src/Cascads.c:19:6:Right_Cascade	24	static
+../Core/Src/Cascads.c:27:6:Triggers	24	static

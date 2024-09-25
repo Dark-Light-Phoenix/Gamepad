@@ -1,0 +1,7 @@
+../Core/Src/RGB.c:14:6:setColor	4
+../Core/Src/RGB.c:36:6:CounterSwitch	3
+../Core/Src/RGB.c:51:6:Blinking	5
+../Core/Src/RGB.c:72:6:Gradient	3
+../Core/Src/RGB.c:89:6:Wawe	5
+../Core/Src/RGB.c:120:6:CheckButton	9
+../Core/Src/RGB.c:156:6:SwitchMode	4

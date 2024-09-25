@@ -1,6 +1,8 @@
 #ifndef INC_JOYSTICK_ADC_H_
 #define INC_JOYSTICK_ADC_H_
 
-uint8_t ReadJoystickAxis (uint32_t channel, ADC_HandleTypeDef* hadc);
+#define BUFFER_SIZE 2
+
+void ADC_DMA_Init (void);
 
 #endif /* INC_JOYSTICK_ADC_H_ */

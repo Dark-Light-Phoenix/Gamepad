@@ -3,6 +3,10 @@
 
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
+extern TIM_HandleTypeDef htim6;
+
+uint32_t adc_buffer1 [BUFFER_SIZE];
+uint32_t adc_buffer2 [BUFFER_SIZE];
 
 void ADC_DMA_Init (void)
 {

@@ -2,10 +2,7 @@
 #include "stm32g4xx_it.h"
 #include "stm32g4xx_hal.h"
 
-#define numLEDs 8
-#define LEDbits 24
-
-extern DMA_HandleTypeDef hdma_tim3_ch2;
+extern DMA_HandleTypeDef hdma_tim17_ch1;
 extern TIM_HandleTypeDef htim3;
 extern uint8_t Left, Up, Right, Down;
 extern uint8_t Circle, Triangle, Chrest, Square;
@@ -55,7 +52,7 @@ void Blinking (uint8_t *counter)
 {
 	for (int brightness = 0; brightness <= 255; brightness++)
 	{
-		for (int i = 0; i < nemLEDs; i++)
+		for (int i = 0; i < numLEDs; i++)
 		{
 			setColor (brightness, brightness, brightness, i);
 		}
@@ -64,7 +61,7 @@ void Blinking (uint8_t *counter)
 
 	for (int brightness = 255; brightness >= 0; brightness--)
 		{
-			for (int i = 0; i < nemLEDs; i++)
+			for (int i = 0; i < numLEDs; i++)
 			{
 				setColor (brightness, brightness, brightness, i);
 			}
