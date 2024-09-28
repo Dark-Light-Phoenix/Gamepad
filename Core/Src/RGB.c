@@ -3,13 +3,14 @@
 #include "stm32g4xx_hal.h"
 
 extern DMA_HandleTypeDef hdma_tim17_ch1;
-extern TIM_HandleTypeDef htim3;
+extern TIM_HandleTypeDef htim17;
 extern uint8_t Left, Up, Right, Down;
 extern uint8_t Circle, Triangle, Chrest, Square;
 
-uint8_t counter;
-
 uint16_t pwmData [numLEDs * LEDbits];
+
+int counter = 0;
+int CPB = 0;
 
 void setColor (uint8_t red, uint8_t green, uint8_t blue, int ledIndex)
 {
@@ -31,45 +32,84 @@ void setColor (uint8_t red, uint8_t green, uint8_t blue, int ledIndex)
 			bitIndex++;
 		}
 	}
+	HAL_TIM_PWM_Start_DMA (&htim17, TIM_CHANNEL_1, (uint32_t*)pwmData, numLEDs * LEDbits);
+	HAL_Delay (1);
+	HAL_TIM_PWM_Stop_DMA (&htim17, TIM_CHANNEL_1);
 }
 
-void CounterSwitch (uint8_t *counter)
+void CounterSwitch (void)
 {
-	GPIO_PinState buttonState = HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_5);
+	GPIO_PinState Backlight = HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_5);
 
-	if (buttonState == GPIO_PIN_SET)
+	if (Backlight != 1)
 	{
-		(*counter)++;
-		if (*counter > 3)
+		counter += 1;
+		if (counter > 3)
 		{
-			*counter = 0;
+			counter = 0;
 		}
-		HAL_Delay(200);
 	}
+
+	if (counter == 0)
+	{
+		clearLEDs();
+	}
+
+	if (counter == 1)
+	{
+		Blinking ();
+	}
+
+	/*if (counter == 1)
+	{
+		Blinking();
+	}
+	else if (counter == 2)
+	{
+		Gradient();
+	}
+	else if (counter == 3)
+	{
+		Wawe();
+	}*/
 }
 
-void Blinking (uint8_t *counter)
+void Blinking (void)
 {
-	for (int brightness = 0; brightness <= 255; brightness++)
+	for (int brightness_a = 0; brightness_a <= 255; brightness_a++)
 	{
-		for (int i = 0; i < numLEDs; i++)
+		for (int brightness_b = 0; brightness_b <= 255; brightness_b++)
 		{
-			setColor (brightness, brightness, brightness, i);
-		}
-		HAL_Delay(10);
-	}
-
-	for (int brightness = 255; brightness >= 0; brightness--)
-		{
-			for (int i = 0; i < numLEDs; i++)
+			for (int brightness_c = 0; brightness_c <= 255; brightness_c++)
 			{
-				setColor (brightness, brightness, brightness, i);
+				for (int i = 0; i < numLEDs; i++)
+				{
+					setColor (brightness_a, brightness_b, brightness_c, i);
+				}
+				HAL_Delay(1000);
 			}
-			HAL_Delay(10);
 		}
+
+	}
+
+	for (int brightness_a = 255; brightness_a >= 0; brightness_a--)
+	{
+		for (int brightness_b = 255; brightness_b >= 0; brightness_b--)
+		{
+			for (int brightness_c = 255; brightness_c >= 0; brightness_c--)
+			{
+				for (int i = 0; i < numLEDs; i++)
+				{
+					setColor (brightness_a, brightness_b, brightness_c, i);
+				}
+				HAL_Delay(1000);
+			}
+		}
+
+	}
 }
 
-void Gradient(uint8_t *counter)
+/*void Gradient (void)
 {
     for (int j = 0; j < 256; j++)
     {
@@ -86,9 +126,11 @@ void Gradient(uint8_t *counter)
     }
 }
 
-void Wawe (uint8_t *counter)
+void Wawe (void)
 {
-    int pressedButton = *counter;
+	CheckButton ();
+
+	int pressedButton = CPB;
 
     setColor(255, 0, 0, pressedButton);
     HAL_Delay(50);
@@ -110,61 +152,51 @@ void Wawe (uint8_t *counter)
 
         HAL_Delay(50);
     }
-
-    for (int i = 0; i < numLEDs; i++)
-    {
-        setColor(0, 0, 0, i);
-    }
 }
 
 void CheckButton (void)
 {
-	if (Left == GPIO_PIN_SET)
+	if (Left == GPIO_PIN_RESET)
 	{
-		Wawe(0);
+		CPB = 0;
 	}
-	if (Up == GPIO_PIN_SET)
+	if (Up == GPIO_PIN_RESET)
 	{
-		Wawe(1);
+		CPB = 1;
 	}
-	if (Right == GPIO_PIN_SET)
+	if (Right == GPIO_PIN_RESET)
 	{
-		Wawe(2);
+		CPB = 2;
 	}
-	if (Down == GPIO_PIN_SET)
+	if (Down == GPIO_PIN_RESET)
 	{
-		Wawe(3);
+		CPB = 3;
 	}
-	if (Circle == GPIO_PIN_SET)
+	if (Circle == GPIO_PIN_RESET)
 	{
-		Wawe(4);
+		CPB = 4;
 	}
-	if (Triangle == GPIO_PIN_SET)
+	if (Triangle == GPIO_PIN_RESET)
 	{
-		Wawe(5);
+		CPB = 5;
 	}
-	if (Chrest == GPIO_PIN_SET)
+	if (Chrest == GPIO_PIN_RESET)
 	{
-		Wawe(6);
+		CPB = 6;
 	}
-	if (Square == GPIO_PIN_SET)
+	if (Square == GPIO_PIN_RESET)
 	{
-		Wawe(7);
+		CPB = 7;
 	}
-}
+}*/
 
-void SwitchMode (uint8_t *counter)
+void clearLEDs (void)
 {
-	if (*counter == 1)
-	{
-		Blinking (counter);
-	}
-	else if (*counter == 2)
-	{
-		Gradient (counter);
-	}
-	else if (*counter == 3)
-	{
-		Wawe (counter);
-	}
+    for (int i = 0; i < numLEDs; i++)
+    {
+        setColor(0, 0, 0, i);
+    }
+    HAL_TIM_PWM_Start_DMA(&htim17, TIM_CHANNEL_1, (uint32_t*)pwmData, numLEDs * LEDbits);
+    HAL_Delay (1);
+    HAL_TIM_PWM_Stop_DMA (&htim17, TIM_CHANNEL_1);
 }

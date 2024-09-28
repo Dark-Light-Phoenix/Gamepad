@@ -5,15 +5,15 @@
 
 #define numLEDs 8
 #define LEDbits 24
-#define HIGH_DUTY_CICLE 60
-#define LOW_DUTY_CICLE 30
+#define HIGH_DUTY_CICLE 38
+#define LOW_DUTY_CICLE 19
 
 void setColor (uint8_t red, uint8_t green, uint8_t blue, int ledIndex);
-void CounterSwitch (uint8_t *counter);
-void Blinking (uint8_t *counter);
-void Gradient (uint8_t *counter);
-void Wawe (uint8_t *counter);
+void CounterSwitch (void);
+void Blinking (void);
+void Gradient (void);
+void Wawe (void);
 void CheckButton (void);
-void SwitchMode (uint8_t *counter);
+void clearLEDs (void);
 
 #endif /* INC_RGB_H_ */

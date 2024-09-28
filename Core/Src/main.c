@@ -72,7 +72,14 @@ static void MX_TIM4_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint8_t Left, Up, Right, Down;
+uint8_t Circle, Triangle, Chrest, Square;
+extern uint16_t pwmData [numLEDs * LEDbits];
+uint8_t L1, L2;
+uint8_t R1, R2;
+extern uint8_t report;
 
+ADC_HandleTypeDef* hadc;
 /* USER CODE END 0 */
 
 /**
@@ -112,9 +119,6 @@ int main(void)
   MX_TIM17_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-  extern uint16_t pwmData [numLEDs * LEDbits];
-
-  HAL_TIM_PWM_Start_DMA (&htim3, TIM_CHANNEL_2, (uint32_t*) pwmData, sizeof (pwmData) / sizeof (uint16_t));
 
   /* USER CODE END 2 */
 
@@ -125,8 +129,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  Left_Cascade (&Left, &Up, &Right, &Down);
+	  Right_Cascade (&Circle, &Triangle, &Chrest, &Square);
+	  Triggers (&L1, &L2, &R1, &R2);
 	  ADC_DMA_Init();
-
+	  CounterSwitch ();
+	  HAL_ADC_ConvCpltCallback (hadc);
+	  HID_Report_Output (&report);
   }
   /* USER CODE END 3 */
 }
@@ -470,7 +479,7 @@ static void MX_TIM17_Init(void)
   htim17.Instance = TIM17;
   htim17.Init.Prescaler = 0;
   htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim17.Init.Period = 65535;
+  htim17.Init.Period = 59;
   htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim17.Init.RepetitionCounter = 0;
   htim17.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;

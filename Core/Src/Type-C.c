@@ -5,10 +5,10 @@
 #include "usb_device.h"
 #include "usbd_hid.h"
 
-uint8_t Left, Up, Right, Down;
-uint8_t Circle, Triangle, Chrest, Square;
-uint8_t L1, L2;
-uint8_t R1, R2;
+extern uint8_t Left, Up, Right, Down;
+extern uint8_t Circle, Triangle, Chrest, Square;
+extern uint8_t L1, L2;
+extern uint8_t R1, R2;
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern USBD_HandleTypeDef hUsbDeviceFS;

@@ -33,7 +33,16 @@ Core/Src/Vibromotors.o: ../Core/Src/Vibromotors.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
- ../Core/Inc/stm32g4xx_it.h
+ ../Core/Inc/stm32g4xx_it.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc/usbd_hid.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
+ ../USB_Device/Target/usbd_conf.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
+ ../USB_Device/App/usb_device.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h
 ../Core/Inc/Vibromotors.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -69,3 +78,12 @@ Core/Src/Vibromotors.o: ../Core/Src/Vibromotors.c \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
 ../Core/Inc/stm32g4xx_it.h:
+../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc/usbd_hid.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
+../USB_Device/Target/usbd_conf.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
+../USB_Device/App/usb_device.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
