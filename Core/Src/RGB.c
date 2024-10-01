@@ -7,15 +7,14 @@ extern TIM_HandleTypeDef htim17;
 extern uint8_t Left, Up, Right, Down;
 extern uint8_t Circle, Triangle, Chrest, Square;
 
-uint16_t pwmData [numLEDs * LEDbits];
+uint16_t pwmData [(numLEDs * LEDbits) * 2];
 
 int counter = 0;
-int CPB = 0;
 
-void setColor (uint8_t red, uint8_t green, uint8_t blue, int ledIndex)
+void setColor (uint8_t green, uint8_t red, uint8_t blue, int ledIndex)
 {
 	uint8_t ledData [3] = {green, red, blue};
-	int bitIndex = ledIndex * LEDbits;
+	int bitIndex = ledIndex * (LEDbits * 2);
 
 	for (int color = 0; color < 3; color++)
 	{
@@ -23,172 +22,55 @@ void setColor (uint8_t red, uint8_t green, uint8_t blue, int ledIndex)
 		{
 			if (ledData [color] & (1 << (7 - bit)))
 			{
-				pwmData [bitIndex] = HIGH_DUTY_CICLE;
+				pwmData [bitIndex] = T1H;
+				pwmData [bitIndex + 1] = T1L;
 			}
 			else
 			{
-				pwmData [bitIndex] = LOW_DUTY_CICLE;
+				pwmData [bitIndex] = T0H;
+				pwmData [bitIndex + 1] = T0L;
 			}
-			bitIndex++;
+			bitIndex += 2;
 		}
 	}
-	HAL_TIM_PWM_Start_DMA (&htim17, TIM_CHANNEL_1, (uint32_t*)pwmData, numLEDs * LEDbits);
-	HAL_Delay (1);
+	PWMPush();
+}
+
+void PWMPush (void)
+{
+	HAL_TIM_PWM_Start_DMA (&htim17, TIM_CHANNEL_1, (uint32_t*)pwmData, (numLEDs * LEDbits) * 2);
+	HAL_Delay (10);
 	HAL_TIM_PWM_Stop_DMA (&htim17, TIM_CHANNEL_1);
 }
 
 void CounterSwitch (void)
 {
-	GPIO_PinState Backlight = HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_5);
-
-	if (Backlight != 1)
+	counter++;
+	if (counter > 3)
 	{
-		counter += 1;
-		if (counter > 3)
-		{
-			counter = 0;
-		}
+		counter = 0;
 	}
-
-	if (counter == 0)
-	{
-		clearLEDs();
-	}
-
-	if (counter == 1)
-	{
-		Blinking ();
-	}
-
-	/*if (counter == 1)
-	{
-		Blinking();
-	}
-	else if (counter == 2)
-	{
-		Gradient();
-	}
-	else if (counter == 3)
-	{
-		Wawe();
-	}*/
+	ChangeMode (counter);
 }
 
-void Blinking (void)
+void ChangeMode (uint8_t mode)
 {
-	for (int brightness_a = 0; brightness_a <= 255; brightness_a++)
+	switch(mode)
 	{
-		for (int brightness_b = 0; brightness_b <= 255; brightness_b++)
-		{
-			for (int brightness_c = 0; brightness_c <= 255; brightness_c++)
-			{
-				for (int i = 0; i < numLEDs; i++)
-				{
-					setColor (brightness_a, brightness_b, brightness_c, i);
-				}
-				HAL_Delay(1000);
-			}
-		}
-
-	}
-
-	for (int brightness_a = 255; brightness_a >= 0; brightness_a--)
-	{
-		for (int brightness_b = 255; brightness_b >= 0; brightness_b--)
-		{
-			for (int brightness_c = 255; brightness_c >= 0; brightness_c--)
-			{
-				for (int i = 0; i < numLEDs; i++)
-				{
-					setColor (brightness_a, brightness_b, brightness_c, i);
-				}
-				HAL_Delay(1000);
-			}
-		}
-
+		case 0:
+			clearLEDs();
+			break;
+		case 1:
+			Blinking();
+			break;
+		case 2:
+			Gradient();
+			break;
+		case 3:
+			Wawe();
+			break;
 	}
 }
-
-/*void Gradient (void)
-{
-    for (int j = 0; j < 256; j++)
-    {
-        for (int i = 0; i < numLEDs; i++)
-        {
-            uint8_t red = (i * j) % 256;
-            uint8_t green = (i * 128) % 256;
-            uint8_t blue = 255 - ((i * j) % 256);
-
-            setColor(red, green, blue, i);
-        }
-
-        HAL_Delay(50);
-    }
-}
-
-void Wawe (void)
-{
-	CheckButton ();
-
-	int pressedButton = CPB;
-
-    setColor(255, 0, 0, pressedButton);
-    HAL_Delay(50);
-
-    for (int offset = 1; offset < numLEDs; offset++)
-    {
-        uint8_t red = (255 - (offset * 30)) % 256;
-        uint8_t green = (offset * 20) % 256;
-        uint8_t blue = (offset * 50) % 256;
-        if (pressedButton - offset >= 0)
-        {
-            setColor(red, green, blue, pressedButton - offset);
-        }
-
-        if (pressedButton + offset < numLEDs)
-        {
-            setColor(red, green, blue, pressedButton + offset);
-        }
-
-        HAL_Delay(50);
-    }
-}
-
-void CheckButton (void)
-{
-	if (Left == GPIO_PIN_RESET)
-	{
-		CPB = 0;
-	}
-	if (Up == GPIO_PIN_RESET)
-	{
-		CPB = 1;
-	}
-	if (Right == GPIO_PIN_RESET)
-	{
-		CPB = 2;
-	}
-	if (Down == GPIO_PIN_RESET)
-	{
-		CPB = 3;
-	}
-	if (Circle == GPIO_PIN_RESET)
-	{
-		CPB = 4;
-	}
-	if (Triangle == GPIO_PIN_RESET)
-	{
-		CPB = 5;
-	}
-	if (Chrest == GPIO_PIN_RESET)
-	{
-		CPB = 6;
-	}
-	if (Square == GPIO_PIN_RESET)
-	{
-		CPB = 7;
-	}
-}*/
 
 void clearLEDs (void)
 {
@@ -196,7 +78,46 @@ void clearLEDs (void)
     {
         setColor(0, 0, 0, i);
     }
-    HAL_TIM_PWM_Start_DMA(&htim17, TIM_CHANNEL_1, (uint32_t*)pwmData, numLEDs * LEDbits);
-    HAL_Delay (1);
-    HAL_TIM_PWM_Stop_DMA (&htim17, TIM_CHANNEL_1);
+}
+
+void Blinking (void)
+{
+	for (int green_u = 0; green_u <= 256; green_u++)
+	{
+		for (int red_u = 0; red_u <= 256; red_u++)
+		{
+			for (int blue_u = 0; blue_u <= 256; blue_u++)
+			{
+				for (int i = 0; i < 8; i++)
+				{
+					setColor (green_u, red_u, blue_u, i);
+				}
+			}
+		}
+	}
+
+	for (int green_d = 256; green_d >= 0; green_d--)
+	{
+		for (int red_d = 256; red_d >= 0; red_d--)
+		{
+			for (int blue_d = 256; blue_d >= 0; blue_d--)
+			{
+				for (int i = 0; i < 8; i++)
+				{
+					setColor (green_d, red_d, blue_d, i);
+				}
+			}
+		}
+	}
+
+}
+
+void Gradient (void)
+{
+
+}
+
+void Wawe (void)
+{
+
 }

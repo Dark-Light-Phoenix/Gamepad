@@ -1,4 +1,8 @@
-../Core/Src/RGB.c:15:6:setColor	32	static
-../Core/Src/RGB.c:40:6:CounterSwitch	16	static
-../Core/Src/RGB.c:77:6:Blinking	40	static
-../Core/Src/RGB.c:193:6:clearLEDs	16	static
+../Core/Src/RGB.c:14:6:setColor	32	static
+../Core/Src/RGB.c:39:6:PWMPush	8	static
+../Core/Src/RGB.c:46:6:CounterSwitch	8	static
+../Core/Src/RGB.c:56:6:ChangeMode	16	static
+../Core/Src/RGB.c:75:6:clearLEDs	16	static
+../Core/Src/RGB.c:83:6:Blinking	40	static
+../Core/Src/RGB.c:115:6:Gradient	4	static
+../Core/Src/RGB.c:120:6:Wawe	4	static
