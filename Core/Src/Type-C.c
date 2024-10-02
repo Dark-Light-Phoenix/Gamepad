@@ -1,5 +1,4 @@
 #include "Type-C.h"
-#include "Cascads.h"
 #include "Joystick ADC.h"
 #include "stm32g4xx_hal.h"
 #include "usb_device.h"
@@ -12,8 +11,8 @@ extern uint8_t R1, R2;
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern USBD_HandleTypeDef hUsbDeviceFS;
-extern uint32_t adc_buffer1 [BUFFER_SIZE];
-extern uint32_t adc_buffer2 [BUFFER_SIZE];
+extern int8_t adc_x1, adc_x2;
+extern int8_t adc_y1, adc_y2;
 
 const uint8_t HID_ReportDescriptor[] =
 {
@@ -85,15 +84,16 @@ void UpdateButton (void)
 
 void UpdateJoystick (void)
 {
-    gamepad_report.x1 = (uint8_t)((adc_buffer1 [0] * 255 / 4095) - 128);
-    gamepad_report.y1 = (uint8_t)((adc_buffer1 [1] * 255 / 4095) - 128);
-    gamepad_report.x2 = (uint8_t)((adc_buffer2 [0] * 255 / 4095) - 128);
-    gamepad_report.y2 = (uint8_t)((adc_buffer2 [1] * 255 / 4095) - 128);
+	ScaleData();
+    gamepad_report.x1 = adc_x1;
+    gamepad_report.y1 = adc_y1;
+    gamepad_report.x2 = adc_x2;
+    gamepad_report.y2 = adc_y2;
 }
 
 void HAL_ADC_ConvCpltCallback (ADC_HandleTypeDef* hadc)
 {
-	if (hadc -> Instance == hadc1.Instance || hadc->Instance == hadc2.Instance)
+	if (hadc == &hadc1 || hadc == &hadc2)
 	{
 		SendReport ();
 	}

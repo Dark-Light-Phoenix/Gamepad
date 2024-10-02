@@ -6,7 +6,6 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/Backlight,Menu,NRST.c \
-../Core/Src/Cascads.c \
 ../Core/Src/Joystick\ ADC.c \
 ../Core/Src/RGB.c \
 ../Core/Src/Type-C.c \
@@ -20,7 +19,6 @@ C_SRCS += \
 
 OBJS += \
 ./Core/Src/Backlight,Menu,NRST.o \
-./Core/Src/Cascads.o \
 ./Core/Src/Joystick\ ADC.o \
 ./Core/Src/RGB.o \
 ./Core/Src/Type-C.o \
@@ -34,7 +32,6 @@ OBJS += \
 
 C_DEPS += \
 ./Core/Src/Backlight,Menu,NRST.d \
-./Core/Src/Cascads.d \
 ./Core/Src/Joystick\ ADC.d \
 ./Core/Src/RGB.d \
 ./Core/Src/Type-C.d \
@@ -56,7 +53,7 @@ Core/Src/Joystick\ ADC.o: ../Core/Src/Joystick\ ADC.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/Backlight,Menu,NRST.cyclo ./Core/Src/Backlight,Menu,NRST.d ./Core/Src/Backlight,Menu,NRST.o ./Core/Src/Backlight,Menu,NRST.su ./Core/Src/Cascads.cyclo ./Core/Src/Cascads.d ./Core/Src/Cascads.o ./Core/Src/Cascads.su ./Core/Src/Joystick\ ADC.cyclo ./Core/Src/Joystick\ ADC.d ./Core/Src/Joystick\ ADC.o ./Core/Src/Joystick\ ADC.su ./Core/Src/RGB.cyclo ./Core/Src/RGB.d ./Core/Src/RGB.o ./Core/Src/RGB.su ./Core/Src/Type-C.cyclo ./Core/Src/Type-C.d ./Core/Src/Type-C.o ./Core/Src/Type-C.su ./Core/Src/Vibromotors.cyclo ./Core/Src/Vibromotors.d ./Core/Src/Vibromotors.o ./Core/Src/Vibromotors.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32g4xx_hal_msp.cyclo ./Core/Src/stm32g4xx_hal_msp.d ./Core/Src/stm32g4xx_hal_msp.o ./Core/Src/stm32g4xx_hal_msp.su ./Core/Src/stm32g4xx_it.cyclo ./Core/Src/stm32g4xx_it.d ./Core/Src/stm32g4xx_it.o ./Core/Src/stm32g4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g4xx.cyclo ./Core/Src/system_stm32g4xx.d ./Core/Src/system_stm32g4xx.o ./Core/Src/system_stm32g4xx.su
+	-$(RM) ./Core/Src/Backlight,Menu,NRST.cyclo ./Core/Src/Backlight,Menu,NRST.d ./Core/Src/Backlight,Menu,NRST.o ./Core/Src/Backlight,Menu,NRST.su ./Core/Src/Joystick\ ADC.cyclo ./Core/Src/Joystick\ ADC.d ./Core/Src/Joystick\ ADC.o ./Core/Src/Joystick\ ADC.su ./Core/Src/RGB.cyclo ./Core/Src/RGB.d ./Core/Src/RGB.o ./Core/Src/RGB.su ./Core/Src/Type-C.cyclo ./Core/Src/Type-C.d ./Core/Src/Type-C.o ./Core/Src/Type-C.su ./Core/Src/Vibromotors.cyclo ./Core/Src/Vibromotors.d ./Core/Src/Vibromotors.o ./Core/Src/Vibromotors.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32g4xx_hal_msp.cyclo ./Core/Src/stm32g4xx_hal_msp.d ./Core/Src/stm32g4xx_hal_msp.o ./Core/Src/stm32g4xx_hal_msp.su ./Core/Src/stm32g4xx_it.cyclo ./Core/Src/stm32g4xx_it.d ./Core/Src/stm32g4xx_it.o ./Core/Src/stm32g4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g4xx.cyclo ./Core/Src/system_stm32g4xx.d ./Core/Src/system_stm32g4xx.o ./Core/Src/system_stm32g4xx.su
 
 .PHONY: clean-Core-2f-Src
 

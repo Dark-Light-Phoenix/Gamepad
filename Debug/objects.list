@@ -1,5 +1,4 @@
 "./Core/Src/Backlight,Menu,NRST.o"
-"./Core/Src/Cascads.o"
 "./Core/Src/Joystick ADC.o"
 "./Core/Src/RGB.o"
 "./Core/Src/Type-C.o"

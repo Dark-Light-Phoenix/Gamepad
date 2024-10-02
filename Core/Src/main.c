@@ -80,6 +80,9 @@ uint8_t R1, R2;
 extern uint8_t report;
 
 ADC_HandleTypeDef* hadc;
+
+int Push = 0;
+int DelayPush;
 /* USER CODE END 0 */
 
 /**
@@ -119,7 +122,7 @@ int main(void)
   MX_TIM17_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-
+  ADC_DMA_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -129,12 +132,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  Left_Cascade (&Left, &Up, &Right, &Down);
-	  Right_Cascade (&Circle, &Triangle, &Chrest, &Square);
-	  Triggers (&L1, &L2, &R1, &R2);
-	  ADC_DMA_Init();
 	  HAL_ADC_ConvCpltCallback (hadc);
-	  HID_Report_Output (&report);
   }
   /* USER CODE END 3 */
 }
@@ -572,9 +570,9 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA5 PA8 PA9 PA10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  /*Configure GPIO pin : PA5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
@@ -583,6 +581,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA8 PA9 PA10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PA15 */
   GPIO_InitStruct.Pin = GPIO_PIN_15;
@@ -625,9 +629,31 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 {
-	if (GPIO_Pin == GPIO_PIN_5)
+	/*if (GPIO_Pin == GPIO_PIN_5)
 	{
 		  CounterSwitch();
+	}*/
+	if (GPIO_Pin == GPIO_PIN_5)
+	{
+		if (Push == 0)
+		{
+			Push = HAL_GetTick();
+		}
+		else
+		{
+			DelayPush = HAL_GetTick();
+			if (DelayPush - Push <= 200)
+			{
+				Chrest = 1;
+			}
+			else
+			{
+				Push = 0;
+				DelayPush = 0;
+				Chrest = 0;
+			}
+		}
+
 	}
 }
 /* USER CODE END 4 */

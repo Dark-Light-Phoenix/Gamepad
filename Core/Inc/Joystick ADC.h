@@ -4,5 +4,6 @@
 #define BUFFER_SIZE 2
 
 void ADC_DMA_Init (void);
+void ScaleData (void);
 
 #endif /* INC_JOYSTICK_ADC_H_ */
