@@ -1,4 +1,4 @@
-../Core/Src/Type-C.c:71:6:UpdateButton	9
-../Core/Src/Type-C.c:85:6:UpdateJoystick	1
-../Core/Src/Type-C.c:94:6:HAL_ADC_ConvCpltCallback	3
-../Core/Src/Type-C.c:102:6:SendReport	1
+../Core/Src/Type-C.c:65:6:UpdateButton	9
+../Core/Src/Type-C.c:79:6:UpdateJoystick	1
+../Core/Src/Type-C.c:88:6:HAL_ADC_ConvCpltCallback	3
+../Core/Src/Type-C.c:96:6:SendReport	1

@@ -211,7 +211,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T6_TRGO;
@@ -633,7 +633,7 @@ void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 	{
 		  CounterSwitch();
 	}*/
-	if (GPIO_Pin == GPIO_PIN_5)
+  	if (GPIO_Pin == GPIO_PIN_5)
 	{
 		if (Push == 0)
 		{

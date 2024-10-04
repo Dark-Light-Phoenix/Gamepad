@@ -9,4 +9,4 @@
 ../Core/Src/main.c:524:13:MX_DMA_Init	1
 ../Core/Src/main.c:549:13:MX_GPIO_Init	1
 ../Core/Src/main.c:630:6:HAL_GPIO_EXTI_Callback	4
-../Core/Src/main.c:667:6:Error_Handler	1
+../Core/Src/main.c:665:6:Error_Handler	1

@@ -21,8 +21,8 @@ void ADC_DMA_Init (void)
 
 void ScaleData (void)
 {
-	adc_x1 = (int8_t)(((float)adc_buffer1 [0] / 4095.0) * 510) - 255;
-	adc_y1 = (int8_t)(((float)adc_buffer1 [1] / 4095.0) * 510) - 255;
-	adc_x2 = (int8_t)(((float)adc_buffer2 [0] / 4095.0) * 510) - 255;
-	adc_y2 = (int8_t)(((float)adc_buffer2 [1] / 4095.0) * 510) - 255;
+	adc_x1 = (int8_t)((adc_buffer1 [0] / 4095) * 510) - 255;
+	adc_y1 = (int8_t)((adc_buffer1 [1] / 4095) * 510) - 255;
+	adc_x2 = (int8_t)((adc_buffer2 [0] / 4095) * 510) - 255;
+	adc_y2 = (int8_t)((adc_buffer2 [1] / 4095) * 510) - 255;
 }
