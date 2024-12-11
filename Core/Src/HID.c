@@ -1,4 +1,4 @@
-#include "Type-C.h"
+#include "HID.h"
 #include "Joystick ADC.h"
 #include "stm32g4xx_hal.h"
 #include "usb_device.h"

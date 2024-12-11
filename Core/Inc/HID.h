@@ -1,5 +1,5 @@
-#ifndef INC_TYPE_C_H_
-#define INC_TYPE_C_H_
+#ifndef INC_HID_H_
+#define INC_HID_H_
 
 #include "stm32g4xx_hal.h"
 
@@ -17,4 +17,4 @@ void UpdateJoystick (void);
 void SendReport (void);
 
 
-#endif /* INC_TYPE_C_H_ */
+#endif /* INC_HID_H_ */

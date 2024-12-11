@@ -4,83 +4,79 @@
 
 extern DMA_HandleTypeDef hdma_tim17_ch1;
 extern TIM_HandleTypeDef htim17;
-extern uint8_t Left, Up, Right, Down;
-extern uint8_t Circle, Triangle, Chrest, Square;
 
-uint16_t pwmData [(numLEDs * LEDbits) * 2];
+uint8_t pwmData [NUM_LEDS * LED_BITS];
 
 int counter = 0;
 
-void setColor (uint8_t green, uint8_t red, uint8_t blue, int ledIndex)
+void set_led_color (uint8_t green, uint8_t red, uint8_t blue, int ledIndex)
 {
 	uint8_t ledData [3] = {green, red, blue};
-	int bitIndex = ledIndex * (LEDbits * 2);
+	int bitIndex = ledIndex * LED_BITS;
 
 	for (int color = 0; color < 3; color++)
 	{
 		for (int bit = 0; bit < 8; bit++)
 		{
 			if (ledData [color] & (1 << (7 - bit)))
-			{
-				pwmData [bitIndex] = T1H;
-				pwmData [bitIndex + 1] = T1L;
-			}
+				{
+					pwmData [bitIndex++] = T1H;
+					pwmData [bitIndex++] = T1L;
+				}
 			else
-			{
-				pwmData [bitIndex] = T0H;
-				pwmData [bitIndex + 1] = T0L;
-			}
-			bitIndex += 2;
+				{
+					pwmData [bitIndex++] = T1H;
+					pwmData [bitIndex++] = T1L;
+				}
 		}
 	}
-	PWMPush();
+	set_pwm();
 }
 
-void PWMPush (void)
+void set_pwm (void)
 {
-	HAL_TIM_PWM_Start_DMA (&htim17, TIM_CHANNEL_1, (uint32_t*)pwmData, (numLEDs * LEDbits) * 2);
-	HAL_Delay (10);
-	HAL_TIM_PWM_Stop_DMA (&htim17, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start_DMA (&htim17, TIM_CHANNEL_1, (uint32_t*)pwmData, sizeof(pwmData));
+	HAL_Delay (1);
 }
 
-void CounterSwitch (void)
+void switch_counter (void)
 {
 	counter++;
 	if (counter > 3)
-	{
-		counter = 0;
-	}
-	ChangeMode (counter);
+		{
+			counter = 0;
+		}
+	mode_switch(counter);
 }
 
-void ChangeMode (uint8_t mode)
+void mode_switch (uint8_t mode)
 {
 	switch(mode)
 	{
-		case 0:
-			clearLEDs();
+		case MODE_OFF:
+			leds_off();
 			break;
-		case 1:
-			Blinking();
+		case PULSE_MODE:
+			pulse();
 			break;
-		case 2:
-			Gradient();
+		case GRADIENT_MODE:
+			gradient();
 			break;
-		case 3:
-			Wawe();
+		case WAWE_EFFECT_MODE:
+			wawe();
 			break;
 	}
 }
 
-void clearLEDs (void)
+void leds_off (void)
 {
-    for (int i = 0; i < numLEDs; i++)
+    for (int i = 0; i < NUM_LEDS; i++)
     {
-        setColor(0, 0, 0, i);
+        set_led_color(0, 0, 0, i);
     }
 }
 
-void Blinking (void)
+void pulse (void)
 {
 	for (int green_u = 0; green_u <= 256; green_u++)
 	{
@@ -90,7 +86,7 @@ void Blinking (void)
 			{
 				for (int i = 0; i < 8; i++)
 				{
-					setColor (green_u, red_u, blue_u, i);
+					set_led_color (green_u, red_u, blue_u, i);
 				}
 			}
 		}
@@ -104,7 +100,7 @@ void Blinking (void)
 			{
 				for (int i = 0; i < 8; i++)
 				{
-					setColor (green_d, red_d, blue_d, i);
+					set_led_color (green_d, red_d, blue_d, i);
 				}
 			}
 		}
@@ -112,12 +108,12 @@ void Blinking (void)
 
 }
 
-void Gradient (void)
+void gradient (void)
 {
 
 }
 
-void Wawe (void)
+void wawe (void)
 {
 
 }

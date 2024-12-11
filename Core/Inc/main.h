@@ -22,6 +22,9 @@
 #ifndef __MAIN_H
 #define __MAIN_H
 
+#define DOUBLE_CLICK_DELAY 100
+#define DEBOUNCE_DELAY 50
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -33,7 +36,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include "stm32g4xx_it.h"
 #include "usb_device.h"
-#include "Type-C.h"
+#include "HID.h"
 #include "Backlight,Menu,NRST.h"
 #include "Joystick ADC.h"
 #include "Vibromotors.h"

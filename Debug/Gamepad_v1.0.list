@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_rnglists 00001266  00000000  00000000  000411b0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00022118  00000000  00000000  00042416  2**0
+ 17 .debug_macro  000059e6  00000000  00000000  00042416  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0001d1b3  00000000  00000000  0006452e  2**0
+ 18 .debug_line   0001d1a4  00000000  00000000  00047dfc  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000d9d45  00000000  00000000  000816e1  2**0
+ 19 .debug_str    000d9d18  00000000  00000000  00064fa0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  00006568  00000000  00000000  0015b428  2**2
+ 20 .debug_frame  00006568  00000000  00000000  0013ecb8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000067  00000000  00000000  00161990  2**0
+ 21 .debug_line_str 00000067  00000000  00000000  00145220  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -78,343 +78,343 @@ Disassembly of section .text:
  8000210:	2000016c 	.word	0x2000016c
  8000214:	0800baac 	.word	0x0800baac
 
-08000218 <ADC_DMA_Init>:
-
-int8_t adc_x1, adc_x2;
-int8_t adc_y1, adc_y2;
-
-void ADC_DMA_Init (void)
-{
- 8000218:	b580      	push	{r7, lr}
- 800021a:	af00      	add	r7, sp, #0
-	HAL_ADC_Start_DMA (&hadc1, (uint32_t *)adc_buffer1, BUFFER_SIZE);
- 800021c:	2202      	movs	r2, #2
- 800021e:	4907      	ldr	r1, [pc, #28]	; (800023c <ADC_DMA_Init+0x24>)
- 8000220:	4807      	ldr	r0, [pc, #28]	; (8000240 <ADC_DMA_Init+0x28>)
- 8000222:	f001 fcc9 	bl	8001bb8 <HAL_ADC_Start_DMA>
-	HAL_ADC_Start_DMA (&hadc2, (uint32_t *)adc_buffer2, BUFFER_SIZE);
- 8000226:	2202      	movs	r2, #2
- 8000228:	4906      	ldr	r1, [pc, #24]	; (8000244 <ADC_DMA_Init+0x2c>)
- 800022a:	4807      	ldr	r0, [pc, #28]	; (8000248 <ADC_DMA_Init+0x30>)
- 800022c:	f001 fcc4 	bl	8001bb8 <HAL_ADC_Start_DMA>
-
-	HAL_TIM_Base_Start (&htim6);
- 8000230:	4806      	ldr	r0, [pc, #24]	; (800024c <ADC_DMA_Init+0x34>)
- 8000232:	f005 ffdd 	bl	80061f0 <HAL_TIM_Base_Start>
-}
- 8000236:	bf00      	nop
- 8000238:	bd80      	pop	{r7, pc}
- 800023a:	bf00      	nop
- 800023c:	20000184 	.word	0x20000184
- 8000240:	200001a0 	.word	0x200001a0
- 8000244:	2000018c 	.word	0x2000018c
- 8000248:	2000020c 	.word	0x2000020c
- 800024c:	200003d0 	.word	0x200003d0
-
-08000250 <ScaleData>:
-
-void ScaleData (void)
-{
- 8000250:	b480      	push	{r7}
- 8000252:	af00      	add	r7, sp, #0
-	adc_x1 = (int8_t)((adc_buffer1 [0] / 4095) * 510) - 255;
- 8000254:	4b2a      	ldr	r3, [pc, #168]	; (8000300 <ScaleData+0xb0>)
- 8000256:	681a      	ldr	r2, [r3, #0]
- 8000258:	4b2a      	ldr	r3, [pc, #168]	; (8000304 <ScaleData+0xb4>)
- 800025a:	fba3 1302 	umull	r1, r3, r3, r2
- 800025e:	1ad2      	subs	r2, r2, r3
- 8000260:	0852      	lsrs	r2, r2, #1
- 8000262:	4413      	add	r3, r2
- 8000264:	0adb      	lsrs	r3, r3, #11
- 8000266:	b2db      	uxtb	r3, r3
- 8000268:	461a      	mov	r2, r3
- 800026a:	01d2      	lsls	r2, r2, #7
- 800026c:	1ad3      	subs	r3, r2, r3
- 800026e:	005b      	lsls	r3, r3, #1
- 8000270:	b2db      	uxtb	r3, r3
- 8000272:	3301      	adds	r3, #1
- 8000274:	b2db      	uxtb	r3, r3
- 8000276:	b25a      	sxtb	r2, r3
- 8000278:	4b23      	ldr	r3, [pc, #140]	; (8000308 <ScaleData+0xb8>)
- 800027a:	701a      	strb	r2, [r3, #0]
-	adc_y1 = (int8_t)((adc_buffer1 [1] / 4095) * 510) - 255;
- 800027c:	4b20      	ldr	r3, [pc, #128]	; (8000300 <ScaleData+0xb0>)
- 800027e:	685a      	ldr	r2, [r3, #4]
- 8000280:	4b20      	ldr	r3, [pc, #128]	; (8000304 <ScaleData+0xb4>)
- 8000282:	fba3 1302 	umull	r1, r3, r3, r2
- 8000286:	1ad2      	subs	r2, r2, r3
- 8000288:	0852      	lsrs	r2, r2, #1
- 800028a:	4413      	add	r3, r2
- 800028c:	0adb      	lsrs	r3, r3, #11
- 800028e:	b2db      	uxtb	r3, r3
- 8000290:	461a      	mov	r2, r3
- 8000292:	01d2      	lsls	r2, r2, #7
- 8000294:	1ad3      	subs	r3, r2, r3
- 8000296:	005b      	lsls	r3, r3, #1
- 8000298:	b2db      	uxtb	r3, r3
- 800029a:	3301      	adds	r3, #1
- 800029c:	b2db      	uxtb	r3, r3
- 800029e:	b25a      	sxtb	r2, r3
- 80002a0:	4b1a      	ldr	r3, [pc, #104]	; (800030c <ScaleData+0xbc>)
- 80002a2:	701a      	strb	r2, [r3, #0]
-	adc_x2 = (int8_t)((adc_buffer2 [0] / 4095) * 510) - 255;
- 80002a4:	4b1a      	ldr	r3, [pc, #104]	; (8000310 <ScaleData+0xc0>)
- 80002a6:	681a      	ldr	r2, [r3, #0]
- 80002a8:	4b16      	ldr	r3, [pc, #88]	; (8000304 <ScaleData+0xb4>)
- 80002aa:	fba3 1302 	umull	r1, r3, r3, r2
- 80002ae:	1ad2      	subs	r2, r2, r3
- 80002b0:	0852      	lsrs	r2, r2, #1
- 80002b2:	4413      	add	r3, r2
- 80002b4:	0adb      	lsrs	r3, r3, #11
- 80002b6:	b2db      	uxtb	r3, r3
- 80002b8:	461a      	mov	r2, r3
- 80002ba:	01d2      	lsls	r2, r2, #7
- 80002bc:	1ad3      	subs	r3, r2, r3
- 80002be:	005b      	lsls	r3, r3, #1
- 80002c0:	b2db      	uxtb	r3, r3
- 80002c2:	3301      	adds	r3, #1
- 80002c4:	b2db      	uxtb	r3, r3
- 80002c6:	b25a      	sxtb	r2, r3
- 80002c8:	4b12      	ldr	r3, [pc, #72]	; (8000314 <ScaleData+0xc4>)
- 80002ca:	701a      	strb	r2, [r3, #0]
-	adc_y2 = (int8_t)((adc_buffer2 [1] / 4095) * 510) - 255;
- 80002cc:	4b10      	ldr	r3, [pc, #64]	; (8000310 <ScaleData+0xc0>)
- 80002ce:	685a      	ldr	r2, [r3, #4]
- 80002d0:	4b0c      	ldr	r3, [pc, #48]	; (8000304 <ScaleData+0xb4>)
- 80002d2:	fba3 1302 	umull	r1, r3, r3, r2
- 80002d6:	1ad2      	subs	r2, r2, r3
- 80002d8:	0852      	lsrs	r2, r2, #1
- 80002da:	4413      	add	r3, r2
- 80002dc:	0adb      	lsrs	r3, r3, #11
- 80002de:	b2db      	uxtb	r3, r3
- 80002e0:	461a      	mov	r2, r3
- 80002e2:	01d2      	lsls	r2, r2, #7
- 80002e4:	1ad3      	subs	r3, r2, r3
- 80002e6:	005b      	lsls	r3, r3, #1
- 80002e8:	b2db      	uxtb	r3, r3
- 80002ea:	3301      	adds	r3, #1
- 80002ec:	b2db      	uxtb	r3, r3
- 80002ee:	b25a      	sxtb	r2, r3
- 80002f0:	4b09      	ldr	r3, [pc, #36]	; (8000318 <ScaleData+0xc8>)
- 80002f2:	701a      	strb	r2, [r3, #0]
-}
- 80002f4:	bf00      	nop
- 80002f6:	46bd      	mov	sp, r7
- 80002f8:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80002fc:	4770      	bx	lr
- 80002fe:	bf00      	nop
- 8000300:	20000184 	.word	0x20000184
- 8000304:	00100101 	.word	0x00100101
- 8000308:	20000194 	.word	0x20000194
- 800030c:	20000196 	.word	0x20000196
- 8000310:	2000018c 	.word	0x2000018c
- 8000314:	20000195 	.word	0x20000195
- 8000318:	20000197 	.word	0x20000197
-
-0800031c <UpdateButton>:
+08000218 <UpdateButton>:
 };
 
 GamepadReport_TypeDef gamepad_report = {0};
 
 void UpdateButton (void)
 {
- 800031c:	b480      	push	{r7}
- 800031e:	af00      	add	r7, sp, #0
+ 8000218:	b480      	push	{r7}
+ 800021a:	af00      	add	r7, sp, #0
     gamepad_report.buttons = 0;
- 8000320:	4b2f      	ldr	r3, [pc, #188]	; (80003e0 <UpdateButton+0xc4>)
- 8000322:	2200      	movs	r2, #0
- 8000324:	801a      	strh	r2, [r3, #0]
+ 800021c:	4b2f      	ldr	r3, [pc, #188]	; (80002dc <UpdateButton+0xc4>)
+ 800021e:	2200      	movs	r2, #0
+ 8000220:	801a      	strh	r2, [r3, #0]
 
     if (Left)      gamepad_report.buttons |= (1 << 0);
- 8000326:	4b2f      	ldr	r3, [pc, #188]	; (80003e4 <UpdateButton+0xc8>)
- 8000328:	781b      	ldrb	r3, [r3, #0]
- 800032a:	2b00      	cmp	r3, #0
- 800032c:	d006      	beq.n	800033c <UpdateButton+0x20>
- 800032e:	4b2c      	ldr	r3, [pc, #176]	; (80003e0 <UpdateButton+0xc4>)
- 8000330:	881b      	ldrh	r3, [r3, #0]
- 8000332:	f043 0301 	orr.w	r3, r3, #1
- 8000336:	b29a      	uxth	r2, r3
- 8000338:	4b29      	ldr	r3, [pc, #164]	; (80003e0 <UpdateButton+0xc4>)
- 800033a:	801a      	strh	r2, [r3, #0]
+ 8000222:	4b2f      	ldr	r3, [pc, #188]	; (80002e0 <UpdateButton+0xc8>)
+ 8000224:	781b      	ldrb	r3, [r3, #0]
+ 8000226:	2b00      	cmp	r3, #0
+ 8000228:	d006      	beq.n	8000238 <UpdateButton+0x20>
+ 800022a:	4b2c      	ldr	r3, [pc, #176]	; (80002dc <UpdateButton+0xc4>)
+ 800022c:	881b      	ldrh	r3, [r3, #0]
+ 800022e:	f043 0301 	orr.w	r3, r3, #1
+ 8000232:	b29a      	uxth	r2, r3
+ 8000234:	4b29      	ldr	r3, [pc, #164]	; (80002dc <UpdateButton+0xc4>)
+ 8000236:	801a      	strh	r2, [r3, #0]
     if (Up)        gamepad_report.buttons |= (1 << 1);
- 800033c:	4b2a      	ldr	r3, [pc, #168]	; (80003e8 <UpdateButton+0xcc>)
- 800033e:	781b      	ldrb	r3, [r3, #0]
- 8000340:	2b00      	cmp	r3, #0
- 8000342:	d006      	beq.n	8000352 <UpdateButton+0x36>
- 8000344:	4b26      	ldr	r3, [pc, #152]	; (80003e0 <UpdateButton+0xc4>)
- 8000346:	881b      	ldrh	r3, [r3, #0]
- 8000348:	f043 0302 	orr.w	r3, r3, #2
- 800034c:	b29a      	uxth	r2, r3
- 800034e:	4b24      	ldr	r3, [pc, #144]	; (80003e0 <UpdateButton+0xc4>)
- 8000350:	801a      	strh	r2, [r3, #0]
+ 8000238:	4b2a      	ldr	r3, [pc, #168]	; (80002e4 <UpdateButton+0xcc>)
+ 800023a:	781b      	ldrb	r3, [r3, #0]
+ 800023c:	2b00      	cmp	r3, #0
+ 800023e:	d006      	beq.n	800024e <UpdateButton+0x36>
+ 8000240:	4b26      	ldr	r3, [pc, #152]	; (80002dc <UpdateButton+0xc4>)
+ 8000242:	881b      	ldrh	r3, [r3, #0]
+ 8000244:	f043 0302 	orr.w	r3, r3, #2
+ 8000248:	b29a      	uxth	r2, r3
+ 800024a:	4b24      	ldr	r3, [pc, #144]	; (80002dc <UpdateButton+0xc4>)
+ 800024c:	801a      	strh	r2, [r3, #0]
     if (Right)     gamepad_report.buttons |= (1 << 2);
- 8000352:	4b26      	ldr	r3, [pc, #152]	; (80003ec <UpdateButton+0xd0>)
- 8000354:	781b      	ldrb	r3, [r3, #0]
- 8000356:	2b00      	cmp	r3, #0
- 8000358:	d006      	beq.n	8000368 <UpdateButton+0x4c>
- 800035a:	4b21      	ldr	r3, [pc, #132]	; (80003e0 <UpdateButton+0xc4>)
- 800035c:	881b      	ldrh	r3, [r3, #0]
- 800035e:	f043 0304 	orr.w	r3, r3, #4
- 8000362:	b29a      	uxth	r2, r3
- 8000364:	4b1e      	ldr	r3, [pc, #120]	; (80003e0 <UpdateButton+0xc4>)
- 8000366:	801a      	strh	r2, [r3, #0]
+ 800024e:	4b26      	ldr	r3, [pc, #152]	; (80002e8 <UpdateButton+0xd0>)
+ 8000250:	781b      	ldrb	r3, [r3, #0]
+ 8000252:	2b00      	cmp	r3, #0
+ 8000254:	d006      	beq.n	8000264 <UpdateButton+0x4c>
+ 8000256:	4b21      	ldr	r3, [pc, #132]	; (80002dc <UpdateButton+0xc4>)
+ 8000258:	881b      	ldrh	r3, [r3, #0]
+ 800025a:	f043 0304 	orr.w	r3, r3, #4
+ 800025e:	b29a      	uxth	r2, r3
+ 8000260:	4b1e      	ldr	r3, [pc, #120]	; (80002dc <UpdateButton+0xc4>)
+ 8000262:	801a      	strh	r2, [r3, #0]
     if (Down)      gamepad_report.buttons |= (1 << 3);
- 8000368:	4b21      	ldr	r3, [pc, #132]	; (80003f0 <UpdateButton+0xd4>)
- 800036a:	781b      	ldrb	r3, [r3, #0]
- 800036c:	2b00      	cmp	r3, #0
- 800036e:	d006      	beq.n	800037e <UpdateButton+0x62>
- 8000370:	4b1b      	ldr	r3, [pc, #108]	; (80003e0 <UpdateButton+0xc4>)
- 8000372:	881b      	ldrh	r3, [r3, #0]
- 8000374:	f043 0308 	orr.w	r3, r3, #8
- 8000378:	b29a      	uxth	r2, r3
- 800037a:	4b19      	ldr	r3, [pc, #100]	; (80003e0 <UpdateButton+0xc4>)
- 800037c:	801a      	strh	r2, [r3, #0]
+ 8000264:	4b21      	ldr	r3, [pc, #132]	; (80002ec <UpdateButton+0xd4>)
+ 8000266:	781b      	ldrb	r3, [r3, #0]
+ 8000268:	2b00      	cmp	r3, #0
+ 800026a:	d006      	beq.n	800027a <UpdateButton+0x62>
+ 800026c:	4b1b      	ldr	r3, [pc, #108]	; (80002dc <UpdateButton+0xc4>)
+ 800026e:	881b      	ldrh	r3, [r3, #0]
+ 8000270:	f043 0308 	orr.w	r3, r3, #8
+ 8000274:	b29a      	uxth	r2, r3
+ 8000276:	4b19      	ldr	r3, [pc, #100]	; (80002dc <UpdateButton+0xc4>)
+ 8000278:	801a      	strh	r2, [r3, #0]
     if (Circle)    gamepad_report.buttons |= (1 << 4);
- 800037e:	4b1d      	ldr	r3, [pc, #116]	; (80003f4 <UpdateButton+0xd8>)
- 8000380:	781b      	ldrb	r3, [r3, #0]
- 8000382:	2b00      	cmp	r3, #0
- 8000384:	d006      	beq.n	8000394 <UpdateButton+0x78>
- 8000386:	4b16      	ldr	r3, [pc, #88]	; (80003e0 <UpdateButton+0xc4>)
- 8000388:	881b      	ldrh	r3, [r3, #0]
- 800038a:	f043 0310 	orr.w	r3, r3, #16
- 800038e:	b29a      	uxth	r2, r3
- 8000390:	4b13      	ldr	r3, [pc, #76]	; (80003e0 <UpdateButton+0xc4>)
- 8000392:	801a      	strh	r2, [r3, #0]
+ 800027a:	4b1d      	ldr	r3, [pc, #116]	; (80002f0 <UpdateButton+0xd8>)
+ 800027c:	781b      	ldrb	r3, [r3, #0]
+ 800027e:	2b00      	cmp	r3, #0
+ 8000280:	d006      	beq.n	8000290 <UpdateButton+0x78>
+ 8000282:	4b16      	ldr	r3, [pc, #88]	; (80002dc <UpdateButton+0xc4>)
+ 8000284:	881b      	ldrh	r3, [r3, #0]
+ 8000286:	f043 0310 	orr.w	r3, r3, #16
+ 800028a:	b29a      	uxth	r2, r3
+ 800028c:	4b13      	ldr	r3, [pc, #76]	; (80002dc <UpdateButton+0xc4>)
+ 800028e:	801a      	strh	r2, [r3, #0]
     if (Triangle)  gamepad_report.buttons |= (1 << 5);
- 8000394:	4b18      	ldr	r3, [pc, #96]	; (80003f8 <UpdateButton+0xdc>)
- 8000396:	781b      	ldrb	r3, [r3, #0]
- 8000398:	2b00      	cmp	r3, #0
- 800039a:	d006      	beq.n	80003aa <UpdateButton+0x8e>
- 800039c:	4b10      	ldr	r3, [pc, #64]	; (80003e0 <UpdateButton+0xc4>)
- 800039e:	881b      	ldrh	r3, [r3, #0]
- 80003a0:	f043 0320 	orr.w	r3, r3, #32
- 80003a4:	b29a      	uxth	r2, r3
- 80003a6:	4b0e      	ldr	r3, [pc, #56]	; (80003e0 <UpdateButton+0xc4>)
- 80003a8:	801a      	strh	r2, [r3, #0]
+ 8000290:	4b18      	ldr	r3, [pc, #96]	; (80002f4 <UpdateButton+0xdc>)
+ 8000292:	781b      	ldrb	r3, [r3, #0]
+ 8000294:	2b00      	cmp	r3, #0
+ 8000296:	d006      	beq.n	80002a6 <UpdateButton+0x8e>
+ 8000298:	4b10      	ldr	r3, [pc, #64]	; (80002dc <UpdateButton+0xc4>)
+ 800029a:	881b      	ldrh	r3, [r3, #0]
+ 800029c:	f043 0320 	orr.w	r3, r3, #32
+ 80002a0:	b29a      	uxth	r2, r3
+ 80002a2:	4b0e      	ldr	r3, [pc, #56]	; (80002dc <UpdateButton+0xc4>)
+ 80002a4:	801a      	strh	r2, [r3, #0]
     if (Chrest)    gamepad_report.buttons |= (1 << 6);
- 80003aa:	4b14      	ldr	r3, [pc, #80]	; (80003fc <UpdateButton+0xe0>)
- 80003ac:	781b      	ldrb	r3, [r3, #0]
- 80003ae:	2b00      	cmp	r3, #0
- 80003b0:	d006      	beq.n	80003c0 <UpdateButton+0xa4>
- 80003b2:	4b0b      	ldr	r3, [pc, #44]	; (80003e0 <UpdateButton+0xc4>)
- 80003b4:	881b      	ldrh	r3, [r3, #0]
- 80003b6:	f043 0340 	orr.w	r3, r3, #64	; 0x40
- 80003ba:	b29a      	uxth	r2, r3
- 80003bc:	4b08      	ldr	r3, [pc, #32]	; (80003e0 <UpdateButton+0xc4>)
- 80003be:	801a      	strh	r2, [r3, #0]
+ 80002a6:	4b14      	ldr	r3, [pc, #80]	; (80002f8 <UpdateButton+0xe0>)
+ 80002a8:	781b      	ldrb	r3, [r3, #0]
+ 80002aa:	2b00      	cmp	r3, #0
+ 80002ac:	d006      	beq.n	80002bc <UpdateButton+0xa4>
+ 80002ae:	4b0b      	ldr	r3, [pc, #44]	; (80002dc <UpdateButton+0xc4>)
+ 80002b0:	881b      	ldrh	r3, [r3, #0]
+ 80002b2:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+ 80002b6:	b29a      	uxth	r2, r3
+ 80002b8:	4b08      	ldr	r3, [pc, #32]	; (80002dc <UpdateButton+0xc4>)
+ 80002ba:	801a      	strh	r2, [r3, #0]
     if (Square)    gamepad_report.buttons |= (1 << 7);
- 80003c0:	4b0f      	ldr	r3, [pc, #60]	; (8000400 <UpdateButton+0xe4>)
- 80003c2:	781b      	ldrb	r3, [r3, #0]
- 80003c4:	2b00      	cmp	r3, #0
- 80003c6:	d006      	beq.n	80003d6 <UpdateButton+0xba>
- 80003c8:	4b05      	ldr	r3, [pc, #20]	; (80003e0 <UpdateButton+0xc4>)
- 80003ca:	881b      	ldrh	r3, [r3, #0]
- 80003cc:	f043 0380 	orr.w	r3, r3, #128	; 0x80
- 80003d0:	b29a      	uxth	r2, r3
- 80003d2:	4b03      	ldr	r3, [pc, #12]	; (80003e0 <UpdateButton+0xc4>)
- 80003d4:	801a      	strh	r2, [r3, #0]
+ 80002bc:	4b0f      	ldr	r3, [pc, #60]	; (80002fc <UpdateButton+0xe4>)
+ 80002be:	781b      	ldrb	r3, [r3, #0]
+ 80002c0:	2b00      	cmp	r3, #0
+ 80002c2:	d006      	beq.n	80002d2 <UpdateButton+0xba>
+ 80002c4:	4b05      	ldr	r3, [pc, #20]	; (80002dc <UpdateButton+0xc4>)
+ 80002c6:	881b      	ldrh	r3, [r3, #0]
+ 80002c8:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+ 80002cc:	b29a      	uxth	r2, r3
+ 80002ce:	4b03      	ldr	r3, [pc, #12]	; (80002dc <UpdateButton+0xc4>)
+ 80002d0:	801a      	strh	r2, [r3, #0]
 }
- 80003d6:	bf00      	nop
- 80003d8:	46bd      	mov	sp, r7
- 80003da:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80003de:	4770      	bx	lr
- 80003e0:	20000198 	.word	0x20000198
- 80003e4:	200004c8 	.word	0x200004c8
- 80003e8:	200004c9 	.word	0x200004c9
- 80003ec:	200004ca 	.word	0x200004ca
- 80003f0:	200004cb 	.word	0x200004cb
- 80003f4:	200004cc 	.word	0x200004cc
- 80003f8:	200004cd 	.word	0x200004cd
- 80003fc:	200004ce 	.word	0x200004ce
- 8000400:	200004cf 	.word	0x200004cf
+ 80002d2:	bf00      	nop
+ 80002d4:	46bd      	mov	sp, r7
+ 80002d6:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80002da:	4770      	bx	lr
+ 80002dc:	20000184 	.word	0x20000184
+ 80002e0:	200004c8 	.word	0x200004c8
+ 80002e4:	200004c9 	.word	0x200004c9
+ 80002e8:	200004ca 	.word	0x200004ca
+ 80002ec:	200004cb 	.word	0x200004cb
+ 80002f0:	200004cc 	.word	0x200004cc
+ 80002f4:	200004cd 	.word	0x200004cd
+ 80002f8:	200004ce 	.word	0x200004ce
+ 80002fc:	200004cf 	.word	0x200004cf
 
-08000404 <UpdateJoystick>:
+08000300 <UpdateJoystick>:
 
 void UpdateJoystick (void)
 {
- 8000404:	b580      	push	{r7, lr}
- 8000406:	af00      	add	r7, sp, #0
+ 8000300:	b580      	push	{r7, lr}
+ 8000302:	af00      	add	r7, sp, #0
 	ScaleData();
- 8000408:	f7ff ff22 	bl	8000250 <ScaleData>
+ 8000304:	f000 f864 	bl	80003d0 <ScaleData>
     gamepad_report.x1 = adc_x1;
- 800040c:	4b0a      	ldr	r3, [pc, #40]	; (8000438 <UpdateJoystick+0x34>)
- 800040e:	f993 2000 	ldrsb.w	r2, [r3]
- 8000412:	4b0a      	ldr	r3, [pc, #40]	; (800043c <UpdateJoystick+0x38>)
- 8000414:	709a      	strb	r2, [r3, #2]
+ 8000308:	4b0a      	ldr	r3, [pc, #40]	; (8000334 <UpdateJoystick+0x34>)
+ 800030a:	f993 2000 	ldrsb.w	r2, [r3]
+ 800030e:	4b0a      	ldr	r3, [pc, #40]	; (8000338 <UpdateJoystick+0x38>)
+ 8000310:	709a      	strb	r2, [r3, #2]
     gamepad_report.y1 = adc_y1;
- 8000416:	4b0a      	ldr	r3, [pc, #40]	; (8000440 <UpdateJoystick+0x3c>)
- 8000418:	f993 2000 	ldrsb.w	r2, [r3]
- 800041c:	4b07      	ldr	r3, [pc, #28]	; (800043c <UpdateJoystick+0x38>)
- 800041e:	70da      	strb	r2, [r3, #3]
+ 8000312:	4b0a      	ldr	r3, [pc, #40]	; (800033c <UpdateJoystick+0x3c>)
+ 8000314:	f993 2000 	ldrsb.w	r2, [r3]
+ 8000318:	4b07      	ldr	r3, [pc, #28]	; (8000338 <UpdateJoystick+0x38>)
+ 800031a:	70da      	strb	r2, [r3, #3]
     gamepad_report.x2 = adc_x2;
- 8000420:	4b08      	ldr	r3, [pc, #32]	; (8000444 <UpdateJoystick+0x40>)
- 8000422:	f993 2000 	ldrsb.w	r2, [r3]
- 8000426:	4b05      	ldr	r3, [pc, #20]	; (800043c <UpdateJoystick+0x38>)
- 8000428:	711a      	strb	r2, [r3, #4]
+ 800031c:	4b08      	ldr	r3, [pc, #32]	; (8000340 <UpdateJoystick+0x40>)
+ 800031e:	f993 2000 	ldrsb.w	r2, [r3]
+ 8000322:	4b05      	ldr	r3, [pc, #20]	; (8000338 <UpdateJoystick+0x38>)
+ 8000324:	711a      	strb	r2, [r3, #4]
     gamepad_report.y2 = adc_y2;
- 800042a:	4b07      	ldr	r3, [pc, #28]	; (8000448 <UpdateJoystick+0x44>)
- 800042c:	f993 2000 	ldrsb.w	r2, [r3]
- 8000430:	4b02      	ldr	r3, [pc, #8]	; (800043c <UpdateJoystick+0x38>)
- 8000432:	715a      	strb	r2, [r3, #5]
+ 8000326:	4b07      	ldr	r3, [pc, #28]	; (8000344 <UpdateJoystick+0x44>)
+ 8000328:	f993 2000 	ldrsb.w	r2, [r3]
+ 800032c:	4b02      	ldr	r3, [pc, #8]	; (8000338 <UpdateJoystick+0x38>)
+ 800032e:	715a      	strb	r2, [r3, #5]
 }
- 8000434:	bf00      	nop
- 8000436:	bd80      	pop	{r7, pc}
- 8000438:	20000194 	.word	0x20000194
- 800043c:	20000198 	.word	0x20000198
- 8000440:	20000196 	.word	0x20000196
- 8000444:	20000195 	.word	0x20000195
- 8000448:	20000197 	.word	0x20000197
+ 8000330:	bf00      	nop
+ 8000332:	bd80      	pop	{r7, pc}
+ 8000334:	2000019c 	.word	0x2000019c
+ 8000338:	20000184 	.word	0x20000184
+ 800033c:	2000019e 	.word	0x2000019e
+ 8000340:	2000019d 	.word	0x2000019d
+ 8000344:	2000019f 	.word	0x2000019f
 
-0800044c <HAL_ADC_ConvCpltCallback>:
+08000348 <HAL_ADC_ConvCpltCallback>:
 
 void HAL_ADC_ConvCpltCallback (ADC_HandleTypeDef* hadc)
 {
- 800044c:	b580      	push	{r7, lr}
- 800044e:	b082      	sub	sp, #8
- 8000450:	af00      	add	r7, sp, #0
- 8000452:	6078      	str	r0, [r7, #4]
+ 8000348:	b580      	push	{r7, lr}
+ 800034a:	b082      	sub	sp, #8
+ 800034c:	af00      	add	r7, sp, #0
+ 800034e:	6078      	str	r0, [r7, #4]
 	if (hadc == &hadc1 || hadc == &hadc2)
- 8000454:	687b      	ldr	r3, [r7, #4]
- 8000456:	4a06      	ldr	r2, [pc, #24]	; (8000470 <HAL_ADC_ConvCpltCallback+0x24>)
- 8000458:	4293      	cmp	r3, r2
- 800045a:	d003      	beq.n	8000464 <HAL_ADC_ConvCpltCallback+0x18>
- 800045c:	687b      	ldr	r3, [r7, #4]
- 800045e:	4a05      	ldr	r2, [pc, #20]	; (8000474 <HAL_ADC_ConvCpltCallback+0x28>)
- 8000460:	4293      	cmp	r3, r2
- 8000462:	d101      	bne.n	8000468 <HAL_ADC_ConvCpltCallback+0x1c>
+ 8000350:	687b      	ldr	r3, [r7, #4]
+ 8000352:	4a06      	ldr	r2, [pc, #24]	; (800036c <HAL_ADC_ConvCpltCallback+0x24>)
+ 8000354:	4293      	cmp	r3, r2
+ 8000356:	d003      	beq.n	8000360 <HAL_ADC_ConvCpltCallback+0x18>
+ 8000358:	687b      	ldr	r3, [r7, #4]
+ 800035a:	4a05      	ldr	r2, [pc, #20]	; (8000370 <HAL_ADC_ConvCpltCallback+0x28>)
+ 800035c:	4293      	cmp	r3, r2
+ 800035e:	d101      	bne.n	8000364 <HAL_ADC_ConvCpltCallback+0x1c>
 	{
 		SendReport ();
- 8000464:	f000 f808 	bl	8000478 <SendReport>
+ 8000360:	f000 f808 	bl	8000374 <SendReport>
 	}
 }
- 8000468:	bf00      	nop
- 800046a:	3708      	adds	r7, #8
- 800046c:	46bd      	mov	sp, r7
- 800046e:	bd80      	pop	{r7, pc}
- 8000470:	200001a0 	.word	0x200001a0
- 8000474:	2000020c 	.word	0x2000020c
+ 8000364:	bf00      	nop
+ 8000366:	3708      	adds	r7, #8
+ 8000368:	46bd      	mov	sp, r7
+ 800036a:	bd80      	pop	{r7, pc}
+ 800036c:	200001a0 	.word	0x200001a0
+ 8000370:	2000020c 	.word	0x2000020c
 
-08000478 <SendReport>:
+08000374 <SendReport>:
 
 void SendReport (void)
 {
- 8000478:	b580      	push	{r7, lr}
- 800047a:	af00      	add	r7, sp, #0
+ 8000374:	b580      	push	{r7, lr}
+ 8000376:	af00      	add	r7, sp, #0
     UpdateButton();
- 800047c:	f7ff ff4e 	bl	800031c <UpdateButton>
+ 8000378:	f7ff ff4e 	bl	8000218 <UpdateButton>
     UpdateJoystick();
- 8000480:	f7ff ffc0 	bl	8000404 <UpdateJoystick>
+ 800037c:	f7ff ffc0 	bl	8000300 <UpdateJoystick>
     USBD_HID_SendReport (&hUsbDeviceFS, (uint8_t *) &gamepad_report, sizeof (gamepad_report));
- 8000484:	2206      	movs	r2, #6
- 8000486:	4903      	ldr	r1, [pc, #12]	; (8000494 <SendReport+0x1c>)
- 8000488:	4803      	ldr	r0, [pc, #12]	; (8000498 <SendReport+0x20>)
- 800048a:	f009 fd51 	bl	8009f30 <USBD_HID_SendReport>
+ 8000380:	2206      	movs	r2, #6
+ 8000382:	4903      	ldr	r1, [pc, #12]	; (8000390 <SendReport+0x1c>)
+ 8000384:	4803      	ldr	r0, [pc, #12]	; (8000394 <SendReport+0x20>)
+ 8000386:	f009 fdd3 	bl	8009f30 <USBD_HID_SendReport>
 }
- 800048e:	bf00      	nop
- 8000490:	bd80      	pop	{r7, pc}
- 8000492:	bf00      	nop
- 8000494:	20000198 	.word	0x20000198
- 8000498:	200004e8 	.word	0x200004e8
+ 800038a:	bf00      	nop
+ 800038c:	bd80      	pop	{r7, pc}
+ 800038e:	bf00      	nop
+ 8000390:	20000184 	.word	0x20000184
+ 8000394:	200004e8 	.word	0x200004e8
+
+08000398 <ADC_DMA_Init>:
+
+int8_t adc_x1, adc_x2;
+int8_t adc_y1, adc_y2;
+
+void ADC_DMA_Init (void)
+{
+ 8000398:	b580      	push	{r7, lr}
+ 800039a:	af00      	add	r7, sp, #0
+	HAL_ADC_Start_DMA (&hadc1, (uint32_t *)adc_buffer1, BUFFER_SIZE);
+ 800039c:	2202      	movs	r2, #2
+ 800039e:	4907      	ldr	r1, [pc, #28]	; (80003bc <ADC_DMA_Init+0x24>)
+ 80003a0:	4807      	ldr	r0, [pc, #28]	; (80003c0 <ADC_DMA_Init+0x28>)
+ 80003a2:	f001 fc09 	bl	8001bb8 <HAL_ADC_Start_DMA>
+	HAL_ADC_Start_DMA (&hadc2, (uint32_t *)adc_buffer2, BUFFER_SIZE);
+ 80003a6:	2202      	movs	r2, #2
+ 80003a8:	4906      	ldr	r1, [pc, #24]	; (80003c4 <ADC_DMA_Init+0x2c>)
+ 80003aa:	4807      	ldr	r0, [pc, #28]	; (80003c8 <ADC_DMA_Init+0x30>)
+ 80003ac:	f001 fc04 	bl	8001bb8 <HAL_ADC_Start_DMA>
+
+	HAL_TIM_Base_Start (&htim6);
+ 80003b0:	4806      	ldr	r0, [pc, #24]	; (80003cc <ADC_DMA_Init+0x34>)
+ 80003b2:	f005 ff1d 	bl	80061f0 <HAL_TIM_Base_Start>
+}
+ 80003b6:	bf00      	nop
+ 80003b8:	bd80      	pop	{r7, pc}
+ 80003ba:	bf00      	nop
+ 80003bc:	2000018c 	.word	0x2000018c
+ 80003c0:	200001a0 	.word	0x200001a0
+ 80003c4:	20000194 	.word	0x20000194
+ 80003c8:	2000020c 	.word	0x2000020c
+ 80003cc:	200003d0 	.word	0x200003d0
+
+080003d0 <ScaleData>:
+
+void ScaleData (void)
+{
+ 80003d0:	b480      	push	{r7}
+ 80003d2:	af00      	add	r7, sp, #0
+	adc_x1 = (int8_t)((adc_buffer1 [0] / 4095) * 510) - 255;
+ 80003d4:	4b2a      	ldr	r3, [pc, #168]	; (8000480 <ScaleData+0xb0>)
+ 80003d6:	681a      	ldr	r2, [r3, #0]
+ 80003d8:	4b2a      	ldr	r3, [pc, #168]	; (8000484 <ScaleData+0xb4>)
+ 80003da:	fba3 1302 	umull	r1, r3, r3, r2
+ 80003de:	1ad2      	subs	r2, r2, r3
+ 80003e0:	0852      	lsrs	r2, r2, #1
+ 80003e2:	4413      	add	r3, r2
+ 80003e4:	0adb      	lsrs	r3, r3, #11
+ 80003e6:	b2db      	uxtb	r3, r3
+ 80003e8:	461a      	mov	r2, r3
+ 80003ea:	01d2      	lsls	r2, r2, #7
+ 80003ec:	1ad3      	subs	r3, r2, r3
+ 80003ee:	005b      	lsls	r3, r3, #1
+ 80003f0:	b2db      	uxtb	r3, r3
+ 80003f2:	3301      	adds	r3, #1
+ 80003f4:	b2db      	uxtb	r3, r3
+ 80003f6:	b25a      	sxtb	r2, r3
+ 80003f8:	4b23      	ldr	r3, [pc, #140]	; (8000488 <ScaleData+0xb8>)
+ 80003fa:	701a      	strb	r2, [r3, #0]
+	adc_y1 = (int8_t)((adc_buffer1 [1] / 4095) * 510) - 255;
+ 80003fc:	4b20      	ldr	r3, [pc, #128]	; (8000480 <ScaleData+0xb0>)
+ 80003fe:	685a      	ldr	r2, [r3, #4]
+ 8000400:	4b20      	ldr	r3, [pc, #128]	; (8000484 <ScaleData+0xb4>)
+ 8000402:	fba3 1302 	umull	r1, r3, r3, r2
+ 8000406:	1ad2      	subs	r2, r2, r3
+ 8000408:	0852      	lsrs	r2, r2, #1
+ 800040a:	4413      	add	r3, r2
+ 800040c:	0adb      	lsrs	r3, r3, #11
+ 800040e:	b2db      	uxtb	r3, r3
+ 8000410:	461a      	mov	r2, r3
+ 8000412:	01d2      	lsls	r2, r2, #7
+ 8000414:	1ad3      	subs	r3, r2, r3
+ 8000416:	005b      	lsls	r3, r3, #1
+ 8000418:	b2db      	uxtb	r3, r3
+ 800041a:	3301      	adds	r3, #1
+ 800041c:	b2db      	uxtb	r3, r3
+ 800041e:	b25a      	sxtb	r2, r3
+ 8000420:	4b1a      	ldr	r3, [pc, #104]	; (800048c <ScaleData+0xbc>)
+ 8000422:	701a      	strb	r2, [r3, #0]
+	adc_x2 = (int8_t)((adc_buffer2 [0] / 4095) * 510) - 255;
+ 8000424:	4b1a      	ldr	r3, [pc, #104]	; (8000490 <ScaleData+0xc0>)
+ 8000426:	681a      	ldr	r2, [r3, #0]
+ 8000428:	4b16      	ldr	r3, [pc, #88]	; (8000484 <ScaleData+0xb4>)
+ 800042a:	fba3 1302 	umull	r1, r3, r3, r2
+ 800042e:	1ad2      	subs	r2, r2, r3
+ 8000430:	0852      	lsrs	r2, r2, #1
+ 8000432:	4413      	add	r3, r2
+ 8000434:	0adb      	lsrs	r3, r3, #11
+ 8000436:	b2db      	uxtb	r3, r3
+ 8000438:	461a      	mov	r2, r3
+ 800043a:	01d2      	lsls	r2, r2, #7
+ 800043c:	1ad3      	subs	r3, r2, r3
+ 800043e:	005b      	lsls	r3, r3, #1
+ 8000440:	b2db      	uxtb	r3, r3
+ 8000442:	3301      	adds	r3, #1
+ 8000444:	b2db      	uxtb	r3, r3
+ 8000446:	b25a      	sxtb	r2, r3
+ 8000448:	4b12      	ldr	r3, [pc, #72]	; (8000494 <ScaleData+0xc4>)
+ 800044a:	701a      	strb	r2, [r3, #0]
+	adc_y2 = (int8_t)((adc_buffer2 [1] / 4095) * 510) - 255;
+ 800044c:	4b10      	ldr	r3, [pc, #64]	; (8000490 <ScaleData+0xc0>)
+ 800044e:	685a      	ldr	r2, [r3, #4]
+ 8000450:	4b0c      	ldr	r3, [pc, #48]	; (8000484 <ScaleData+0xb4>)
+ 8000452:	fba3 1302 	umull	r1, r3, r3, r2
+ 8000456:	1ad2      	subs	r2, r2, r3
+ 8000458:	0852      	lsrs	r2, r2, #1
+ 800045a:	4413      	add	r3, r2
+ 800045c:	0adb      	lsrs	r3, r3, #11
+ 800045e:	b2db      	uxtb	r3, r3
+ 8000460:	461a      	mov	r2, r3
+ 8000462:	01d2      	lsls	r2, r2, #7
+ 8000464:	1ad3      	subs	r3, r2, r3
+ 8000466:	005b      	lsls	r3, r3, #1
+ 8000468:	b2db      	uxtb	r3, r3
+ 800046a:	3301      	adds	r3, #1
+ 800046c:	b2db      	uxtb	r3, r3
+ 800046e:	b25a      	sxtb	r2, r3
+ 8000470:	4b09      	ldr	r3, [pc, #36]	; (8000498 <ScaleData+0xc8>)
+ 8000472:	701a      	strb	r2, [r3, #0]
+}
+ 8000474:	bf00      	nop
+ 8000476:	46bd      	mov	sp, r7
+ 8000478:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800047c:	4770      	bx	lr
+ 800047e:	bf00      	nop
+ 8000480:	2000018c 	.word	0x2000018c
+ 8000484:	00100101 	.word	0x00100101
+ 8000488:	2000019c 	.word	0x2000019c
+ 800048c:	2000019e 	.word	0x2000019e
+ 8000490:	20000194 	.word	0x20000194
+ 8000494:	2000019d 	.word	0x2000019d
+ 8000498:	2000019f 	.word	0x2000019f
 
 0800049c <main>:
 /**
@@ -464,7 +464,7 @@ int main(void)
  80004c8:	f000 f9ae 	bl	8000828 <MX_TIM4_Init>
   /* USER CODE BEGIN 2 */
   ADC_DMA_Init();
- 80004cc:	f7ff fea4 	bl	8000218 <ADC_DMA_Init>
+ 80004cc:	f7ff ff64 	bl	8000398 <ADC_DMA_Init>
   while (1)
   {
     /* USER CODE END WHILE */
@@ -474,7 +474,7 @@ int main(void)
  80004d0:	4b02      	ldr	r3, [pc, #8]	; (80004dc <main+0x40>)
  80004d2:	681b      	ldr	r3, [r3, #0]
  80004d4:	4618      	mov	r0, r3
- 80004d6:	f7ff ffb9 	bl	800044c <HAL_ADC_ConvCpltCallback>
+ 80004d6:	f7ff ff37 	bl	8000348 <HAL_ADC_ConvCpltCallback>
  80004da:	e7f9      	b.n	80004d0 <main+0x34>
  80004dc:	200004d0 	.word	0x200004d0
 
@@ -1785,7 +1785,7 @@ void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 	{
 		  CounterSwitch();
 	}*/
-	if (GPIO_Pin == GPIO_PIN_5)
+  	if (GPIO_Pin == GPIO_PIN_5)
  8000c72:	88fb      	ldrh	r3, [r7, #6]
  8000c74:	2b20      	cmp	r3, #32
  8000c76:	d124      	bne.n	8000cc2 <HAL_GPIO_EXTI_Callback+0x5a>
@@ -5283,7 +5283,7 @@ void HAL_ADC_IRQHandler(ADC_HandleTypeDef *hadc)
 #else
     HAL_ADC_ConvCpltCallback(hadc);
  8001e9a:	6878      	ldr	r0, [r7, #4]
- 8001e9c:	f7fe fad6 	bl	800044c <HAL_ADC_ConvCpltCallback>
+ 8001e9c:	f7fe fa54 	bl	8000348 <HAL_ADC_ConvCpltCallback>
     /* Clear regular group conversion flag */
     /* Note: in case of overrun set to ADC_OVR_DATA_PRESERVED, end of         */
     /*       conversion flags clear induces the release of the preserved data.*/
@@ -7283,7 +7283,7 @@ void ADC_DMAConvCplt(DMA_HandleTypeDef *hdma)
 #else
     HAL_ADC_ConvCpltCallback(hadc);
  8002b26:	68f8      	ldr	r0, [r7, #12]
- 8002b28:	f7fd fc90 	bl	800044c <HAL_ADC_ConvCpltCallback>
+ 8002b28:	f7fd fc0e 	bl	8000348 <HAL_ADC_ConvCpltCallback>
     {
       /* Call ADC DMA error callback */
       hadc->DMA_Handle->XferErrorCallback(hdma);
@@ -24427,9 +24427,9 @@ static uint8_t USBD_HID_Setup(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *re
             len = MIN(HID_MOUSE_REPORT_DESC_SIZE, req->wLength);
  8009e5e:	683b      	ldr	r3, [r7, #0]
  8009e60:	88db      	ldrh	r3, [r3, #6]
- 8009e62:	2b4a      	cmp	r3, #74	; 0x4a
+ 8009e62:	2b49      	cmp	r3, #73	; 0x49
  8009e64:	bf28      	it	cs
- 8009e66:	234a      	movcs	r3, #74	; 0x4a
+ 8009e66:	2349      	movcs	r3, #73	; 0x49
  8009e68:	82bb      	strh	r3, [r7, #20]
             pbuf = HID_MOUSE_ReportDesc;
  8009e6a:	4b2f      	ldr	r3, [pc, #188]	; (8009f28 <USBD_HID_Setup+0x200>)

@@ -62,20 +62,215 @@ Discarded input sections
  .ARM.attributes
                 0x0000000000000000       0x1c D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/Backlight,Menu,NRST.o
  .text          0x0000000000000000        0x0 ./Core/Src/Backlight,Menu,NRST.o
  .data          0x0000000000000000        0x0 ./Core/Src/Backlight,Menu,NRST.o
  .bss           0x0000000000000000        0x0 ./Core/Src/Backlight,Menu,NRST.o
- .debug_info    0x0000000000000000       0x22 ./Core/Src/Backlight,Menu,NRST.o
- .debug_abbrev  0x0000000000000000       0x12 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_info    0x0000000000000000       0x70 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_abbrev  0x0000000000000000       0x28 ./Core/Src/Backlight,Menu,NRST.o
  .debug_aranges
                 0x0000000000000000       0x18 ./Core/Src/Backlight,Menu,NRST.o
- .debug_macro   0x0000000000000000       0x25 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x215 ./Core/Src/Backlight,Menu,NRST.o
  .debug_macro   0x0000000000000000      0xaa8 ./Core/Src/Backlight,Menu,NRST.o
- .debug_line    0x0000000000000000       0x79 ./Core/Src/Backlight,Menu,NRST.o
- .debug_str     0x0000000000000000     0x2e01 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x161 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x2e ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x28 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x8e ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x51 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x103 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x6a ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x1df ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x1c ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0xfb ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000     0x1011 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x11f ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000    0x11350 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x6d ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000     0x354d ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x174 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x5c ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000     0x141d ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x535 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x1b6 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x288 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x41d ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x18b ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x43 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x23d ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000     0x1112 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x72e ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x391 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x211 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x401 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x107 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000       0x73 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x22d ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x122 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x3d1 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0xbda ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x47e ./Core/Src/Backlight,Menu,NRST.o
+ .debug_macro   0x0000000000000000      0x306 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_line    0x0000000000000000      0x7b7 ./Core/Src/Backlight,Menu,NRST.o
+ .debug_str     0x0000000000000000    0xce8fe ./Core/Src/Backlight,Menu,NRST.o
  .comment       0x0000000000000000       0x44 ./Core/Src/Backlight,Menu,NRST.o
  .ARM.attributes
                 0x0000000000000000       0x34 ./Core/Src/Backlight,Menu,NRST.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .group         0x0000000000000000        0xc ./Core/Src/HID.o
+ .text          0x0000000000000000        0x0 ./Core/Src/HID.o
+ .data          0x0000000000000000        0x0 ./Core/Src/HID.o
+ .bss           0x0000000000000000        0x0 ./Core/Src/HID.o
+ .rodata.HID_ReportDescriptor
+                0x0000000000000000       0x49 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0xaa8 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x161 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x2e ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x28 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x8e ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x51 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x103 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x6a ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x1df ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x1c ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0xfb ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000     0x1011 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x11f ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000    0x11350 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x6d ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000     0x354d ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x174 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x5c ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000     0x141d ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x535 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x1b6 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x288 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x41d ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x18b ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x43 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x23d ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000     0x1112 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x72e ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x391 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x211 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x401 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x107 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000       0x73 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x22d ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x122 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x3d1 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0xbda ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x47e ./Core/Src/HID.o
+ .debug_macro   0x0000000000000000      0x306 ./Core/Src/HID.o
  .group         0x0000000000000000        0xc ./Core/Src/Joystick ADC.o
  .group         0x0000000000000000        0xc ./Core/Src/Joystick ADC.o
  .group         0x0000000000000000        0xc ./Core/Src/Joystick ADC.o
@@ -122,6 +317,47 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ./Core/Src/Joystick ADC.o
  .bss           0x0000000000000000        0x0 ./Core/Src/Joystick ADC.o
  .debug_macro   0x0000000000000000      0xaa8 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x10 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x161 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x2e ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x28 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x8e ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x51 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x103 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x6a ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x1df ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x1c ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x22 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0xfb ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000     0x1011 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x11f ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000    0x11350 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x6d ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000     0x354d ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x174 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x5c ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000     0x141d ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x535 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x1b6 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x288 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x41d ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x18b ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x43 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x23d ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000     0x1112 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x72e ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x391 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x211 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x401 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x107 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000       0x73 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x22d ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x122 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x3d1 ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0xbda ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x47e ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000000000      0x306 ./Core/Src/Joystick ADC.o
  .group         0x0000000000000000        0xc ./Core/Src/RGB.o
  .group         0x0000000000000000        0xc ./Core/Src/RGB.o
  .group         0x0000000000000000        0xc ./Core/Src/RGB.o
@@ -167,24 +403,23 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Core/Src/RGB.o
  .data          0x0000000000000000        0x0 ./Core/Src/RGB.o
  .bss           0x0000000000000000        0x0 ./Core/Src/RGB.o
- .bss.pwmData   0x0000000000000000      0x300 ./Core/Src/RGB.o
+ .bss.pwmData   0x0000000000000000       0xc0 ./Core/Src/RGB.o
  .bss.counter   0x0000000000000000        0x4 ./Core/Src/RGB.o
- .text.setColor
-                0x0000000000000000       0xb4 ./Core/Src/RGB.o
- .text.PWMPush  0x0000000000000000       0x2c ./Core/Src/RGB.o
- .text.CounterSwitch
+ .text.set_led_color
+                0x0000000000000000       0xb0 ./Core/Src/RGB.o
+ .text.set_pwm  0x0000000000000000       0x24 ./Core/Src/RGB.o
+ .text.switch_counter
                 0x0000000000000000       0x30 ./Core/Src/RGB.o
- .text.ChangeMode
+ .text.mode_switch
                 0x0000000000000000       0x48 ./Core/Src/RGB.o
- .text.clearLEDs
+ .text.leds_off
                 0x0000000000000000       0x2e ./Core/Src/RGB.o
- .text.Blinking
-                0x0000000000000000       0xd0 ./Core/Src/RGB.o
- .text.Gradient
+ .text.pulse    0x0000000000000000       0xd0 ./Core/Src/RGB.o
+ .text.gradient
                 0x0000000000000000        0xe ./Core/Src/RGB.o
- .text.Wawe     0x0000000000000000        0xe ./Core/Src/RGB.o
- .debug_info    0x0000000000000000      0xab3 ./Core/Src/RGB.o
- .debug_abbrev  0x0000000000000000      0x26b ./Core/Src/RGB.o
+ .text.wawe     0x0000000000000000        0xe ./Core/Src/RGB.o
+ .debug_info    0x0000000000000000      0xac2 ./Core/Src/RGB.o
+ .debug_abbrev  0x0000000000000000      0x25f ./Core/Src/RGB.o
  .debug_aranges
                 0x0000000000000000       0x58 ./Core/Src/RGB.o
  .debug_rnglists
@@ -231,129 +466,13 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0xbda ./Core/Src/RGB.o
  .debug_macro   0x0000000000000000      0x47e ./Core/Src/RGB.o
  .debug_macro   0x0000000000000000      0x306 ./Core/Src/RGB.o
- .debug_macro   0x0000000000000000       0x28 ./Core/Src/RGB.o
- .debug_line    0x0000000000000000      0x97f ./Core/Src/RGB.o
- .debug_str     0x0000000000000000    0xcf080 ./Core/Src/RGB.o
+ .debug_macro   0x0000000000000000       0x2e ./Core/Src/RGB.o
+ .debug_line    0x0000000000000000      0x97d ./Core/Src/RGB.o
+ .debug_str     0x0000000000000000    0xcf0ad ./Core/Src/RGB.o
  .comment       0x0000000000000000       0x44 ./Core/Src/RGB.o
  .debug_frame   0x0000000000000000      0x118 ./Core/Src/RGB.o
  .ARM.attributes
                 0x0000000000000000       0x34 ./Core/Src/RGB.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .group         0x0000000000000000        0xc ./Core/Src/Type-C.o
- .text          0x0000000000000000        0x0 ./Core/Src/Type-C.o
- .data          0x0000000000000000        0x0 ./Core/Src/Type-C.o
- .bss           0x0000000000000000        0x0 ./Core/Src/Type-C.o
- .rodata.HID_ReportDescriptor
-                0x0000000000000000       0x49 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0xaa8 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x161 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x2e ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x28 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x22 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x8e ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x51 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x103 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x6a ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x1df ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x1c ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x22 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0xfb ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000     0x1011 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x11f ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000    0x11350 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x6d ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000     0x354d ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x174 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x5c ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000     0x141d ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x535 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x1b6 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x288 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x41d ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x18b ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x43 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x23d ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000     0x1112 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x72e ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x391 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x211 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x401 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x107 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x73 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x22d ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x122 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x3d1 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0xbda ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x47e ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000      0x306 ./Core/Src/Type-C.o
- .debug_macro   0x0000000000000000       0x10 ./Core/Src/Type-C.o
  .group         0x0000000000000000        0xc ./Core/Src/Vibromotors.o
  .group         0x0000000000000000        0xc ./Core/Src/Vibromotors.o
  .group         0x0000000000000000        0xc ./Core/Src/Vibromotors.o
@@ -805,7 +924,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x65 ./Core/Src/stm32g4xx_hal_msp.o
  .debug_macro   0x0000000000000000      0x1ef ./Core/Src/stm32g4xx_hal_msp.o
  .debug_macro   0x0000000000000000       0x10 ./Core/Src/stm32g4xx_hal_msp.o
- .debug_macro   0x0000000000000000       0x2e ./Core/Src/stm32g4xx_hal_msp.o
+ .debug_macro   0x0000000000000000       0x34 ./Core/Src/stm32g4xx_hal_msp.o
  .group         0x0000000000000000        0xc ./Core/Src/stm32g4xx_it.o
  .group         0x0000000000000000        0xc ./Core/Src/stm32g4xx_it.o
  .group         0x0000000000000000        0xc ./Core/Src/stm32g4xx_it.o
@@ -946,7 +1065,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x65 ./Core/Src/stm32g4xx_it.o
  .debug_macro   0x0000000000000000      0x1ef ./Core/Src/stm32g4xx_it.o
  .debug_macro   0x0000000000000000       0x10 ./Core/Src/stm32g4xx_it.o
- .debug_macro   0x0000000000000000       0x2e ./Core/Src/stm32g4xx_it.o
+ .debug_macro   0x0000000000000000       0x34 ./Core/Src/stm32g4xx_it.o
  .group         0x0000000000000000        0xc ./Core/Src/syscalls.o
  .group         0x0000000000000000        0xc ./Core/Src/syscalls.o
  .group         0x0000000000000000        0xc ./Core/Src/syscalls.o
@@ -4699,6 +4818,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x20 ./USB_Device/App/usb_device.o
  .debug_macro   0x0000000000000000       0x65 ./USB_Device/App/usb_device.o
  .debug_macro   0x0000000000000000      0x1ef ./USB_Device/App/usb_device.o
+ .debug_macro   0x0000000000000000       0x5e ./USB_Device/App/usb_device.o
  .group         0x0000000000000000        0xc ./USB_Device/App/usbd_desc.o
  .group         0x0000000000000000        0xc ./USB_Device/App/usbd_desc.o
  .group         0x0000000000000000        0xc ./USB_Device/App/usbd_desc.o
@@ -5236,9 +5356,9 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
 LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
 LOAD ./Core/Src/Backlight,Menu,NRST.o
+LOAD ./Core/Src/HID.o
 LOAD ./Core/Src/Joystick ADC.o
 LOAD ./Core/Src/RGB.o
-LOAD ./Core/Src/Type-C.o
 LOAD ./Core/Src/Vibromotors.o
 LOAD ./Core/Src/main.o
 LOAD ./Core/Src/stm32g4xx_hal_msp.o
@@ -5311,24 +5431,24 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
  *(.text)
  .text          0x00000000080001d8       0x40 D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.text*)
- .text.ADC_DMA_Init
-                0x0000000008000218       0x38 ./Core/Src/Joystick ADC.o
-                0x0000000008000218                ADC_DMA_Init
- .text.ScaleData
-                0x0000000008000250       0xcc ./Core/Src/Joystick ADC.o
-                0x0000000008000250                ScaleData
  .text.UpdateButton
-                0x000000000800031c       0xe8 ./Core/Src/Type-C.o
-                0x000000000800031c                UpdateButton
+                0x0000000008000218       0xe8 ./Core/Src/HID.o
+                0x0000000008000218                UpdateButton
  .text.UpdateJoystick
-                0x0000000008000404       0x48 ./Core/Src/Type-C.o
-                0x0000000008000404                UpdateJoystick
+                0x0000000008000300       0x48 ./Core/Src/HID.o
+                0x0000000008000300                UpdateJoystick
  .text.HAL_ADC_ConvCpltCallback
-                0x000000000800044c       0x2c ./Core/Src/Type-C.o
-                0x000000000800044c                HAL_ADC_ConvCpltCallback
+                0x0000000008000348       0x2c ./Core/Src/HID.o
+                0x0000000008000348                HAL_ADC_ConvCpltCallback
  .text.SendReport
-                0x0000000008000478       0x24 ./Core/Src/Type-C.o
-                0x0000000008000478                SendReport
+                0x0000000008000374       0x24 ./Core/Src/HID.o
+                0x0000000008000374                SendReport
+ .text.ADC_DMA_Init
+                0x0000000008000398       0x38 ./Core/Src/Joystick ADC.o
+                0x0000000008000398                ADC_DMA_Init
+ .text.ScaleData
+                0x00000000080003d0       0xcc ./Core/Src/Joystick ADC.o
+                0x00000000080003d0                ScaleData
  .text.main     0x000000000800049c       0x44 ./Core/Src/main.o
                 0x000000000800049c                main
  .text.SystemClock_Config
@@ -6184,8 +6304,8 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
                 0x00000000200000bc        0xa ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
  *fill*         0x00000000200000c6        0x2 
  .data.HID_MOUSE_ReportDesc
-                0x00000000200000c8       0x4a ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
- *fill*         0x0000000020000112        0x2 
+                0x00000000200000c8       0x49 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
+ *fill*         0x0000000020000111        0x3 
  .data.HID_Desc
                 0x0000000020000114       0x20 ./USB_Device/App/usbd_desc.o
                 0x0000000020000114                HID_Desc
@@ -6215,24 +6335,24 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
  *(.bss)
  .bss           0x0000000020000168       0x1c D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.bss*)
- .bss.adc_buffer1
-                0x0000000020000184        0x8 ./Core/Src/Joystick ADC.o
-                0x0000000020000184                adc_buffer1
- .bss.adc_buffer2
-                0x000000002000018c        0x8 ./Core/Src/Joystick ADC.o
-                0x000000002000018c                adc_buffer2
- .bss.adc_x1    0x0000000020000194        0x1 ./Core/Src/Joystick ADC.o
-                0x0000000020000194                adc_x1
- .bss.adc_x2    0x0000000020000195        0x1 ./Core/Src/Joystick ADC.o
-                0x0000000020000195                adc_x2
- .bss.adc_y1    0x0000000020000196        0x1 ./Core/Src/Joystick ADC.o
-                0x0000000020000196                adc_y1
- .bss.adc_y2    0x0000000020000197        0x1 ./Core/Src/Joystick ADC.o
-                0x0000000020000197                adc_y2
  .bss.gamepad_report
-                0x0000000020000198        0x6 ./Core/Src/Type-C.o
-                0x0000000020000198                gamepad_report
- *fill*         0x000000002000019e        0x2 
+                0x0000000020000184        0x6 ./Core/Src/HID.o
+                0x0000000020000184                gamepad_report
+ *fill*         0x000000002000018a        0x2 
+ .bss.adc_buffer1
+                0x000000002000018c        0x8 ./Core/Src/Joystick ADC.o
+                0x000000002000018c                adc_buffer1
+ .bss.adc_buffer2
+                0x0000000020000194        0x8 ./Core/Src/Joystick ADC.o
+                0x0000000020000194                adc_buffer2
+ .bss.adc_x1    0x000000002000019c        0x1 ./Core/Src/Joystick ADC.o
+                0x000000002000019c                adc_x1
+ .bss.adc_x2    0x000000002000019d        0x1 ./Core/Src/Joystick ADC.o
+                0x000000002000019d                adc_x2
+ .bss.adc_y1    0x000000002000019e        0x1 ./Core/Src/Joystick ADC.o
+                0x000000002000019e                adc_y1
+ .bss.adc_y2    0x000000002000019f        0x1 ./Core/Src/Joystick ADC.o
+                0x000000002000019f                adc_y2
  .bss.hadc1     0x00000000200001a0       0x6c ./Core/Src/main.o
                 0x00000000200001a0                hadc1
  .bss.hadc2     0x000000002000020c       0x6c ./Core/Src/main.o
@@ -6322,9 +6442,9 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
  .ARM.attributes
                 0x000000000000001e       0x34 D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  .ARM.attributes
-                0x0000000000000052       0x34 ./Core/Src/Joystick ADC.o
+                0x0000000000000052       0x34 ./Core/Src/HID.o
  .ARM.attributes
-                0x0000000000000086       0x34 ./Core/Src/Type-C.o
+                0x0000000000000086       0x34 ./Core/Src/Joystick ADC.o
  .ARM.attributes
                 0x00000000000000ba       0x34 ./Core/Src/main.o
  .ARM.attributes
@@ -6392,8 +6512,8 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
 .comment        0x0000000000000000       0x43
  .comment       0x0000000000000000       0x43 D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.11.3.rel1.win32_1.1.100.202309141235/tools/bin/../lib/gcc/arm-none-eabi/11.3.1/thumb/v7e-m+fp/hard/crtbegin.o
                                          0x44 (size before relaxing)
+ .comment       0x0000000000000043       0x44 ./Core/Src/HID.o
  .comment       0x0000000000000043       0x44 ./Core/Src/Joystick ADC.o
- .comment       0x0000000000000043       0x44 ./Core/Src/Type-C.o
  .comment       0x0000000000000043       0x44 ./Core/Src/main.o
  .comment       0x0000000000000043       0x44 ./Core/Src/stm32g4xx_hal_msp.o
  .comment       0x0000000000000043       0x44 ./Core/Src/stm32g4xx_it.o
@@ -6421,8 +6541,8 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
  .comment       0x0000000000000043       0x44 ./USB_Device/Target/usbd_conf.o
 
 .debug_info     0x0000000000000000    0x1b821
- .debug_info    0x0000000000000000      0xd21 ./Core/Src/Joystick ADC.o
- .debug_info    0x0000000000000d21      0xe8b ./Core/Src/Type-C.o
+ .debug_info    0x0000000000000000      0xe8b ./Core/Src/HID.o
+ .debug_info    0x0000000000000e8b      0xd21 ./Core/Src/Joystick ADC.o
  .debug_info    0x0000000000001bac     0x1bdc ./Core/Src/main.o
  .debug_info    0x0000000000003788     0x1646 ./Core/Src/stm32g4xx_hal_msp.o
  .debug_info    0x0000000000004dce     0x12e7 ./Core/Src/stm32g4xx_it.o
@@ -6451,8 +6571,8 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
  .debug_info    0x0000000000019b75     0x1cac ./USB_Device/Target/usbd_conf.o
 
 .debug_abbrev   0x0000000000000000     0x3f8b
- .debug_abbrev  0x0000000000000000      0x1d5 ./Core/Src/Joystick ADC.o
- .debug_abbrev  0x00000000000001d5      0x212 ./Core/Src/Type-C.o
+ .debug_abbrev  0x0000000000000000      0x212 ./Core/Src/HID.o
+ .debug_abbrev  0x0000000000000212      0x1d5 ./Core/Src/Joystick ADC.o
  .debug_abbrev  0x00000000000003e7      0x30e ./Core/Src/main.o
  .debug_abbrev  0x00000000000006f5      0x29d ./Core/Src/stm32g4xx_hal_msp.o
  .debug_abbrev  0x0000000000000992      0x210 ./Core/Src/stm32g4xx_it.o
@@ -6482,9 +6602,9 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
 
 .debug_aranges  0x0000000000000000     0x1828
  .debug_aranges
-                0x0000000000000000       0x28 ./Core/Src/Joystick ADC.o
+                0x0000000000000000       0x38 ./Core/Src/HID.o
  .debug_aranges
-                0x0000000000000028       0x38 ./Core/Src/Type-C.o
+                0x0000000000000038       0x28 ./Core/Src/Joystick ADC.o
  .debug_aranges
                 0x0000000000000060       0x78 ./Core/Src/main.o
  .debug_aranges
@@ -6541,9 +6661,9 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
 .debug_rnglists
                 0x0000000000000000     0x1266
  .debug_rnglists
-                0x0000000000000000       0x1a ./Core/Src/Joystick ADC.o
+                0x0000000000000000       0x26 ./Core/Src/HID.o
  .debug_rnglists
-                0x000000000000001a       0x26 ./Core/Src/Type-C.o
+                0x0000000000000026       0x1a ./Core/Src/Joystick ADC.o
  .debug_rnglists
                 0x0000000000000040       0x5c ./Core/Src/main.o
  .debug_rnglists
@@ -6597,202 +6717,161 @@ LOAD D:/Study/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.m
  .debug_rnglists
                 0x0000000000001192       0xd4 ./USB_Device/Target/usbd_conf.o
 
-.debug_macro    0x0000000000000000    0x22118
- .debug_macro   0x0000000000000000      0x20a ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000000020a       0x10 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000000021a      0x161 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000000037b       0x2e ./Core/Src/Joystick ADC.o
- .debug_macro   0x00000000000003a9       0x28 ./Core/Src/Joystick ADC.o
- .debug_macro   0x00000000000003d1       0x22 ./Core/Src/Joystick ADC.o
- .debug_macro   0x00000000000003f3       0x8e ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000000481       0x51 ./Core/Src/Joystick ADC.o
- .debug_macro   0x00000000000004d2      0x103 ./Core/Src/Joystick ADC.o
- .debug_macro   0x00000000000005d5       0x6a ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000000063f      0x1df ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000000081e       0x1c ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000000083a       0x22 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000000085c       0xfb ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000000957     0x1011 ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000001968      0x11f ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000001a87    0x11350 ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000012dd7       0x6d ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000012e44     0x354d ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000016391      0x174 ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000016505       0x5c ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000016561     0x141d ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001797e      0x535 ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000017eb3      0x1b6 ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000018069      0x288 ./Core/Src/Joystick ADC.o
- .debug_macro   0x00000000000182f1      0x41d ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001870e      0x18b ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000018899       0x43 ./Core/Src/Joystick ADC.o
- .debug_macro   0x00000000000188dc      0x23d ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000018b19     0x1112 ./Core/Src/Joystick ADC.o
- .debug_macro   0x0000000000019c2b      0x72e ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001a359      0x391 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001a6ea      0x211 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001a8fb      0x401 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001acfc      0x107 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001ae03       0x73 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001ae76      0x22d ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001b0a3      0x122 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001b1c5      0x3d1 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001b596      0xbda ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001c170      0x47e ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001c5ee      0x306 ./Core/Src/Joystick ADC.o
- .debug_macro   0x000000000001c8f4      0x3b3 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001cca7       0x61 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001cd08       0x2a ./Core/Src/Type-C.o
- .debug_macro   0x000000000001cd32       0x43 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001cd75       0x34 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001cda9       0x16 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001cdbf       0x35 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001cdf4      0x369 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d15d       0x10 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d16d       0x16 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d183       0x43 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d1c6       0x34 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d1fa       0x10 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d20a       0x58 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d262       0x8e ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d2f0       0x1c ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d30c      0x177 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d483       0x16 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d499       0x16 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d4af      0x147 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d5f6       0x16 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d60c       0x16 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d622       0x29 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d64b       0x16 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d661       0x20 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d681       0x65 ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d6e6      0x1ef ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d8d5       0x5e ./Core/Src/Type-C.o
- .debug_macro   0x000000000001d933      0x3a9 ./Core/Src/main.o
- .debug_macro   0x000000000001dcdc       0x2e ./Core/Src/main.o
- .debug_macro   0x000000000001dd0a      0x3a9 ./Core/Src/stm32g4xx_hal_msp.o
- .debug_macro   0x000000000001e0b3      0x3ad ./Core/Src/stm32g4xx_it.o
- .debug_macro   0x000000000001e460      0x201 ./Core/Src/system_stm32g4xx.o
- .debug_macro   0x000000000001e661      0x24f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
- .debug_macro   0x000000000001e8b0      0x21e ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
- .debug_macro   0x000000000001eace      0x20d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
- .debug_macro   0x000000000001ecdb      0x201 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
- .debug_macro   0x000000000001eedc      0x201 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
- .debug_macro   0x000000000001f0dd      0x208 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
- .debug_macro   0x000000000001f2e5      0x20d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
- .debug_macro   0x000000000001f4f2      0x201 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
- .debug_macro   0x000000000001f6f3      0x22b ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
- .debug_macro   0x000000000001f91e      0x243 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
- .debug_macro   0x000000000001fb61      0x22b ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
- .debug_macro   0x000000000001fd8c      0x209 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
- .debug_macro   0x000000000001ff95      0x207 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
- .debug_macro   0x000000000002019c      0x201 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
- .debug_macro   0x000000000002039d      0x390 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
- .debug_macro   0x000000000002072d       0x97 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
- .debug_macro   0x00000000000207c4       0xfd ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
- .debug_macro   0x00000000000208c1       0x56 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
- .debug_macro   0x0000000000020917      0x377 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_macro   0x0000000000020c8e      0x1f5 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_macro   0x0000000000020e83      0x381 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- .debug_macro   0x0000000000021204      0x37d ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
- .debug_macro   0x0000000000021581      0x3ad ./USB_Device/App/usb_device.o
- .debug_macro   0x000000000002192e       0x22 ./USB_Device/App/usb_device.o
- .debug_macro   0x0000000000021950       0x5e ./USB_Device/App/usb_device.o
- .debug_macro   0x00000000000219ae      0x3b4 ./USB_Device/App/usbd_desc.o
- .debug_macro   0x0000000000021d62       0x1c ./USB_Device/App/usbd_desc.o
- .debug_macro   0x0000000000021d7e      0x39a ./USB_Device/Target/usbd_conf.o
+.debug_macro    0x0000000000000000     0x59e6
+ .debug_macro   0x0000000000000000      0x3b3 ./Core/Src/HID.o
+ .debug_macro   0x00000000000003b3       0x10 ./Core/Src/HID.o
+ .debug_macro   0x00000000000003c3       0x61 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000424       0x2a ./Core/Src/HID.o
+ .debug_macro   0x000000000000044e       0x43 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000491       0x34 ./Core/Src/HID.o
+ .debug_macro   0x00000000000004c5       0x16 ./Core/Src/HID.o
+ .debug_macro   0x00000000000004db       0x35 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000510      0x369 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000879       0x10 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000889       0x16 ./Core/Src/HID.o
+ .debug_macro   0x000000000000089f       0x43 ./Core/Src/HID.o
+ .debug_macro   0x00000000000008e2       0x34 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000916       0x10 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000926       0x58 ./Core/Src/HID.o
+ .debug_macro   0x000000000000097e       0x8e ./Core/Src/HID.o
+ .debug_macro   0x0000000000000a0c       0x1c ./Core/Src/HID.o
+ .debug_macro   0x0000000000000a28      0x177 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000b9f       0x16 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000bb5       0x16 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000bcb      0x147 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000d12       0x16 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000d28       0x16 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000d3e       0x29 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000d67       0x16 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000d7d       0x20 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000d9d       0x65 ./Core/Src/HID.o
+ .debug_macro   0x0000000000000e02      0x1ef ./Core/Src/HID.o
+ .debug_macro   0x0000000000000ff1       0x5e ./Core/Src/HID.o
+ .debug_macro   0x000000000000104f      0x20a ./Core/Src/Joystick ADC.o
+ .debug_macro   0x0000000000001259      0x3a9 ./Core/Src/main.o
+ .debug_macro   0x0000000000001602       0x34 ./Core/Src/main.o
+ .debug_macro   0x0000000000001636      0x3a9 ./Core/Src/stm32g4xx_hal_msp.o
+ .debug_macro   0x00000000000019df      0x3ad ./Core/Src/stm32g4xx_it.o
+ .debug_macro   0x0000000000001d8c      0x201 ./Core/Src/system_stm32g4xx.o
+ .debug_macro   0x0000000000001f8d      0x24f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_macro   0x00000000000021dc      0x21e ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_macro   0x00000000000023fa      0x20d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_macro   0x0000000000002607      0x201 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_macro   0x0000000000002808      0x201 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
+ .debug_macro   0x0000000000002a09      0x208 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_macro   0x0000000000002c11      0x20d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
+ .debug_macro   0x0000000000002e1e      0x201 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
+ .debug_macro   0x000000000000301f      0x22b ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_macro   0x000000000000324a      0x243 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_macro   0x000000000000348d      0x22b ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_macro   0x00000000000036b8      0x209 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_macro   0x00000000000038c1      0x207 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_macro   0x0000000000003ac8      0x201 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
+ .debug_macro   0x0000000000003cc9      0x390 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
+ .debug_macro   0x0000000000004059       0x97 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
+ .debug_macro   0x00000000000040f0       0xfd ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
+ .debug_macro   0x00000000000041ed       0x56 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
+ .debug_macro   0x0000000000004243      0x377 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_macro   0x00000000000045ba      0x1f5 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_macro   0x00000000000047af      0x381 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_macro   0x0000000000004b30      0x37d ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_macro   0x0000000000004ead      0x3ad ./USB_Device/App/usb_device.o
+ .debug_macro   0x000000000000525a       0x22 ./USB_Device/App/usb_device.o
+ .debug_macro   0x000000000000527c      0x3b4 ./USB_Device/App/usbd_desc.o
+ .debug_macro   0x0000000000005630       0x1c ./USB_Device/App/usbd_desc.o
+ .debug_macro   0x000000000000564c      0x39a ./USB_Device/Target/usbd_conf.o
 
-.debug_line     0x0000000000000000    0x1d1b3
- .debug_line    0x0000000000000000      0x7f4 ./Core/Src/Joystick ADC.o
- .debug_line    0x00000000000007f4      0xc0e ./Core/Src/Type-C.o
- .debug_line    0x0000000000001402      0xefd ./Core/Src/main.o
- .debug_line    0x00000000000022ff      0xd86 ./Core/Src/stm32g4xx_hal_msp.o
- .debug_line    0x0000000000003085      0xcee ./Core/Src/stm32g4xx_it.o
- .debug_line    0x0000000000003d73      0x816 ./Core/Src/system_stm32g4xx.o
- .debug_line    0x0000000000004589       0x7b ./Core/Startup/startup_stm32g431kbux.o
- .debug_line    0x0000000000004604      0xbd5 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
- .debug_line    0x00000000000051d9     0x1fec ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
- .debug_line    0x00000000000071c5     0x1a44 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
- .debug_line    0x0000000000008c09      0xd40 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
- .debug_line    0x0000000000009949      0xef9 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
- .debug_line    0x000000000000a842      0xbd0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
- .debug_line    0x000000000000b412     0x13df ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
- .debug_line    0x000000000000c7f1      0x915 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
- .debug_line    0x000000000000d106      0xd44 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
- .debug_line    0x000000000000de4a      0xf9d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
- .debug_line    0x000000000000ede7     0x1166 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
- .debug_line    0x000000000000ff4d     0x3f3f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
- .debug_line    0x0000000000013e8c     0x2115 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
- .debug_line    0x0000000000015fa1     0x1075 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
- .debug_line    0x0000000000017016      0xd6a ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
- .debug_line    0x0000000000017d80      0xf54 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_line    0x0000000000018cd4     0x120c ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- .debug_line    0x0000000000019ee0      0xbab ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
- .debug_line    0x000000000001aa8b      0xb4d ./USB_Device/App/usb_device.o
- .debug_line    0x000000000001b5d8      0xc30 ./USB_Device/App/usbd_desc.o
- .debug_line    0x000000000001c208      0xfab ./USB_Device/Target/usbd_conf.o
+.debug_line     0x0000000000000000    0x1d1a4
+ .debug_line    0x0000000000000000      0xc08 ./Core/Src/HID.o
+ .debug_line    0x0000000000000c08      0x7f4 ./Core/Src/Joystick ADC.o
+ .debug_line    0x00000000000013fc      0xefa ./Core/Src/main.o
+ .debug_line    0x00000000000022f6      0xd83 ./Core/Src/stm32g4xx_hal_msp.o
+ .debug_line    0x0000000000003079      0xceb ./Core/Src/stm32g4xx_it.o
+ .debug_line    0x0000000000003d64      0x816 ./Core/Src/system_stm32g4xx.o
+ .debug_line    0x000000000000457a       0x7b ./Core/Startup/startup_stm32g431kbux.o
+ .debug_line    0x00000000000045f5      0xbd5 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_line    0x00000000000051ca     0x1fec ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_line    0x00000000000071b6     0x1a44 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_line    0x0000000000008bfa      0xd40 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_line    0x000000000000993a      0xef9 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
+ .debug_line    0x000000000000a833      0xbd0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_line    0x000000000000b403     0x13df ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
+ .debug_line    0x000000000000c7e2      0x915 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
+ .debug_line    0x000000000000d0f7      0xd44 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_line    0x000000000000de3b      0xf9d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_line    0x000000000000edd8     0x1166 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_line    0x000000000000ff3e     0x3f3f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_line    0x0000000000013e7d     0x2115 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_line    0x0000000000015f92     0x1075 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
+ .debug_line    0x0000000000017007      0xd6a ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
+ .debug_line    0x0000000000017d71      0xf54 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_line    0x0000000000018cc5     0x120c ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_line    0x0000000000019ed1      0xbab ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_line    0x000000000001aa7c      0xb4d ./USB_Device/App/usb_device.o
+ .debug_line    0x000000000001b5c9      0xc30 ./USB_Device/App/usbd_desc.o
+ .debug_line    0x000000000001c1f9      0xfab ./USB_Device/Target/usbd_conf.o
 
-.debug_str      0x0000000000000000    0xd9d45
- .debug_str     0x0000000000000000    0xcec4a ./Core/Src/Joystick ADC.o
+.debug_str      0x0000000000000000    0xd9d18
+ .debug_str     0x0000000000000000    0xd3135 ./Core/Src/HID.o
+                                      0xd37f7 (size before relaxing)
+ .debug_str     0x00000000000d3135      0x353 ./Core/Src/Joystick ADC.o
                                       0xcf2c1 (size before relaxing)
- .debug_str     0x00000000000cec4a     0x4844 ./Core/Src/Type-C.o
-                                      0xd37fd (size before relaxing)
- .debug_str     0x00000000000d348e      0xc0c ./Core/Src/main.o
-                                      0xd41d6 (size before relaxing)
- .debug_str     0x00000000000d409a      0x2c7 ./Core/Src/stm32g4xx_hal_msp.o
-                                      0xd3e4d (size before relaxing)
- .debug_str     0x00000000000d4361      0x4c2 ./Core/Src/stm32g4xx_it.o
-                                      0xd3a30 (size before relaxing)
- .debug_str     0x00000000000d4823       0xdb ./Core/Src/system_stm32g4xx.o
+ .debug_str     0x00000000000d3488      0xc18 ./Core/Src/main.o
+                                      0xd41df (size before relaxing)
+ .debug_str     0x00000000000d40a0      0x2c7 ./Core/Src/stm32g4xx_hal_msp.o
+                                      0xd3e56 (size before relaxing)
+ .debug_str     0x00000000000d4367      0x4c2 ./Core/Src/stm32g4xx_it.o
+                                      0xd3a39 (size before relaxing)
+ .debug_str     0x00000000000d4829       0xdb ./Core/Src/system_stm32g4xx.o
                                       0xceb01 (size before relaxing)
- .debug_str     0x00000000000d48fe       0x34 ./Core/Startup/startup_stm32g431kbux.o
+ .debug_str     0x00000000000d4904       0x34 ./Core/Startup/startup_stm32g431kbux.o
                                          0x73 (size before relaxing)
- .debug_str     0x00000000000d4932      0x5d1 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_str     0x00000000000d4938      0x5d1 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
                                       0xcf640 (size before relaxing)
- .debug_str     0x00000000000d4f03      0xad2 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_str     0x00000000000d4f09      0xad2 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
                                       0xcfb2e (size before relaxing)
- .debug_str     0x00000000000d59d5      0x691 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_str     0x00000000000d59db      0x691 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
                                       0xcfad4 (size before relaxing)
- .debug_str     0x00000000000d6066      0x31d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_str     0x00000000000d606c      0x31d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
                                       0xcf2c4 (size before relaxing)
- .debug_str     0x00000000000d6383      0x27d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
+ .debug_str     0x00000000000d6389      0x27d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
                                       0xceedb (size before relaxing)
- .debug_str     0x00000000000d6600      0x126 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_str     0x00000000000d6606      0x126 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
                                       0xcec8c (size before relaxing)
- .debug_str     0x00000000000d6726      0x577 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
+ .debug_str     0x00000000000d672c      0x577 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
                                       0xcf27d (size before relaxing)
- .debug_str     0x00000000000d6c9d      0x186 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
+ .debug_str     0x00000000000d6ca3      0x186 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
                                       0xceeb9 (size before relaxing)
- .debug_str     0x00000000000d6e23      0x495 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_str     0x00000000000d6e29      0x495 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
                                       0xcefef (size before relaxing)
- .debug_str     0x00000000000d72b8      0x4e0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_str     0x00000000000d72be      0x4e0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
                                       0xcf1fa (size before relaxing)
- .debug_str     0x00000000000d7798      0x40b ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_str     0x00000000000d779e      0x40b ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
                                       0xcf1fb (size before relaxing)
- .debug_str     0x00000000000d7ba3      0xe45 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_str     0x00000000000d7ba9      0xe45 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
                                       0xcffff (size before relaxing)
- .debug_str     0x00000000000d89e8      0x804 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_str     0x00000000000d89ee      0x804 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
                                       0xcfc73 (size before relaxing)
- .debug_str     0x00000000000d91ec       0xd3 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
+ .debug_str     0x00000000000d91f2       0xd3 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
                                       0xcedba (size before relaxing)
- .debug_str     0x00000000000d92bf      0x291 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
+ .debug_str     0x00000000000d92c5      0x291 ./Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.o
                                       0xd33c3 (size before relaxing)
- .debug_str     0x00000000000d9550      0x29f ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_str     0x00000000000d9556      0x29f ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
                                       0xd325e (size before relaxing)
- .debug_str     0x00000000000d97ef      0x142 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_str     0x00000000000d97f5      0x142 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
                                       0xd31b0 (size before relaxing)
- .debug_str     0x00000000000d9931       0x79 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_str     0x00000000000d9937       0x79 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
                                       0xd30a5 (size before relaxing)
- .debug_str     0x00000000000d99aa       0xcd ./USB_Device/App/usb_device.o
+ .debug_str     0x00000000000d99b0       0x9a ./USB_Device/App/usb_device.o
                                       0xd321b (size before relaxing)
- .debug_str     0x00000000000d9a77      0x248 ./USB_Device/App/usbd_desc.o
+ .debug_str     0x00000000000d9a4a      0x248 ./USB_Device/App/usbd_desc.o
                                       0xd2fa3 (size before relaxing)
- .debug_str     0x00000000000d9cbf       0x86 ./USB_Device/Target/usbd_conf.o
+ .debug_str     0x00000000000d9c92       0x86 ./USB_Device/Target/usbd_conf.o
                                       0xd419a (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x6568
- .debug_frame   0x0000000000000000       0x4c ./Core/Src/Joystick ADC.o
- .debug_frame   0x000000000000004c       0x8c ./Core/Src/Type-C.o
+ .debug_frame   0x0000000000000000       0x8c ./Core/Src/HID.o
+ .debug_frame   0x000000000000008c       0x4c ./Core/Src/Joystick ADC.o
  .debug_frame   0x00000000000000d8      0x1ac ./Core/Src/main.o
  .debug_frame   0x0000000000000284      0x13c ./Core/Src/stm32g4xx_hal_msp.o
  .debug_frame   0x00000000000003c0      0x238 ./Core/Src/stm32g4xx_it.o

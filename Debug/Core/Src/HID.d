@@ -1,4 +1,4 @@
-Core/Src/Type-C.o: ../Core/Src/Type-C.c ../Core/Inc/Type-C.h \
+Core/Src/HID.o: ../Core/Src/HID.c ../Core/Inc/HID.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -41,7 +41,7 @@ Core/Src/Type-C.o: ../Core/Src/Type-C.c ../Core/Inc/Type-C.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
-../Core/Inc/Type-C.h:
+../Core/Inc/HID.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h:

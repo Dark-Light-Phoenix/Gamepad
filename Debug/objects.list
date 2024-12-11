@@ -1,7 +1,7 @@
 "./Core/Src/Backlight,Menu,NRST.o"
+"./Core/Src/HID.o"
 "./Core/Src/Joystick ADC.o"
 "./Core/Src/RGB.o"
-"./Core/Src/Type-C.o"
 "./Core/Src/Vibromotors.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32g4xx_hal_msp.o"

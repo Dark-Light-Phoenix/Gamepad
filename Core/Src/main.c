@@ -74,7 +74,7 @@ static void MX_TIM4_Init(void);
 /* USER CODE BEGIN 0 */
 uint8_t Left, Up, Right, Down;
 uint8_t Circle, Triangle, Chrest, Square;
-extern uint16_t pwmData [numLEDs * LEDbits];
+extern uint16_t pwmData [NUM_LEDS * LED_BITS];
 uint8_t L1, L2;
 uint8_t R1, R2;
 extern uint8_t report;
@@ -82,7 +82,6 @@ extern uint8_t report;
 ADC_HandleTypeDef* hadc;
 
 int Push = 0;
-int DelayPush;
 /* USER CODE END 0 */
 
 /**
@@ -629,10 +628,6 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 {
-	/*if (GPIO_Pin == GPIO_PIN_5)
-	{
-		  CounterSwitch();
-	}*/
   	if (GPIO_Pin == GPIO_PIN_5)
 	{
 		if (Push == 0)
@@ -644,13 +639,13 @@ void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 			DelayPush = HAL_GetTick();
 			if (DelayPush - Push <= 200)
 			{
-				Chrest = 1;
+
 			}
 			else
 			{
 				Push = 0;
 				DelayPush = 0;
-				Chrest = 0;
+
 			}
 		}
 
