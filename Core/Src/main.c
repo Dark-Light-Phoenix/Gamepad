@@ -74,14 +74,11 @@ static void MX_TIM4_Init(void);
 /* USER CODE BEGIN 0 */
 uint8_t Left, Up, Right, Down;
 uint8_t Circle, Triangle, Chrest, Square;
-extern uint16_t pwmData [NUM_LEDS * LED_BITS];
 uint8_t L1, L2;
 uint8_t R1, R2;
 extern uint8_t report;
 
 ADC_HandleTypeDef* hadc;
-
-int Push = 0;
 /* USER CODE END 0 */
 
 /**
@@ -122,6 +119,7 @@ int main(void)
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
   ADC_DMA_Init();
+  HAL_TIM_Base_Start_IT(&htim17);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -626,29 +624,149 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+uint32_t push = 0;
+uint32_t delay_push = 0;
+uint8_t led_state = 0;
+
+LED_MODES mode = MODE_OFF;
+
+uint8_t current_gradient_index [NUM_LEDS] = {0};
+uint8_t wave_start_led = 0;
+uint8_t wave_triggered = 0;
+uint8_t gradient_base_color [3] = {255, 255, 0};
+
+const uint8_t GRADIENT_BASES [MAX_GRADIENT_COLOR][3] = {
+		{255, 0, 0},
+		{0, 255, 0},
+		{0, 0, 255},
+		{125, 0, 125},
+		{125, 125, 0},
+		{0, 125, 125},
+		{20, 100, 200},
+		{200, 100, 20},
+		{100, 200, 20},
+		{20, 200, 100},
+		{250, 50, 125},
+		{250, 125, 50},
+		{50, 125, 250},
+		{50, 250, 125},
+		{125, 250, 50},
+		{125, 50, 250}
+};
+
 void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 {
   	if (GPIO_Pin == GPIO_PIN_5)
 	{
-		if (Push == 0)
+		if (push == 0)
 		{
-			Push = HAL_GetTick();
+			push = HAL_GetTick();
 		}
 		else
 		{
-			DelayPush = HAL_GetTick();
-			if (DelayPush - Push <= 200)
-			{
+			delay_push = HAL_GetTick();
 
-			}
-			else
+			// Long press
+			if (delay_push - push > 500)
 			{
-				Push = 0;
-				DelayPush = 0;
+				push = 0;
+				delay_push = 0;
 
+				if (led_state == 0)
+				{
+					led_state = 1;
+					mode = MODE_ON;
+					leds_on();
+				}
+				else
+				{
+					led_state = 0;
+					leds_off();
+				}
 			}
+
+			// Short press
+			else if (delay_push - push <= 200)
+			{
+				push = delay_push;
+
+				if (led_state == 1)
+				{
+					mode++;
+					if (mode > PROGRESSIVE_PATTERNS)
+					{
+						mode = MODE_ON;
+					}
+				}
+			}
+		push = 0;
+		delay_push = 0;
 		}
+	}
 
+  	uint8_t button_index = 0;
+
+  	switch (GPIO_Pin)
+  	{
+  	case GPIO_PIN_8: button_index = 0; break;
+  	case GPIO_PIN_0: button_index = 1; break;
+  	case GPIO_PIN_9: button_index = 2; break;
+  	case GPIO_PIN_10: button_index = 3; break;
+  	case GPIO_PIN_7: button_index = 4; break;
+  	case GPIO_PIN_4: button_index = 5; break;
+  	case GPIO_PIN_5: button_index = 6; break;
+  	case GPIO_PIN_6: button_index = 7; break;
+  	default: return;
+  	}
+
+  	if (GPIO_Pin != GPIO_PIN_5)
+  	{
+  		current_gradient_index [button_index] = (current_gradient_index [button_index] + 1);
+  	}
+
+  	current_gradient_index [button_index] = (current_gradient_index [button_index] + 1) % MAX_GRADIENT_COLOR;
+
+  	gradient_base_color [0] = GRADIENT_BASES [current_gradient_index [button_index]][0];
+  	gradient_base_color [1] = GRADIENT_BASES [current_gradient_index [button_index]][1];
+  	gradient_base_color [2] = GRADIENT_BASES [current_gradient_index [button_index]][2];
+
+  	wave_start_led = button_index;
+  	wave_triggered = 1;
+}
+
+void TIM17_IRQHandler (void)
+{
+	if (__HAL_TIM_GET_FLAG (&htim17, TIM_FLAG_UPDATE) != RESET)
+	{
+		__HAL_TIM_CLEAR_FLAG (&htim17, TIM_FLAG_UPDATE);
+
+		switch(mode)
+		{
+			case MODE_ON:
+				leds_on();
+				break;
+			case PULSE_MODE:
+				pulse();
+				break;
+			case GRADIENT_MODE:
+				gradient();
+				break;
+			case WAWE_EFFECT_MODE:
+				wawe();
+				break;
+			case CHASE_EFFECT:
+				chase();
+				break;
+			case BREATHING_MODE:
+				breathing();
+				break;
+			case PROGRESSIVE_PATTERNS:
+				progressive();
+				break;
+			default:
+				leds_on();
+				break;
+		}
 	}
 }
 /* USER CODE END 4 */

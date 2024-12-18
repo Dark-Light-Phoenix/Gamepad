@@ -35,8 +35,8 @@ Core/Src/stm32g4xx_it.o: ../Core/Src/stm32g4xx_it.c ../Core/Inc/main.h \
  ../Core/Inc/stm32g4xx_it.h ../USB_Device/App/usb_device.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  ../USB_Device/Target/usbd_conf.h ../Core/Inc/HID.h \
- ../Core/Inc/Backlight,Menu,NRST.h ../Core/Inc/Joystick\ ADC.h \
- ../Core/Inc/Vibromotors.h ../Core/Inc/RGB.h ../Core/Inc/stm32g4xx_it.h
+ ../Core/Inc/Joystick\ ADC.h ../Core/Inc/Vibromotors.h ../Core/Inc/RGB.h \
+ ../Core/Inc/stm32g4xx_it.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -76,7 +76,6 @@ Core/Src/stm32g4xx_it.o: ../Core/Src/stm32g4xx_it.c ../Core/Inc/main.h \
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
 ../USB_Device/Target/usbd_conf.h:
 ../Core/Inc/HID.h:
-../Core/Inc/Backlight,Menu,NRST.h:
 ../Core/Inc/Joystick\ ADC.h:
 ../Core/Inc/Vibromotors.h:
 ../Core/Inc/RGB.h:

@@ -1,4 +1,3 @@
-"./Core/Src/Backlight,Menu,NRST.o"
 "./Core/Src/HID.o"
 "./Core/Src/Joystick ADC.o"
 "./Core/Src/RGB.o"
