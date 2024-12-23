@@ -1,2 +1,2 @@
-../Core/Src/Joystick ADC.c:14:6:ADC_DMA_Init	1
-../Core/Src/Joystick ADC.c:22:6:ScaleData	1
+../Core/Src/Joystick ADC.c:21:6:ADC_DMA_Init	1
+../Core/Src/Joystick ADC.c:29:6:ScaleData	10

@@ -22,9 +22,6 @@
 #ifndef __MAIN_H
 #define __MAIN_H
 
-#define DOUBLE_CLICK_DELAY 100
-#define DEBOUNCE_DELAY 50
-
 #ifdef __cplusplus
 extern "C" {
 #endif
