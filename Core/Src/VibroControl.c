@@ -1,4 +1,4 @@
-#include "Vibromotors.h"
+#include "VibroControl.h"
 #include "stm32g4xx_it.h"
 #include "stm32g4xx_hal.h"
 #include "usbd_hid.h"

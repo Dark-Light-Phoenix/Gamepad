@@ -1,12 +1,4 @@
-../Core/Src/RGB.c:21:6:set_led_color	2
-../Core/Src/RGB.c:31:6:send_single_bit	2
-../Core/Src/RGB.c:43:6:send_led_data	2
-../Core/Src/RGB.c:63:6:send_reset	2
-../Core/Src/RGB.c:75:6:leds_off	2
-../Core/Src/RGB.c:84:6:leds_on	2
-../Core/Src/RGB.c:93:6:blinking	4
-../Core/Src/RGB.c:109:6:gradient	2
-../Core/Src/RGB.c:119:6:wawe	5
-../Core/Src/RGB.c:150:6:chase	2
-../Core/Src/RGB.c:163:6:breathing	4
-../Core/Src/RGB.c:185:6:progressive	4
+../Core/Src/RGB.c:17:6:Set_Color	1
+../Core/Src/RGB.c:25:6:Set_Brightness	4
+../Core/Src/RGB.c:48:6:BufferInit	2
+../Core/Src/RGB.c:83:6:HAL_TIM_PWM_PulseFinishedCallback	1

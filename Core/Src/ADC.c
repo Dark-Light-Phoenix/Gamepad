@@ -1,4 +1,4 @@
-#include "Joystick ADC.h"
+#include "ADC.h"
 #include "stm32g4xx_hal.h"
 #include "stdio.h"
 #include "stdlib.h"

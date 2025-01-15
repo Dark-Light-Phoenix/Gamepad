@@ -1,5 +1,5 @@
-Core/Src/Joystick ADC.o: ../Core/Src/Joystick\ ADC.c \
- ../Core/Inc/Joystick\ ADC.h \
+Core/Src/VibroControl.o: ../Core/Src/VibroControl.c \
+ ../Core/Inc/VibroControl.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -32,8 +32,18 @@ Core/Src/Joystick ADC.o: ../Core/Src/Joystick\ ADC.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
-../Core/Inc/Joystick\ ADC.h:
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
+ ../Core/Inc/stm32g4xx_it.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc/usbd_hid.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
+ ../USB_Device/Target/usbd_conf.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
+ ../USB_Device/App/usb_device.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h
+../Core/Inc/VibroControl.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h:
@@ -67,3 +77,13 @@ Core/Src/Joystick ADC.o: ../Core/Src/Joystick\ ADC.c \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
+../Core/Inc/stm32g4xx_it.h:
+../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc/usbd_hid.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
+../USB_Device/Target/usbd_conf.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
+../USB_Device/App/usb_device.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:

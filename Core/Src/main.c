@@ -49,6 +49,7 @@ DMA_HandleTypeDef hdma_adc2;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim6;
+TIM_HandleTypeDef htim7;
 TIM_HandleTypeDef htim17;
 DMA_HandleTypeDef hdma_tim17_ch1;
 
@@ -66,6 +67,7 @@ static void MX_TIM6_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM17_Init(void);
 static void MX_TIM4_Init(void);
+static void MX_TIM7_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -117,9 +119,9 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM17_Init();
   MX_TIM4_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
   ADC_DMA_Init();
-  HAL_TIM_Base_Start_IT(&htim17);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -129,7 +131,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_ADC_ConvCpltCallback (hadc);
+	  /*HAL_ADC_ConvCpltCallback (hadc);*/
   }
   /* USER CODE END 3 */
 }
@@ -453,6 +455,44 @@ static void MX_TIM6_Init(void)
 }
 
 /**
+  * @brief TIM7 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM7_Init(void)
+{
+
+  /* USER CODE BEGIN TIM7_Init 0 */
+
+  /* USER CODE END TIM7_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM7_Init 1 */
+
+  /* USER CODE END TIM7_Init 1 */
+  htim7.Instance = TIM7;
+  htim7.Init.Prescaler = 47;
+  htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim7.Init.Period = 999;
+  htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim7, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM7_Init 2 */
+
+  /* USER CODE END TIM7_Init 2 */
+
+}
+
+/**
   * @brief TIM17 Initialization Function
   * @param None
   * @retval None
@@ -624,150 +664,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-uint32_t push = 0;
-uint32_t delay_push = 0;
-uint8_t led_state = 0;
-
-LED_MODES mode = MODE_OFF;
-
-uint8_t current_gradient_index [NUM_LEDS] = {0};
-uint8_t wave_start_led = 0;
-uint8_t wave_triggered = 0;
-uint8_t gradient_base_color [3] = {255, 255, 0};
-
-const uint8_t GRADIENT_BASES [MAX_GRADIENT_COLOR][3] = {
-		{255, 0, 0},
-		{0, 255, 0},
-		{0, 0, 255},
-		{125, 0, 125},
-		{125, 125, 0},
-		{0, 125, 125},
-		{20, 100, 200},
-		{200, 100, 20},
-		{100, 200, 20},
-		{20, 200, 100},
-		{250, 50, 125},
-		{250, 125, 50},
-		{50, 125, 250},
-		{50, 250, 125},
-		{125, 250, 50},
-		{125, 50, 250}
-};
-
 void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 {
-  	if (GPIO_Pin == GPIO_PIN_5)
-	{
-		if (push == 0)
-		{
-			push = HAL_GetTick();
-		}
-		else
-		{
-			delay_push = HAL_GetTick();
 
-			// Long press
-			if (delay_push - push > 500)
-			{
-				push = 0;
-				delay_push = 0;
-
-				if (led_state == 0)
-				{
-					led_state = 1;
-					mode = MODE_ON;
-					leds_on();
-				}
-				else
-				{
-					led_state = 0;
-					leds_off();
-				}
-			}
-
-			// Short press
-			else if (delay_push - push <= 200)
-			{
-				push = delay_push;
-
-				if (led_state == 1)
-				{
-					mode++;
-					if (mode > PROGRESSIVE_PATTERNS)
-					{
-						mode = MODE_ON;
-					}
-				}
-			}
-		push = 0;
-		delay_push = 0;
-		}
-	}
-
-  	uint8_t button_index = 0;
-
-  	switch (GPIO_Pin)
-  	{
-  	case GPIO_PIN_8: button_index = 0; break;
-  	case GPIO_PIN_0: button_index = 1; break;
-  	case GPIO_PIN_9: button_index = 2; break;
-  	case GPIO_PIN_10: button_index = 3; break;
-  	case GPIO_PIN_7: button_index = 4; break;
-  	case GPIO_PIN_4: button_index = 5; break;
-  	case GPIO_PIN_5: button_index = 6; break;
-  	case GPIO_PIN_6: button_index = 7; break;
-  	default: return;
-  	}
-
-  	if (GPIO_Pin != GPIO_PIN_5)
-  	{
-  		current_gradient_index [button_index] = (current_gradient_index [button_index] + 1);
-  	}
-
-  	current_gradient_index [button_index] = (current_gradient_index [button_index] + 1) % MAX_GRADIENT_COLOR;
-
-  	gradient_base_color [0] = GRADIENT_BASES [current_gradient_index [button_index]][0];
-  	gradient_base_color [1] = GRADIENT_BASES [current_gradient_index [button_index]][1];
-  	gradient_base_color [2] = GRADIENT_BASES [current_gradient_index [button_index]][2];
-
-  	wave_start_led = button_index;
-  	wave_triggered = 1;
-}
-
-void TIM17_IRQHandler (void)
-{
-	if (__HAL_TIM_GET_FLAG (&htim17, TIM_FLAG_UPDATE) != RESET)
-	{
-		__HAL_TIM_CLEAR_FLAG (&htim17, TIM_FLAG_UPDATE);
-
-		switch(mode)
-		{
-			case MODE_ON:
-				leds_on();
-				break;
-			case PULSE_MODE:
-				pulse();
-				break;
-			case GRADIENT_MODE:
-				gradient();
-				break;
-			case WAWE_EFFECT_MODE:
-				wawe();
-				break;
-			case CHASE_EFFECT:
-				chase();
-				break;
-			case BREATHING_MODE:
-				breathing();
-				break;
-			case PROGRESSIVE_PATTERNS:
-				progressive();
-				break;
-			default:
-				leds_on();
-				break;
-		}
-	}
 }
 /* USER CODE END 4 */
 
