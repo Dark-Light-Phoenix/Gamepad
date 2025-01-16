@@ -22,6 +22,8 @@
 #include "stm32g4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+extern volatile uint8_t breathing_phase;
+extern TIM_HandleTypeDef htim7;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -371,9 +373,12 @@ void EXTI15_10_IRQHandler(void)
 void TIM7_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM7_IRQn 0 */
-
+	if (__HAL_TIM_GET_FLAG (&htim7, TIM_FLAG_UPDATE))
+	{
+		__HAL_TIM_CLEAR_FLAG (&htim7, TIM_FLAG_UPDATE);
+		breathing_phase = (breathing_phase + 1) % 3;
+	}
   /* USER CODE END TIM7_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim7);
   /* USER CODE BEGIN TIM7_IRQn 1 */
 
   /* USER CODE END TIM7_IRQn 1 */

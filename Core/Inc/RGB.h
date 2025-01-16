@@ -8,23 +8,16 @@
 #define RES 280
 #define PWM_HIGH 40
 #define PWM_LOW 20
-
-uint16_t pwmData [(LED_BITS * NUM_LEDS) + RES];
-
-typedef enum {
-	LIGHT_OFF = 1,
-	LIGHT_ON
-} LIGHT_ON_OFF;
-
-typedef enum {
-	GRADIENT = 1,
-	BREATHING
-} BACKLIGHT_MODES;
+#define GRADIENT_STEPS 256
+#define UPDATE_DELAY 50
 
 void Set_Color (uint8_t index, uint8_t green, uint8_t red, uint8_t blue);
 void Prepare_Data (void);
 void Send_data (void);
 void HAL_TIM_PWM_PulseFinishedCallback (TIM_HandleTypeDef *htim);
-void TIM7_IRQHandler (void);
+void Breathing_Delay (uint32_t delay_ms);
+void Breathing (void);
+void Gradient (uint8_t position, uint8_t* green, uint8_t* red, uint8_t* blue);
+void Update_Gradient (void);
 
 #endif /* INC_RGB_H_ */
