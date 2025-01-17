@@ -6,3 +6,6 @@
 ../Core/Src/RGB.c:74:6:Breathing	5
 ../Core/Src/RGB.c:116:6:Gradient	7
 ../Core/Src/RGB.c:133:6:Update_Gradient	2
+../Core/Src/RGB.c:176:6:UpdateLightMode	4
+../Core/Src/RGB.c:196:6:TurnLightOff	0
+../Core/Src/RGB.c:153:6:HandleButtonPress	4

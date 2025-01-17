@@ -64,6 +64,7 @@ extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern DMA_HandleTypeDef hdma_tim17_ch1;
 extern TIM_HandleTypeDef htim7;
+extern TIM_HandleTypeDef htim16;
 extern TIM_HandleTypeDef htim17;
 /* USER CODE BEGIN EV */
 
@@ -326,6 +327,42 @@ void USB_LP_IRQHandler(void)
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+	{
+		volatile uint8_t buttonPressed = 0;
+		volatile uint32_t buttonPressStartTime = 0;
+		volatile uint32_t debounceDelay = 20;
+		volatile uint32_t longPressThreshold = 1000;
+		extern volatile ButtonPressType buttonPressType;
+
+		if (__HAL_GPIO_EXTI_GET_IT (GPIO_PIN_5))
+		{
+			__HAL_GPIO_EXTI_CLEAR_IT (GPIO_PIN_5);
+
+			if (HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_5) == GPIO_PIN_RESET)
+			{
+				if (!buttonPressed)
+				{
+					buttonPressed = 1;
+					buttonPressStartTime = HAL_GetTick();
+				}
+			} else
+			{
+				if (buttonPressed)
+				{
+					uint32_t pressDuration = HAL_GetTick() - buttonPressStartTime;
+
+					if (pressDuration >= longPressThreshold)
+					{
+						buttonPressType = BUTTON_PRESS_LONG;
+					} else if (pressDuration >= debounceDelay)
+					{
+						buttonPressType = BUTTON_PRESS_SHORT;
+					}
+					buttonPressed = 0;
+				}
+			}
+		}
+	}
 
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
@@ -336,6 +373,23 @@ void EXTI9_5_IRQHandler(void)
   /* USER CODE BEGIN EXTI9_5_IRQn 1 */
 
   /* USER CODE END EXTI9_5_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM1 update interrupt and TIM16 global interrupt.
+  */
+void TIM1_UP_TIM16_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
+	if (__HAL_TIM_GET_FLAG (&htim16, TIM_FLAG_UPDATE))
+		{
+			__HAL_TIM_CLEAR_FLAG (&htim16, TIM_FLAG_UPDATE);
+		}
+  /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim16);
+  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
+
+  /* USER CODE END TIM1_UP_TIM16_IRQn 1 */
 }
 
 /**
@@ -379,6 +433,7 @@ void TIM7_IRQHandler(void)
 		breathing_phase = (breathing_phase + 1) % 3;
 	}
   /* USER CODE END TIM7_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim7);
   /* USER CODE BEGIN TIM7_IRQn 1 */
 
   /* USER CODE END TIM7_IRQn 1 */

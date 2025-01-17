@@ -146,3 +146,56 @@ void Update_Gradient (void)
 	gradient_position = (gradient_position + 1) % GRADIENT_STEPS;
 }
 
+volatile LightState currentLightState = LIGHT_STATE_OFF;
+volatile LightMode currentLightMode = LIGHT_MODE_BREATHING;
+volatile ButtonPressType buttonPressType = BUTTON_PRESS_NONE;
+
+void HandleButtonPress (void)
+{
+	if (buttonPressType == BUTTON_PRESS_SHORT)
+	{
+		if (currentLightState == LIGHT_STATE_ON)
+		{
+			currentLightMode = (currentLightMode + 1) % LIGHT_MODE_COUNT;
+			UpdateLightMode();
+		}
+	} else if (buttonPressType == BUTTON_PRESS_LONG)
+	{
+		if (currentLightState == LIGHT_STATE_OFF)
+		{
+			currentLightState = LIGHT_STATE_ON;
+			UpdateLightMode();
+		}
+	} else
+	{
+		currentLightState = LIGHT_STATE_OFF;
+		TurnLightOff();
+	}
+}
+
+void UpdateLightMode (void)
+{
+	if (currentLightState == LIGHT_STATE_OFF)
+	{
+		return;
+	}
+
+	switch (currentLightMode)
+	{
+	case LIGHT_MODE_BREATHING:
+		Breathing();
+		break;
+	case LIGHT_MODE_GRADIENT:
+		Update_Gradient();
+		break;
+	default:
+		break;
+	}
+}
+
+void TurnLightOff (void)
+{
+	memset(LED_Data, 0, sizeof(LED_Data));
+	Send_Data();
+}
+
