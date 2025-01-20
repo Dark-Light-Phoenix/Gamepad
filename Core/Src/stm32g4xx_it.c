@@ -328,38 +328,39 @@ void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
 	{
-		volatile uint8_t buttonPressed = 0;
-		volatile uint32_t buttonPressStartTime = 0;
-		volatile uint32_t debounceDelay = 20;
-		volatile uint32_t longPressThreshold = 1000;
+		volatile uint32_t lastInterruptTime = 0;
 		extern volatile ButtonPressType buttonPressType;
 
-		if (__HAL_GPIO_EXTI_GET_IT (GPIO_PIN_5))
+		if (__HAL_GPIO_EXTI_GET_IT (GPIO_PIN_5) != RESET)
 		{
 			__HAL_GPIO_EXTI_CLEAR_IT (GPIO_PIN_5);
 
+			uint32_t currentTime = __HAL_TIM_GET_COUNTER (&htim16);
+			uint32_t elapsedTime = (currentTime >= lastInterruptTime) ? (currentTime - lastInterruptTime) : (0xFFFF - lastInterruptTime + currentTime + 1);
+
+			if (elapsedTime < 50000)
+			{
+				return;
+			}
+			lastInterruptTime = currentTime;
+
 			if (HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_5) == GPIO_PIN_RESET)
 			{
-				if (!buttonPressed)
-				{
-					buttonPressed = 1;
-					buttonPressStartTime = HAL_GetTick();
-				}
+				__HAL_TIM_SET_COUNTER (&htim16, 0);
+				HAL_TIM_Base_Start_IT (&htim16);
 			} else
 			{
-				if (buttonPressed)
-				{
-					uint32_t pressDuration = HAL_GetTick() - buttonPressStartTime;
+				HAL_TIM_Base_Stop_IT (&htim16);
+				uint32_t pressDuration = __HAL_TIM_GET_COUNTER (&htim16);
 
-					if (pressDuration >= longPressThreshold)
-					{
-						buttonPressType = BUTTON_PRESS_LONG;
-					} else if (pressDuration >= debounceDelay)
-					{
-						buttonPressType = BUTTON_PRESS_SHORT;
-					}
-					buttonPressed = 0;
+				if (pressDuration >= 1000000)
+				{
+					buttonPressType = BUTTON_PRESS_LONG;
+				} else if (pressDuration >= 50000)
+				{
+					buttonPressType = BUTTON_PRESS_SHORT;
 				}
+				HandleButtonPress();
 			}
 		}
 	}
