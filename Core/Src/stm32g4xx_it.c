@@ -327,44 +327,6 @@ void USB_LP_IRQHandler(void)
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-	{
-		volatile uint32_t lastInterruptTime = 0;
-		extern volatile ButtonPressType buttonPressType;
-
-		if (__HAL_GPIO_EXTI_GET_IT (GPIO_PIN_5) != RESET)
-		{
-			__HAL_GPIO_EXTI_CLEAR_IT (GPIO_PIN_5);
-
-			uint32_t currentTime = __HAL_TIM_GET_COUNTER (&htim16);
-			uint32_t elapsedTime = (currentTime >= lastInterruptTime) ? (currentTime - lastInterruptTime) : (0xFFFF - lastInterruptTime + currentTime + 1);
-
-			if (elapsedTime < 50000)
-			{
-				return;
-			}
-			lastInterruptTime = currentTime;
-
-			if (HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_5) == GPIO_PIN_RESET)
-			{
-				__HAL_TIM_SET_COUNTER (&htim16, 0);
-				HAL_TIM_Base_Start_IT (&htim16);
-			} else
-			{
-				HAL_TIM_Base_Stop_IT (&htim16);
-				uint32_t pressDuration = __HAL_TIM_GET_COUNTER (&htim16);
-
-				if (pressDuration >= 1000000)
-				{
-					buttonPressType = BUTTON_PRESS_LONG;
-				} else if (pressDuration >= 50000)
-				{
-					buttonPressType = BUTTON_PRESS_SHORT;
-				}
-				HandleButtonPress();
-			}
-		}
-	}
-
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
@@ -428,11 +390,6 @@ void EXTI15_10_IRQHandler(void)
 void TIM7_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM7_IRQn 0 */
-	if (__HAL_TIM_GET_FLAG (&htim7, TIM_FLAG_UPDATE))
-	{
-		__HAL_TIM_CLEAR_FLAG (&htim7, TIM_FLAG_UPDATE);
-		breathing_phase = (breathing_phase + 1) % 3;
-	}
   /* USER CODE END TIM7_IRQn 0 */
   HAL_TIM_IRQHandler(&htim7);
   /* USER CODE BEGIN TIM7_IRQn 1 */

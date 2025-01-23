@@ -15,7 +15,7 @@ void Set_Color (uint8_t index, uint8_t green, uint8_t red, uint8_t blue);
 void Prepare_Data (void);
 void Send_data (void);
 void HAL_TIM_PWM_PulseFinishedCallback (TIM_HandleTypeDef *htim);
-void Breathing_Delay (uint32_t delay_ms);
+void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim);
 void Breathing (void);
 void Gradient (uint8_t position, uint8_t* green, uint8_t* red, uint8_t* blue);
 void Update_Gradient (void);
@@ -31,14 +31,9 @@ typedef enum { // Structure for changing light modes
 	LIGHT_MODE_COUNT
 } LightMode;
 
-typedef enum { // Structure for checking state of button press
-	BUTTON_PRESS_NONE,
-	BUTTON_PRESS_SHORT,
-	BUTTON_PRESS_LONG
-} ButtonPressType;
-
 void HandleButtonPress (void);
 void UpdateLightMode (void);
 void TurnLightOff (void);
+void TurnLightOn (void);
 
 #endif /* INC_RGB_H_ */

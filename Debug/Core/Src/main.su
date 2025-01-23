@@ -1,7 +1,7 @@
 ../Core/Src/main.c:507:13:MX_GPIO_Init	64	static
 ../Core/Src/main.c:482:13:MX_DMA_Init	16	static
-../Core/Src/main.c:588:6:HAL_GPIO_EXTI_Callback	0	static
-../Core/Src/main.c:598:6:Error_Handler	0	static,ignoring_inline_asm
+../Core/Src/main.c:576:6:HAL_GPIO_EXTI_Callback	8	static
+../Core/Src/main.c:594:6:Error_Handler	0	static,ignoring_inline_asm
 ../Core/Src/main.c:186:13:MX_ADC1_Init	56	static
 ../Core/Src/main.c:254:13:MX_ADC2_Init	40	static
 ../Core/Src/main.c:313:13:MX_TIM6_Init	24	static
