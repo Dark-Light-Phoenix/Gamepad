@@ -1,2 +1,1 @@
-../Core/Src/ADC.c:21:6:ADC_DMA_Init	1
-../Core/Src/ADC.c:29:6:ScaleData	10
+../Core/Src/ADC.c:16:6:ADC_DMA_Init	1

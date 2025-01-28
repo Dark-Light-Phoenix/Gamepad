@@ -78,7 +78,6 @@ void UpdateButton (void)
 
 void UpdateJoystick (void)
 {
-	ScaleData();
     gamepad_report.x1 = adc_x1;
     gamepad_report.y1 = adc_y1;
     gamepad_report.x2 = adc_x2;

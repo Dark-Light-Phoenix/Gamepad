@@ -1,2 +1,1 @@
-../Core/Src/ADC.c:21:6:ADC_DMA_Init	8	static
-../Core/Src/ADC.c:29:6:ScaleData	4	static
+../Core/Src/ADC.c:16:6:ADC_DMA_Init	16	static

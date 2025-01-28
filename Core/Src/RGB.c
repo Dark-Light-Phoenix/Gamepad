@@ -7,7 +7,6 @@
 extern DMA_HandleTypeDef hdma_tim17_ch1;
 extern TIM_HandleTypeDef htim17;
 extern TIM_HandleTypeDef htim16;
-extern TIM_HandleTypeDef htim7;
 
 uint8_t LED_Data[NUM_LEDS][3]; // for color set
 uint32_t pwmData [(LED_BITS * NUM_LEDS) + (RES * NUM_LEDS)]; // Buffer for LED data
@@ -60,9 +59,9 @@ void HAL_TIM_PWM_PulseFinishedCallback (TIM_HandleTypeDef *htim) // Function of 
 
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim)
 {
-	if (htim -> Instance == TIM7)
+	if (htim -> Instance == TIM16)
 	{
-		HAL_TIM_Base_Stop_IT (&htim7);
+		HAL_TIM_Base_Stop_IT (&htim16);
 	}
 }
 
@@ -82,7 +81,7 @@ void Breathing (void)
 
 	Send_Data();
 
-	HAL_TIM_Base_Start_IT (&htim7);
+	HAL_TIM_Base_Start_IT (&htim16);
 
 		for (uint8_t brightness = 255; brightness >= 9; brightness--)
 		{
@@ -97,7 +96,7 @@ void Breathing (void)
 		}
 		Send_Data();
 
-	HAL_TIM_Base_Start_IT (&htim7);
+	HAL_TIM_Base_Start_IT (&htim16);
 }
 
 void Gradient (uint8_t position, uint8_t* green, uint8_t* red, uint8_t* blue)
