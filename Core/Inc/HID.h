@@ -12,9 +12,13 @@ typedef struct
     int8_t y2;
 } GamepadReport_TypeDef;
 
+typedef enum {
+	HID_MOD_MOUSE,
+	HID_MODE_GAMEPAD
+} HID_Mode;
+
 void UpdateButton (void);
 void UpdateJoystick (void);
 void SendReport (void);
-
 
 #endif /* INC_HID_H_ */

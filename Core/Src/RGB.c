@@ -8,6 +8,12 @@ extern DMA_HandleTypeDef hdma_tim17_ch1;
 extern TIM_HandleTypeDef htim17;
 extern TIM_HandleTypeDef htim16;
 
+
+//MISHA WAS HERE
+extern uint8_t misha_interrupt;
+//MISHA LEFT HERE
+
+
 uint8_t LED_Data[NUM_LEDS][3]; // for color set
 uint32_t pwmData [(LED_BITS * NUM_LEDS) + (RES * NUM_LEDS)]; // Buffer for LED data
 
