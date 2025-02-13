@@ -22,8 +22,6 @@
 #include "stm32g4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-extern volatile uint8_t breathing_phase;
-extern TIM_HandleTypeDef htim7;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

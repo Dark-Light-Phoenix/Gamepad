@@ -13,6 +13,8 @@ extern ADC_HandleTypeDef hadc2;
 extern USBD_HandleTypeDef hUsbDeviceFS;
 extern int8_t adc_x1, adc_x2;
 extern int8_t adc_y1, adc_y2;
+volatile uint8_t buff1_update = 0;
+volatile uint8_t buff2_update = 0;
 
 char HID_ReportDescriptor[] = {
 
@@ -183,7 +185,7 @@ void HAL_ADC_ConvCpltCallback (ADC_HandleTypeDef* hadc)
 {
 	if (hadc == &hadc1 || hadc == &hadc2)
 	{
-		SendReport ();
+		ADC_Scale();
 	}
 }
 

@@ -1,4 +1,4 @@
-../Core/Src/HID.c:155:6:UpdateButton	0	static
-../Core/Src/HID.c:173:6:UpdateJoystick	0	static
-../Core/Src/HID.c:190:6:SendReport	8	static
-../Core/Src/HID.c:182:6:HAL_ADC_ConvCpltCallback	8	static
+../Core/Src/HID.c:157:6:UpdateButton	0	static
+../Core/Src/HID.c:175:6:UpdateJoystick	0	static
+../Core/Src/HID.c:184:6:HAL_ADC_ConvCpltCallback	8	static
+../Core/Src/HID.c:192:6:SendReport	8	static

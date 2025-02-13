@@ -10,6 +10,12 @@ extern TIM_HandleTypeDef htim6;
 uint16_t adc_buffer1 [BUFFER_SIZE];
 uint16_t adc_buffer2 [BUFFER_SIZE];
 
+uint16_t filter_buffer1[(BUFFER_SIZE / 2)];
+uint16_t filter_buffer2[(BUFFER_SIZE / 2)];
+
+uint16_t scaled_buffer1[2];
+uint16_t scaled_buffer2[2];
+
 int16_t adc_x1, adc_x2;
 int16_t adc_y1, adc_y2;
 
@@ -21,20 +27,53 @@ void ADC_DMA_Init (void)
 	HAL_TIM_Base_Start (&htim6);
 }
 
+void ADC_Sorting (uint16_t buff[BUFFER_SIZE], uint16_t buff2[2])
+{
+	uint16_t min_even = buff[0], max_even = buff[0];
+	uint16_t min_odd = buff[1], max_odd = buff[1];
+	uint32_t sum_even = 0, sum_odd = 0;
+
+	for (uint8_t i = 0; i < BUFFER_SIZE; i++)
+	{
+		if (i % 2 == 0) {
+			if (buff[i] < min_even) {
+				min_even = buff[i];
+			} else if (buff[i] > max_even) {
+				max_even = buff[i];
+			}
+		} else {
+			if (buff[i] < min_odd) {
+				min_odd = buff[i];
+			} else if (buff[i] > max_odd) {
+				max_odd = buff[i];
+			}
+		}
+	}
+
+	for (uint8_t i = 0; i < BUFFER_SIZE; i++)
+	{
+		if (i % 2 == 0) {
+			if (buff[i] != min_even && buff[i] != max_even) {
+				sum_even += buff[i];
+			}
+		} else {
+			if (buff[i] != min_odd && buff[i] != max_odd) {
+				sum_odd += buff[i];
+			}
+		}
+	}
+
+	buff2[0] = sum_even / (BUFFER_SIZE / 2);
+	buff2[1] = sum_odd / (BUFFER_SIZE / 2);
+}
+
+void ADC_Filtering (void)
+{
+	ADC_Sorting (adc_buffer1, scaled_buffer1);
+	ADC_Sorting (adc_buffer2, scaled_buffer2);
+}
+
 void ADC_Scale (void)
 {
-	//float cal_x1 = NEUTRAL_ZONE - adc_buffer1[0];
-	float dif_x1 = adc_buffer1[0]; //+ cal_x1;
-
-	if (dif_x1 >= NEUTRAL_ZONE - DEAD_ZONE && dif_x1 <= NEUTRAL_ZONE + DEAD_ZONE)
-	{
-		adc_x1 = NEUTRAL_ZONE;
-	} else if (dif_x1 < NEUTRAL_ZONE - DEAD_ZONE && dif_x1 > NEUTRAL_ZONE + DEAD_ZONE) {
-		if (dif_x1 >= 300 && dif_x1 <= 3800)
-		{
-			adc_x1 = dif_x1;
-		}
-	} else {
-		return;
-	}
+	ADC_Filtering();
 }

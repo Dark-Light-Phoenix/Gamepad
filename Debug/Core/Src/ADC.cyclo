@@ -1,2 +1,4 @@
-../Core/Src/ADC.c:16:6:ADC_DMA_Init	1
-../Core/Src/ADC.c:24:6:ADC_Scale	7
+../Core/Src/ADC.c:22:6:ADC_DMA_Init	1
+../Core/Src/ADC.c:30:6:ADC_Sorting	13
+../Core/Src/ADC.c:70:6:ADC_Filtering	1
+../Core/Src/ADC.c:76:6:ADC_Scale	1
