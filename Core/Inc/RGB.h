@@ -31,7 +31,8 @@ typedef enum { // Structure for changing light modes
 	LIGHT_MODE_COUNT
 } LightMode;
 
-void HandleButtonPress (void);
+void HandleButtonPress (GPIO_TypeDef *GPIO, uint16_t GPIO_Pin);
+void HandleHoldPress (void);
 void UpdateLightMode (void);
 void TurnLightOff (void);
 void TurnLightOn (void);

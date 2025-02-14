@@ -53,7 +53,7 @@ TIM_HandleTypeDef htim17;
 DMA_HandleTypeDef hdma_tim17_ch1;
 
 /* USER CODE BEGIN PV */
-uint8_t misha_interrupt = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -78,7 +78,15 @@ uint8_t L1, L2;
 uint8_t R1, R2;
 extern uint8_t report;
 
+uint8_t ShortPress = 0;
+uint8_t LongPress = 0;
+uint8_t HoldPress = 0;
+uint8_t HoldCount = 0;
+
 ADC_HandleTypeDef* hadc;
+
+uint16_t calibration_buffer1[] = {};
+uint16_t calibration_buffer2[] = {};
 /* USER CODE END 0 */
 
 /**
@@ -530,8 +538,21 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOF_CLK_ENABLE();
+  __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin : PG10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PA3 */
+  GPIO_InitStruct.Pin = GPIO_PIN_3;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PA5 */
   GPIO_InitStruct.Pin = GPIO_PIN_5;
@@ -594,16 +615,26 @@ void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 {
 	if (GPIO_Pin == GPIO_PIN_5)
 	{
-		HandleButtonPress();
+		HandleButtonPress(GPIOA, GPIO_PIN_5);
 	}
 
-	if (GPIO_Pin == GPIO_PIN_3)
+	if (GPIO_Pin == GPIO_PIN_10)
 	{
+		if (HAL_GPIO_ReadPin (GPIOG, GPIO_PIN_10) == GPIO_PIN_RESET)
+		{
+			HandleButtonPress (GPIOG, GPIO_PIN_10);
+			if (HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_3) == GPIO_PIN_SET)
+			{
+				HandleButtonPress (GPIOA, GPIO_PIN_3);
+				if (HoldCount >= 10) {
+					//ADC_Calibration();
+				}
+			}
+		} else {
 
+		}
 	}
 }
-
-
 /* USER CODE END 4 */
 
 /**

@@ -169,7 +169,7 @@ void UpdateButton (void)
     if (R1)		   gamepad_report.buttons |= (1 << 8);
     if (R2)		   gamepad_report.buttons |= (1 << 9);
     if (L1)		   gamepad_report.buttons |= (1 << 10);
-    if (R2)		   gamepad_report.buttons |= (1 << 11);
+    if (L2)		   gamepad_report.buttons |= (1 << 11);
 }
 
 void UpdateJoystick (void)
