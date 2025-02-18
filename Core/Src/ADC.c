@@ -7,94 +7,58 @@ extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern TIM_HandleTypeDef htim6;
 
-uint16_t adc_buffer1[BUFFER_SIZE];
-uint16_t adc_buffer2[BUFFER_SIZE];
+volatile uint16_t min_even1_val = 4096, mid_even1_val = 0, max_even1_val = 0;
+volatile uint16_t min_odd1_val = 4096, mid_odd1_val = 0, max_odd1_val = 0;
 
-uint16_t scaled_buffer1[2];
-uint16_t scaled_buffer2[2];
+volatile uint16_t min_even2_val = 4096, mid_even2_val = 0, max_even2_val = 0;
+volatile uint16_t min_odd2_val = 4096, mid_odd2_val = 0, max_odd2_val = 0;
 
-extern uint16_t calibration_buffer1[3];
-extern uint16_t calibration_buffer2[3];
+volatile uint16_t adc_buffer1[2];
+volatile uint16_t adc_buffer2[2];
+
+uint16_t filter_buff1[6];
+uint16_t filter_buuf2[6];
 
 int16_t adc_x1, adc_x2;
 int16_t adc_y1, adc_y2;
 
 void ADC_DMA_Init (void)
 {
-	HAL_ADC_Start_DMA (&hadc1, (uint32_t *)adc_buffer1, BUFFER_SIZE);
-	HAL_ADC_Start_DMA (&hadc2, (uint32_t *)adc_buffer2, BUFFER_SIZE);
+	HAL_ADC_Start_DMA (&hadc1, (uint32_t *)adc_buffer1, 2);
+	HAL_ADC_Start_DMA (&hadc2, (uint32_t *)adc_buffer2, 2);
 
 	HAL_TIM_Base_Start (&htim6);
 }
 
-void ADC_Sorting (uint16_t buff[BUFFER_SIZE], uint16_t buff2[2])
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
-	uint16_t min_even = buff[0], max_even = buff[0];
-	uint16_t min_odd = buff[1], max_odd = buff[1];
-	uint32_t sum_even = 0, sum_odd = 0;
-
-	for (uint8_t i = 0; i < BUFFER_SIZE; i++)
-	{
-		if (i % 2 == 0) {
-			if (buff[i] < min_even) {
-				min_even = buff[i];
-			} else if (buff[i] > max_even) {
-				max_even = buff[i];
-			}
-		} else {
-			if (buff[i] < min_odd) {
-				min_odd = buff[i];
-			} else if (buff[i] > max_odd) {
-				max_odd = buff[i];
-			}
-		}
-	}
-
-	for (uint8_t i = 0; i < BUFFER_SIZE; i++)
-	{
-		if (i % 2 == 0) {
-			sum_even += buff[i];
-		} else {
-			sum_odd += buff[i];
-		}
-	}
-
-	buff2[0] = sum_even / ((BUFFER_SIZE / 2) - 2);
-	buff2[1] = sum_odd / ((BUFFER_SIZE / 2) - 2);
+	if (hadc->Instance == ADC1);
+	ADC_Scale();
+	if (hadc->Instance == ADC2);
+	ADC_Scale();
 }
 
 void ADC_Filtering (void)
 {
-	ADC_Sorting (adc_buffer1, scaled_buffer1);
-	ADC_Sorting (adc_buffer2, scaled_buffer2);
+	uint16_t x1_value = adc_buffer1[0];
+	uint16_t y1_value = adc_buffer1[1];
+	uint16_t x2_value = adc_buffer2[0];
+	uint16_t y2_value = adc_buffer2[1];
+
+	if (x1_value < min_even1_val) min_even1_val = x1_value;
+	if (x1_value > max_even1_val) max_even1_val = x1_value;
+
+	if (y1_value < min_odd1_val) min_odd1_val = y1_value;
+	if (y1_value > max_odd1_val) max_odd1_val = y1_value;
+
+	if (x2_value < min_even2_val) min_even2_val = x2_value;
+	if (x2_value > max_even2_val) max_even2_val = x2_value;
+
+	if (y2_value < min_odd2_val) min_odd2_val = y2_value;
+	if (y2_value > max_odd2_val) max_odd2_val = y2_value;
 }
 
 void ADC_Scale (void)
 {
 	ADC_Filtering();
-}
-
-void ADC_Calibration (uint16_t buff[BUFFER_SIZE], uint16_t buff2[])
-{
-	uint16_t min_even = buff[0], max_even = buff[0];
-	uint16_t min_odd = buff[1], max_odd = buff[1];
-
-	for (uint8_t i = 0; i < BUFFER_SIZE; i++)
-	{
-		if (i % 2 == 0) {
-			if (buff[i] < min_even) {
-				min_even = buff[i];
-			} else if (buff[i] > max_even) {
-				max_even = buff[i];
-			}
-		} else {
-			if (buff[i] < min_odd) {
-				min_odd = buff[i];
-			} else if (buff[i] > max_odd) {
-				max_odd = buff[i];
-			}
-		}
-	}
-
-
 }

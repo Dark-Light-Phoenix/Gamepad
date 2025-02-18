@@ -180,15 +180,6 @@ void UpdateJoystick (void)
     gamepad_report.y2 = adc_y2;
 }
 
-
-void HAL_ADC_ConvCpltCallback (ADC_HandleTypeDef* hadc)
-{
-	if (hadc == &hadc1 || hadc == &hadc2)
-	{
-		ADC_Scale();
-	}
-}
-
 void SendReport (void)
 {
     UpdateButton();

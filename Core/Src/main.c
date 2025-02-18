@@ -84,9 +84,6 @@ uint8_t HoldPress = 0;
 uint8_t HoldCount = 0;
 
 ADC_HandleTypeDef* hadc;
-
-uint16_t calibration_buffer1[] = {};
-uint16_t calibration_buffer2[] = {};
 /* USER CODE END 0 */
 
 /**
@@ -136,7 +133,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		ADC_Scale();
   }
   /* USER CODE END 3 */
 }
