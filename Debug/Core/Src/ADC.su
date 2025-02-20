@@ -1,4 +1,4 @@
 ../Core/Src/ADC.c:25:6:ADC_DMA_Init	8	static
-../Core/Src/ADC.c:41:6:ADC_Filtering	4	static
-../Core/Src/ADC.c:61:6:ADC_Scale	8	static
+../Core/Src/ADC.c:39:6:ADC_Filtering	4	static
+../Core/Src/ADC.c:74:6:ADC_Scale	16	static
 ../Core/Src/ADC.c:33:6:HAL_ADC_ConvCpltCallback	8	static

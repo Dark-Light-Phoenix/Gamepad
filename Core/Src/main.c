@@ -78,11 +78,6 @@ uint8_t L1, L2;
 uint8_t R1, R2;
 extern uint8_t report;
 
-uint8_t ShortPress = 0;
-uint8_t LongPress = 0;
-uint8_t HoldPress = 0;
-uint8_t HoldCount = 0;
-
 ADC_HandleTypeDef* hadc;
 /* USER CODE END 0 */
 
@@ -133,6 +128,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  ADC_Scale();
   }
   /* USER CODE END 3 */
 }
@@ -421,7 +417,7 @@ static void MX_TIM16_Init(void)
   htim16.Instance = TIM16;
   htim16.Init.Prescaler = 47999;
   htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim16.Init.Period = 499;
+  htim16.Init.Period = 99;
   htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim16.Init.RepetitionCounter = 0;
   htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -430,7 +426,6 @@ static void MX_TIM16_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM16_Init 2 */
-
   /* USER CODE END TIM16_Init 2 */
 
 }
@@ -616,18 +611,9 @@ void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 
 	if (GPIO_Pin == GPIO_PIN_10)
 	{
-		if (HAL_GPIO_ReadPin (GPIOG, GPIO_PIN_10) == GPIO_PIN_RESET)
+		if (HAL_GPIO_ReadPin (GPIOG, GPIO_PIN_10) == GPIO_PIN_SET)
 		{
 			HandleButtonPress (GPIOG, GPIO_PIN_10);
-			if (HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_3) == GPIO_PIN_SET)
-			{
-				HandleButtonPress (GPIOA, GPIO_PIN_3);
-				if (HoldCount >= 10) {
-					//ADC_Calibration();
-				}
-			}
-		} else {
-
 		}
 	}
 }

@@ -1,3 +1,2 @@
-../Core/Src/RGB.c:67:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/RGB.c:75:6:HandleHoldPress	1
-../Core/Src/RGB.c:20:6:HandleButtonPress	10
+../Core/Src/RGB.c:15:6:HandleButtonPress	3
+../Core/Src/RGB.c:32:6:HAL_TIM_PeriodElapsedCallback	6
