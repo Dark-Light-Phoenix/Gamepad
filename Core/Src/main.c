@@ -505,10 +505,10 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 2, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
   /* DMA1_Channel2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 2, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
   /* DMA1_Channel3_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
@@ -604,18 +604,18 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 {
-	if (GPIO_Pin == GPIO_PIN_5)
-	{
-		HandleButtonPress(GPIOA, GPIO_PIN_5);
-	}
-
-	if (GPIO_Pin == GPIO_PIN_10)
-	{
-		if (HAL_GPIO_ReadPin (GPIOG, GPIO_PIN_10) == GPIO_PIN_SET)
-		{
-			HandleButtonPress (GPIOG, GPIO_PIN_10);
-		}
-	}
+//	if (GPIO_Pin == GPIO_PIN_5)
+//	{
+//		HandleButtonPress(GPIOA, GPIO_PIN_5);
+//	}
+//
+//	if (GPIO_Pin == GPIO_PIN_10)
+//	{
+//		if (HAL_GPIO_ReadPin (GPIOG, GPIO_PIN_10) == GPIO_PIN_SET)
+//		{
+//			HandleButtonPress (GPIOG, GPIO_PIN_10);
+//		}
+//	}
 }
 /* USER CODE END 4 */
 

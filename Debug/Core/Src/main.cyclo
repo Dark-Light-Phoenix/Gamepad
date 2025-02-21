@@ -1,6 +1,6 @@
 ../Core/Src/main.c:524:13:MX_GPIO_Init	1
 ../Core/Src/main.c:499:13:MX_DMA_Init	1
-../Core/Src/main.c:605:6:HAL_GPIO_EXTI_Callback	4
+../Core/Src/main.c:605:6:HAL_GPIO_EXTI_Callback	1
 ../Core/Src/main.c:626:6:Error_Handler	1
 ../Core/Src/main.c:186:13:MX_ADC1_Init	1
 ../Core/Src/main.c:331:13:MX_TIM6_Init	1

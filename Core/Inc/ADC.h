@@ -6,10 +6,12 @@
 
 #define MID_ZONE 2048
 #define DEAD_ZONE 150
+#define TRESHOLD 3300
 
 void ADC_DMA_Init (void);
-void ADC_Filtering (uint16_t x1_value, uint16_t y1_value, uint16_t x2_value, uint16_t y2_value);
-void ADC_Scale (void);
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc);
+void Update_Range (void);
+void ADC_Filtering (uint16_t value, volatile uint16_t min_value, volatile uint16_t max_value, int16_t *adc_value);
+void ADC_Scale (void);
 
 #endif /* INC_ADC_H_ */

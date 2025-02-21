@@ -154,35 +154,35 @@ char HID_ReportDescriptor[] = {
 GamepadReport_TypeDef gamepad_report = {0};
 HID_Mode currentHIDMode = HID_MOD_MOUSE;
 
-void UpdateButton (void)
-{
-    gamepad_report.buttons = 0;
-
-    if (Left)      gamepad_report.buttons |= (1 << 0);
-    if (Up)        gamepad_report.buttons |= (1 << 1);
-    if (Right)     gamepad_report.buttons |= (1 << 2);
-    if (Down)      gamepad_report.buttons |= (1 << 3);
-    if (Circle)    gamepad_report.buttons |= (1 << 4);
-    if (Triangle)  gamepad_report.buttons |= (1 << 5);
-    if (Chrest)    gamepad_report.buttons |= (1 << 6);
-    if (Square)    gamepad_report.buttons |= (1 << 7);
-    if (R1)		   gamepad_report.buttons |= (1 << 8);
-    if (R2)		   gamepad_report.buttons |= (1 << 9);
-    if (L1)		   gamepad_report.buttons |= (1 << 10);
-    if (L2)		   gamepad_report.buttons |= (1 << 11);
-}
-
-void UpdateJoystick (void)
-{
-    gamepad_report.x1 = adc_x1;
-    gamepad_report.y1 = adc_y1;
-    gamepad_report.x2 = adc_x2;
-    gamepad_report.y2 = adc_y2;
-}
-
-void SendReport (void)
-{
-    UpdateButton();
-    UpdateJoystick();
-    USBD_HID_SendReport (&hUsbDeviceFS, (uint8_t *) &gamepad_report, sizeof (gamepad_report));
-}
+//void UpdateButton (void)
+//{
+//    gamepad_report.buttons = 0;
+//
+//    if (Left)      gamepad_report.buttons |= (1 << 0);
+//    if (Up)        gamepad_report.buttons |= (1 << 1);
+//    if (Right)     gamepad_report.buttons |= (1 << 2);
+//    if (Down)      gamepad_report.buttons |= (1 << 3);
+//    if (Circle)    gamepad_report.buttons |= (1 << 4);
+//    if (Triangle)  gamepad_report.buttons |= (1 << 5);
+//    if (Chrest)    gamepad_report.buttons |= (1 << 6);
+//    if (Square)    gamepad_report.buttons |= (1 << 7);
+//    if (R1)		   gamepad_report.buttons |= (1 << 8);
+//    if (R2)		   gamepad_report.buttons |= (1 << 9);
+//    if (L1)		   gamepad_report.buttons |= (1 << 10);
+//    if (L2)		   gamepad_report.buttons |= (1 << 11);
+//}
+//
+//void UpdateJoystick (void)
+//{
+//    gamepad_report.x1 = adc_x1;
+//    gamepad_report.y1 = adc_y1;
+//    gamepad_report.x2 = adc_x2;
+//    gamepad_report.y2 = adc_y2;
+//}
+//
+//void SendReport (void)
+//{
+//    UpdateButton();
+//    UpdateJoystick();
+//    USBD_HID_SendReport (&hUsbDeviceFS, (uint8_t *) &gamepad_report, sizeof (gamepad_report));
+//}

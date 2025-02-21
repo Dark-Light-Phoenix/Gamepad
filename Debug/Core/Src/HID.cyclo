@@ -1,3 +1,0 @@
-../Core/Src/HID.c:157:6:UpdateButton	13
-../Core/Src/HID.c:175:6:UpdateJoystick	1
-../Core/Src/HID.c:183:6:SendReport	1

@@ -1,4 +1,5 @@
-../Core/Src/ADC.c:25:6:ADC_DMA_Init	1
-../Core/Src/ADC.c:39:6:ADC_Filtering	13
-../Core/Src/ADC.c:74:6:ADC_Scale	11
-../Core/Src/ADC.c:33:6:HAL_ADC_ConvCpltCallback	1
+../Core/Src/ADC.c:28:6:ADC_DMA_Init	1
+../Core/Src/ADC.c:48:6:Update_Range	13
+../Core/Src/ADC.c:83:6:ADC_Filtering	10
+../Core/Src/ADC.c:121:6:ADC_Scale	1
+../Core/Src/ADC.c:36:6:HAL_ADC_ConvCpltCallback	4
