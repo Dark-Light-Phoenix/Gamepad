@@ -130,4 +130,7 @@ void ADC_Scale (void)
 	ADC_Filtering (x2_value, min_even2_val, max_even2_val, &adc_x2);
 	ADC_Filtering (y2_value, min_odd2_val, max_odd2_val, &adc_y2);
 
+	adc_x1 = -adc_x1;
+	adc_y2 = -adc_y2;
+
 }
