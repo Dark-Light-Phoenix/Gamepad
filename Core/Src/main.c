@@ -76,9 +76,19 @@ uint8_t Left, Up, Right, Down;
 uint8_t Circle, Triangle, Chrest, Square;
 uint8_t L1, L2;
 uint8_t R1, R2;
-extern uint8_t report;
+//extern uint8_t report;
 
 ADC_HandleTypeDef* hadc;
+
+uint8_t counter = 0;
+uint8_t delay = 0;
+
+volatile uint16_t last_gpioa_state = 0;
+volatile uint16_t last_gpiob_state = 0;
+volatile uint16_t last_gpiog_state = 0;
+volatile uint16_t previous_gpioa_state = 0;
+volatile uint16_t previous_gpiob_state = 0;
+volatile uint16_t previous_gpiog_state = 0;
 /* USER CODE END 0 */
 
 /**
@@ -128,7 +138,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  ADC_Scale();
   }
   /* USER CODE END 3 */
 }
@@ -381,7 +390,7 @@ static void MX_TIM7_Init(void)
   htim7.Instance = TIM7;
   htim7.Init.Prescaler = 47999;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 499;
+  htim7.Init.Period = 999;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
   {
@@ -394,7 +403,7 @@ static void MX_TIM7_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM7_Init 2 */
-
+  HAL_TIM_Base_Start_IT (&htim7);
   /* USER CODE END TIM7_Init 2 */
 
 }
@@ -417,7 +426,7 @@ static void MX_TIM16_Init(void)
   htim16.Instance = TIM16;
   htim16.Init.Prescaler = 47999;
   htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim16.Init.Period = 99;
+  htim16.Init.Period = 999;
   htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim16.Init.RepetitionCounter = 0;
   htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -426,6 +435,7 @@ static void MX_TIM16_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM16_Init 2 */
+	HAL_TIM_Base_Start_IT (&htim16);
   /* USER CODE END TIM16_Init 2 */
 
 }
@@ -545,34 +555,28 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PA5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  /*Configure GPIO pins : PA5 PA8 PA9 PA10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PB0 PB4 PB6 PB7 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_4|GPIO_PIN_6|GPIO_PIN_7;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA8 PA9 PA10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
   /*Configure GPIO pin : PA15 */
   GPIO_InitStruct.Pin = GPIO_PIN_15;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PB3 */
   GPIO_InitStruct.Pin = GPIO_PIN_3;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PB5 */
@@ -604,18 +608,9 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback (uint16_t GPIO_Pin)
 {
-//	if (GPIO_Pin == GPIO_PIN_5)
-//	{
-//		HandleButtonPress(GPIOA, GPIO_PIN_5);
-//	}
-//
-//	if (GPIO_Pin == GPIO_PIN_10)
-//	{
-//		if (HAL_GPIO_ReadPin (GPIOG, GPIO_PIN_10) == GPIO_PIN_SET)
-//		{
-//			HandleButtonPress (GPIOG, GPIO_PIN_10);
-//		}
-//	}
+	last_gpioa_state = GPIOA->IDR & GPIOA_MASK;
+	last_gpiob_state = GPIOB->IDR & GPIOB_MASK;
+	Counter();
 }
 /* USER CODE END 4 */
 

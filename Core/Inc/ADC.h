@@ -6,7 +6,7 @@
 
 #define MID_ZONE 2048
 #define DEAD_ZONE 150
-#define TRESHOLD 3300
+#define TRESHOLD 3500
 
 void ADC_DMA_Init (void);
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc);

@@ -95,24 +95,52 @@ void ADC_Filtering (uint16_t value, volatile uint16_t min_value, volatile uint16
 		if ((value >= min_value) && (value < min_central_zone))
 		{
 			*adc_value = (((int32_t)(value - min_value) * 2048) / (max_value - min_value)) - 1024;
+			if (*adc_value > 1024)
+			{
+				*adc_value = 1024;
+			} else if (*adc_value < -1024)
+			{
+				*adc_value = -1024;
+			}
 			return;
 		}
 
 		if ((value > max_central_zone) && (value <= max_value))
 		{
 			*adc_value = ((((int32_t)(value - min_value) * 2048) / (max_value - min_value))) - 1024;
+			if (*adc_value > 1024)
+			{
+				*adc_value = 1024;
+			} else if (*adc_value < -1024)
+			{
+				*adc_value = -1024;
+			}
 			return;
 		}
 
 		if (value < min_value)
 		{
 			*adc_value = ((int32_t)(min_value * 2048) / (max_value - min_value)) - 1024;
+			if (*adc_value > 1024)
+			{
+				*adc_value = 1024;
+			} else if (*adc_value < -1024)
+			{
+				*adc_value = -1024;
+			}
 			return;
 		}
 
 		if (value > max_value)
 		{
 			*adc_value = ((int32_t)(max_value * 2048) / (max_value - min_value)) - 1024;
+			if (*adc_value > 1024)
+			{
+				*adc_value = 1024;
+			} else if (*adc_value < -1024)
+			{
+				*adc_value = -1024;
+			}
 			return;
 		}
 	}
@@ -132,5 +160,4 @@ void ADC_Scale (void)
 
 	adc_x1 = -adc_x1;
 	adc_y2 = -adc_y2;
-
 }
