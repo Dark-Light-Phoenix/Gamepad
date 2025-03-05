@@ -36,7 +36,7 @@ extern "C" {
 #include "HID.h"
 #include "ADC.h"
 #include "VibroControl.h"
-#include "RGB.h"
+#include "Buttons and Functions.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

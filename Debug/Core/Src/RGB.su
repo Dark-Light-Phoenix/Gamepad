@@ -1,3 +1,0 @@
-../Core/Src/RGB.c:23:6:HandleButtonPress	16	static
-../Core/Src/RGB.c:59:6:HAL_TIM_PeriodElapsedCallback	16	static
-../Core/Src/RGB.c:101:6:Counter	0	static

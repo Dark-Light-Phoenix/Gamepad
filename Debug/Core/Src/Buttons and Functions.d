@@ -1,4 +1,5 @@
-Core/Src/RGB.o: ../Core/Src/RGB.c ../Core/Inc/RGB.h \
+Core/Src/Buttons and Functions.o: ../Core/Src/Buttons\ and\ Functions.c \
+ ../Core/Inc/Buttons\ and\ Functions.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -33,7 +34,7 @@ Core/Src/RGB.o: ../Core/Src/RGB.c ../Core/Inc/RGB.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Core/Inc/stm32g4xx_it.h
-../Core/Inc/RGB.h:
+../Core/Inc/Buttons\ and\ Functions.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h:

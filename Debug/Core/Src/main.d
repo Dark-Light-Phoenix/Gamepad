@@ -35,7 +35,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/stm32g4xx_it.h ../USB_Device/App/usb_device.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  ../USB_Device/Target/usbd_conf.h ../Core/Inc/HID.h ../Core/Inc/ADC.h \
- ../Core/Inc/VibroControl.h ../Core/Inc/RGB.h
+ ../Core/Inc/VibroControl.h ../Core/Inc/Buttons\ and\ Functions.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -77,4 +77,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/HID.h:
 ../Core/Inc/ADC.h:
 ../Core/Inc/VibroControl.h:
-../Core/Inc/RGB.h:
+../Core/Inc/Buttons\ and\ Functions.h:
