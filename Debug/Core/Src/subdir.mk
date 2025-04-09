@@ -8,7 +8,6 @@ C_SRCS += \
 ../Core/Src/ADC.c \
 ../Core/Src/Buttons\ and\ Functions.c \
 ../Core/Src/HID.c \
-../Core/Src/VibroControl.c \
 ../Core/Src/main.c \
 ../Core/Src/stm32g4xx_hal_msp.c \
 ../Core/Src/stm32g4xx_it.c \
@@ -20,7 +19,6 @@ OBJS += \
 ./Core/Src/ADC.o \
 ./Core/Src/Buttons\ and\ Functions.o \
 ./Core/Src/HID.o \
-./Core/Src/VibroControl.o \
 ./Core/Src/main.o \
 ./Core/Src/stm32g4xx_hal_msp.o \
 ./Core/Src/stm32g4xx_it.o \
@@ -32,7 +30,6 @@ C_DEPS += \
 ./Core/Src/ADC.d \
 ./Core/Src/Buttons\ and\ Functions.d \
 ./Core/Src/HID.d \
-./Core/Src/VibroControl.d \
 ./Core/Src/main.d \
 ./Core/Src/stm32g4xx_hal_msp.d \
 ./Core/Src/stm32g4xx_it.d \
@@ -50,7 +47,7 @@ Core/Src/Buttons\ and\ Functions.o: ../Core/Src/Buttons\ and\ Functions.c Core/S
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/ADC.cyclo ./Core/Src/ADC.d ./Core/Src/ADC.o ./Core/Src/ADC.su ./Core/Src/Buttons\ and\ Functions.cyclo ./Core/Src/Buttons\ and\ Functions.d ./Core/Src/Buttons\ and\ Functions.o ./Core/Src/Buttons\ and\ Functions.su ./Core/Src/HID.cyclo ./Core/Src/HID.d ./Core/Src/HID.o ./Core/Src/HID.su ./Core/Src/VibroControl.cyclo ./Core/Src/VibroControl.d ./Core/Src/VibroControl.o ./Core/Src/VibroControl.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32g4xx_hal_msp.cyclo ./Core/Src/stm32g4xx_hal_msp.d ./Core/Src/stm32g4xx_hal_msp.o ./Core/Src/stm32g4xx_hal_msp.su ./Core/Src/stm32g4xx_it.cyclo ./Core/Src/stm32g4xx_it.d ./Core/Src/stm32g4xx_it.o ./Core/Src/stm32g4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g4xx.cyclo ./Core/Src/system_stm32g4xx.d ./Core/Src/system_stm32g4xx.o ./Core/Src/system_stm32g4xx.su
+	-$(RM) ./Core/Src/ADC.cyclo ./Core/Src/ADC.d ./Core/Src/ADC.o ./Core/Src/ADC.su ./Core/Src/Buttons\ and\ Functions.cyclo ./Core/Src/Buttons\ and\ Functions.d ./Core/Src/Buttons\ and\ Functions.o ./Core/Src/Buttons\ and\ Functions.su ./Core/Src/HID.cyclo ./Core/Src/HID.d ./Core/Src/HID.o ./Core/Src/HID.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32g4xx_hal_msp.cyclo ./Core/Src/stm32g4xx_hal_msp.d ./Core/Src/stm32g4xx_hal_msp.o ./Core/Src/stm32g4xx_hal_msp.su ./Core/Src/stm32g4xx_it.cyclo ./Core/Src/stm32g4xx_it.d ./Core/Src/stm32g4xx_it.o ./Core/Src/stm32g4xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32g4xx.cyclo ./Core/Src/system_stm32g4xx.d ./Core/Src/system_stm32g4xx.o ./Core/Src/system_stm32g4xx.su
 
 .PHONY: clean-Core-2f-Src
 

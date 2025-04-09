@@ -35,7 +35,6 @@ extern "C" {
 #include "usb_device.h"
 #include "HID.h"
 #include "ADC.h"
-#include "VibroControl.h"
 #include "Buttons and Functions.h"
 /* USER CODE END Includes */
 

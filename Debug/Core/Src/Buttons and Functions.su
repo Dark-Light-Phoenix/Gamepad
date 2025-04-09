@@ -1,3 +1,9 @@
-../Core/Src/Buttons and Functions.c:42:6:HandleButtonPress	16	static
-../Core/Src/Buttons and Functions.c:66:6:HAL_TIM_PeriodElapsedCallback	8	static
-../Core/Src/Buttons and Functions.c:94:6:ButtonStatus	16	static
+../Core/Src/Buttons and Functions.c:50:6:HandleButtonPress	16	static
+../Core/Src/Buttons and Functions.c:125:6:ButtonStatus	16	static
+../Core/Src/Buttons and Functions.c:287:6:Prepare_Data	8	static
+../Core/Src/Buttons and Functions.c:302:6:Set_DMA_Buffer	4	static
+../Core/Src/Buttons and Functions.c:312:6:Set_Color	16	static
+../Core/Src/Buttons and Functions.c:342:6:Start_PWM	8	static
+../Core/Src/Buttons and Functions.c:322:6:BacklightOff	8	static
+../Core/Src/Buttons and Functions.c:332:6:BacklightOn	8	static
+../Core/Src/Buttons and Functions.c:67:6:HAL_TIM_PeriodElapsedCallback	8	static
