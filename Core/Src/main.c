@@ -78,7 +78,9 @@ static void MX_TIM3_Init(void);
 	uint8_t Circle, Triangle, Chrest, Square;
 	uint8_t L1, L2;
 	uint8_t R1, R2;
-	//extern uint8_t report;
+	uint8_t Backlight;
+	uint8_t Enter;
+	extern uint8_t report;
 
 	ADC_HandleTypeDef* hadc;
 
@@ -136,6 +138,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  SendReport();
   }
   /* USER CODE END 3 */
 }

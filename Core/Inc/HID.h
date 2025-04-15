@@ -3,22 +3,16 @@
 
 #include "stm32g4xx_hal.h"
 
-typedef struct
+typedef struct __attribute__((packed))
 {
-    uint16_t buttons;
-    int8_t x1;
-    int8_t y1;
-    int8_t x2;
-    int8_t y2;
+    uint8_t report_id;
+	uint16_t buttons;
+    int16_t x1;
+    int16_t y1;
+    int16_t x2;
+    int16_t y2;
 } GamepadReport_TypeDef;
 
-typedef enum {
-	HID_MOD_MOUSE,
-	HID_MODE_GAMEPAD
-} HID_Mode;
-
-void UpdateButton (void);
-void UpdateJoystick (void);
 void SendReport (void);
 
 #endif /* INC_HID_H_ */

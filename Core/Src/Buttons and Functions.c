@@ -1,4 +1,5 @@
 #include "Buttons and Functions.h"
+#include "HID.h"
 #include "stm32g4xx_it.h"
 #include "stm32g4xx_hal.h"
 #include "stdlib.h"
@@ -6,6 +7,7 @@
 #include "stdbool.h"
 #include "main.h"
 
+extern GamepadReport_TypeDef gamepad_report;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim16;
 
@@ -34,8 +36,6 @@ uint8_t changed_stateb_4 = 1;
 uint8_t changed_stateb_5 = 1;
 uint8_t changed_stateb_6 = 1;
 uint8_t changed_stateb_7 = 1;
-
-uint8_t changed_stateg_10 = 0;
 
 static uint8_t check_status = 0;
 static uint8_t status_flag1 = 0;
@@ -85,17 +85,17 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim)
 	if (htim -> Instance == TIM17)
 	{
 		if (HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_3) == GPIO_PIN_SET) {
-			changed_statea_3 = 1;
+			gamepad_report.buttons |= (1 << 13);
 			if (!status_flag1) HandleButtonPress (GPIOA, GPIO_PIN_3);
 			status_flag1 = 1;
 		} else {
-			changed_statea_3 = 0;
+			gamepad_report.buttons &= ~(1 << 13);
 			if (status_flag1) HandleButtonPress (GPIOA, GPIO_PIN_3);
 			status_flag1 = 0;
 		}
 
 		if (HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_5) == GPIO_PIN_SET) {
-			changed_statea_5 = 1;
+			gamepad_report.buttons |= (1 << 12);
 			if (!status_flag2) HandleButtonPress (GPIOA, GPIO_PIN_5);
 			status_flag2 = 1;
 			if (CurrentState == SHORT)
@@ -115,7 +115,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim)
 				}
 			}
 		} else {
-			changed_statea_5 = 0;
+			gamepad_report.buttons &= ~(1 << 12);
 			if (status_flag2) HandleButtonPress (GPIOA, GPIO_PIN_5);
 			status_flag2 = 0;
 		}
@@ -137,10 +137,10 @@ void ButtonStatus (void)
 	if (relevant_changes_a & GPIO_PIN_8) // CHREST
 	{
 		if (last_gpioa_state & GPIO_PIN_8) {
-			changed_statea_8 = 1;
+			gamepad_report.buttons |= (1 << 0);
 			HandleButtonPress(GPIOA, GPIO_PIN_8);
 		} else {
-			changed_statea_8 = 0;
+			gamepad_report.buttons &= ~(1 << 0);
 			HandleButtonPress(GPIOA, GPIO_PIN_8);
 		}
 	}
@@ -148,10 +148,10 @@ void ButtonStatus (void)
 	if (relevant_changes_a & GPIO_PIN_9) // TRIAGLE
 	{
 		if (last_gpioa_state & GPIO_PIN_9) {
-			changed_statea_9 = 1;
+			gamepad_report.buttons |= (1 << 1);
 			HandleButtonPress(GPIOA, GPIO_PIN_9);
 		} else {
-			changed_statea_9 = 0;
+			gamepad_report.buttons &= ~(1 << 1);
 			HandleButtonPress(GPIOA, GPIO_PIN_9);
 		}
 	}
@@ -159,10 +159,10 @@ void ButtonStatus (void)
 	if (relevant_changes_a & GPIO_PIN_10) // CIRCLE
 	{
 		if (last_gpioa_state & GPIO_PIN_10) {
-			changed_statea_10 = 1;
+			gamepad_report.buttons |= (1 << 2);
 			HandleButtonPress(GPIOA, GPIO_PIN_10);
 		} else {
-			changed_statea_10 = 0;
+			gamepad_report.buttons &= ~(1 << 2);
 			HandleButtonPress(GPIOA, GPIO_PIN_10);
 		}
 	}
@@ -170,10 +170,10 @@ void ButtonStatus (void)
 	if (relevant_changes_b & GPIO_PIN_0) // SQUARE
 	{
 		if (last_gpiob_state & GPIO_PIN_0) {
-			changed_stateb_0 = 1;
+			gamepad_report.buttons |= (1 << 3);
 			HandleButtonPress(GPIOB, GPIO_PIN_0);
 		} else {
-			changed_stateb_0 = 0;
+			gamepad_report.buttons &= ~(1 << 3);
 			HandleButtonPress(GPIOB, GPIO_PIN_0);
 		}
 	}
@@ -185,10 +185,10 @@ void ButtonStatus (void)
 	if (relevant_changes_a & GPIO_PIN_14) // R1
 	{
 		if (last_gpioa_state & GPIO_PIN_14) {
-			changed_statea_14 = 1;
+			gamepad_report.buttons |= (1 << 4);
 			HandleButtonPress(GPIOA, GPIO_PIN_14);
 		} else {
-			changed_statea_14 = 0;
+			gamepad_report.buttons &= ~(1 << 4);
 			HandleButtonPress(GPIOA, GPIO_PIN_14);
 		}
 	}
@@ -196,10 +196,10 @@ void ButtonStatus (void)
 	if (relevant_changes_a & GPIO_PIN_13) // R2
 	{
 		if (last_gpioa_state & GPIO_PIN_13) {
-			changed_statea_13 = 1;
+			gamepad_report.buttons |= (1 << 5);
 			HandleButtonPress(GPIOA, GPIO_PIN_13);
 		} else {
-			changed_statea_13 = 0;
+			gamepad_report.buttons &= ~(1 << 5);
 			HandleButtonPress(GPIOA, GPIO_PIN_13);
 		}
 	}
@@ -211,10 +211,10 @@ void ButtonStatus (void)
 	if (relevant_changes_a & GPIO_PIN_15) // L1
 	{
 		if (last_gpioa_state & GPIO_PIN_15) {
-			changed_statea_15 = 1;
+			gamepad_report.buttons |= (1 << 6);
 			HandleButtonPress(GPIOA, GPIO_PIN_15);
 		} else {
-			changed_statea_15 = 0;
+			gamepad_report.buttons &= ~(1 << 6);
 			HandleButtonPress(GPIOA, GPIO_PIN_15);
 		}
 	}
@@ -222,10 +222,10 @@ void ButtonStatus (void)
 	if (relevant_changes_b & GPIO_PIN_3) // L2
 	{
 		if (last_gpiob_state & GPIO_PIN_3) {
-			changed_stateb_3 = 1;
+			gamepad_report.buttons |= (1 << 7);
 			HandleButtonPress(GPIOB, GPIO_PIN_3);
 		} else {
-			changed_stateb_3 = 0;
+			gamepad_report.buttons &= ~(1 << 7);
 			HandleButtonPress(GPIOB, GPIO_PIN_3);
 		}
 	}
@@ -237,10 +237,10 @@ void ButtonStatus (void)
 	if (relevant_changes_b & GPIO_PIN_4) // RIGHT
 	{
 		if (last_gpiob_state & GPIO_PIN_4) {
-			changed_stateb_4 = 1;
+			gamepad_report.buttons |= (1 << 8);
 			HandleButtonPress(GPIOB, GPIO_PIN_4);
 		} else {
-			changed_stateb_4 = 0;
+			gamepad_report.buttons &= ~(1 << 8);
 			HandleButtonPress(GPIOB, GPIO_PIN_4);
 		}
 	}
@@ -248,10 +248,10 @@ void ButtonStatus (void)
 	if (relevant_changes_b & GPIO_PIN_5) // UP
 	{
 		if (last_gpiob_state & GPIO_PIN_5) {
-			changed_stateb_5 = 1;
+			gamepad_report.buttons |= (1 << 9);
 			HandleButtonPress(GPIOB, GPIO_PIN_5);
 		} else {
-			changed_stateb_5 = 0;
+			gamepad_report.buttons &= ~(1 << 9);
 			HandleButtonPress(GPIOB, GPIO_PIN_5);
 		}
 	}
@@ -259,10 +259,10 @@ void ButtonStatus (void)
 	if (relevant_changes_b & GPIO_PIN_6) // DOWN
 	{
 		if (last_gpiob_state & GPIO_PIN_6) {
-			changed_stateb_6 = 1;
+			gamepad_report.buttons |= (1 << 10);
 			HandleButtonPress(GPIOB, GPIO_PIN_6);
 		} else {
-			changed_stateb_6 = 0;
+			gamepad_report.buttons &= ~(1 << 10);
 			HandleButtonPress(GPIOB, GPIO_PIN_6);
 		}
 	}
@@ -270,10 +270,10 @@ void ButtonStatus (void)
 	if (relevant_changes_b & GPIO_PIN_7) // LEFT
 	{
 		if (last_gpiob_state & GPIO_PIN_7) {
-			changed_stateb_7 = 1;
+			gamepad_report.buttons |= (1 << 11);
 			HandleButtonPress(GPIOB, GPIO_PIN_7);
 		} else {
-			changed_stateb_7 = 0;
+			gamepad_report.buttons &= ~(1 << 11);
 			HandleButtonPress(GPIOB, GPIO_PIN_7);
 		}
 	}

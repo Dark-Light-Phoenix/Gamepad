@@ -1,4 +1,5 @@
 #include "ADC.h"
+#include "HID.h"
 #include "stm32g4xx_hal.h"
 #include "stdio.h"
 #include "stdlib.h"
@@ -7,6 +8,7 @@
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 extern TIM_HandleTypeDef htim6;
+extern GamepadReport_TypeDef gamepad_report;
 
 volatile uint16_t min_even1_val = 4096, max_even1_val = 0;
 volatile uint16_t min_odd1_val = 4096, max_odd1_val = 0;
@@ -20,8 +22,8 @@ volatile uint16_t max_central_zone = MID_ZONE + DEAD_ZONE;
 static uint16_t adc_buffer1[2];
 static uint16_t adc_buffer2[2];
 
-static int16_t adc_x1, adc_x2;
-static int16_t adc_y1, adc_y2;
+int16_t adc_x1, adc_x2;
+int16_t adc_y1, adc_y2;
 
 volatile bool calibration_done = false;
 
@@ -160,4 +162,9 @@ void ADC_Scale (void)
 
 	adc_x1 = -adc_x1;
 	adc_y2 = -adc_y2;
+
+	gamepad_report.x1 = adc_x1;
+	gamepad_report.y1 = adc_y1;
+	gamepad_report.x2 = adc_x2;
+	gamepad_report.y2 = adc_y2;
 }

@@ -1,5 +1,5 @@
-../Core/Src/ADC.c:28:6:ADC_DMA_Init	8	static
-../Core/Src/ADC.c:48:6:Update_Range	0	static
-../Core/Src/ADC.c:83:6:ADC_Filtering	8	static
-../Core/Src/ADC.c:149:6:ADC_Scale	24	static
-../Core/Src/ADC.c:36:6:HAL_ADC_ConvCpltCallback	8	static
+../Core/Src/ADC.c:30:6:ADC_DMA_Init	8	static
+../Core/Src/ADC.c:50:6:Update_Range	0	static
+../Core/Src/ADC.c:85:6:ADC_Filtering	8	static
+../Core/Src/ADC.c:151:6:ADC_Scale	24	static
+../Core/Src/ADC.c:38:6:HAL_ADC_ConvCpltCallback	8	static
