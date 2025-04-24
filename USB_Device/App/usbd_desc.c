@@ -66,7 +66,7 @@
 #define USBD_LANGID_STRING     1033
 #define USBD_MANUFACTURER_STRING     "STMicroelectronics"
 #define USBD_PID     22352
-#define USBD_PRODUCT_STRING     "STM32 Custom Human interface"
+#define USBD_PRODUCT_STRING     "Phoenix 1"
 #define USBD_CONFIGURATION_STRING     "Phoenix"
 #define USBD_INTERFACE_STRING     "Phoenix"
 

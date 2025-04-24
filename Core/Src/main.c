@@ -74,13 +74,9 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-	uint8_t Left, Up, Right, Down;
-	uint8_t Circle, Triangle, Chrest, Square;
-	uint8_t L1, L2;
-	uint8_t R1, R2;
 	uint8_t Backlight;
 	uint8_t Enter;
-	extern uint8_t report;
+	uint8_t A = 0;
 
 	ADC_HandleTypeDef* hadc;
 
@@ -88,6 +84,10 @@ static void MX_TIM3_Init(void);
 	volatile uint16_t last_gpiob_state = 0;
 	volatile uint16_t previous_gpioa_state = 0;
 	volatile uint16_t previous_gpiob_state = 0;
+	volatile uint16_t last_hat_b_state = 0;
+	volatile uint16_t prev_hat_b_state = 0;
+
+	extern GamepadReport_TypeDef gamepad_report;
 /* USER CODE END 0 */
 
 /**
@@ -129,6 +129,7 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   ADC_DMA_Init();
+  Update_Range();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -138,7 +139,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
 	  SendReport();
+	  HAL_Delay(50);
+	  A++;
   }
   /* USER CODE END 3 */
 }
@@ -533,14 +537,8 @@ static void MX_DMA_Init(void)
   __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* DMA interrupt init */
-  /* DMA1_Channel1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 2, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
-  /* DMA1_Channel2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 2, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
   /* DMA1_Channel3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 2, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
 
 }
@@ -586,6 +584,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PA13 PA14 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PA15 */

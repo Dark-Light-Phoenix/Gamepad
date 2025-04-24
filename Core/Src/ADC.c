@@ -35,18 +35,6 @@ void ADC_DMA_Init (void)
 	HAL_TIM_Base_Start (&htim6);
 }
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
-{
-	if (hadc->Instance == ADC1 || hadc->Instance == ADC2)
-	{
-		if(!calibration_done)
-		{
-			Update_Range();
-		}
-	}
-	ADC_Scale();
-}
-
 void Update_Range (void)
 {
     while (max_even1_val - min_even1_val < TRESHOLD)
@@ -160,11 +148,10 @@ void ADC_Scale (void)
 	ADC_Filtering (x2_value, min_even2_val, max_even2_val, &adc_x2);
 	ADC_Filtering (y2_value, min_odd2_val, max_odd2_val, &adc_y2);
 
-	adc_x1 = -adc_x1;
 	adc_y2 = -adc_y2;
 
-	gamepad_report.x1 = adc_x1;
-	gamepad_report.y1 = adc_y1;
-	gamepad_report.x2 = adc_x2;
-	gamepad_report.y2 = adc_y2;
+	gamepad_report.x1 = adc_y1 * 2;
+	gamepad_report.y1 = adc_x1 * 2;
+	gamepad_report.x2 = adc_y2 * 2;
+	gamepad_report.y2 = adc_x2 * 2;
 }

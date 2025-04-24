@@ -5,8 +5,8 @@
 
 typedef struct __attribute__((packed))
 {
-    uint8_t report_id;
 	uint16_t buttons;
+	uint8_t hat;
     int16_t x1;
     int16_t y1;
     int16_t x2;

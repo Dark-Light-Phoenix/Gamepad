@@ -11,7 +11,6 @@ GamepadReport_TypeDef gamepad_report = {0};
 
 void SendReport (void)
 {
-	gamepad_report.report_id = 0x01;
-
-    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, (uint8_t *)&gamepad_report, sizeof(gamepad_report));
+	ADC_Scale();
+	USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, (uint8_t *)&gamepad_report, 11);
 }
